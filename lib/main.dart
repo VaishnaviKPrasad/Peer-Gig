@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
           title: Text(
             'Peer Gig',
             style: GoogleFonts.mallanna(
-              color: const Color.fromARGB(0, 123, 47, 188),
+              color: Colors.amberAccent,
               fontSize: 50.0,
               fontWeight: FontWeight.w900,
             ),
