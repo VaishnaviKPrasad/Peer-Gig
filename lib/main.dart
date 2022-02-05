@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import './ui/config/constants/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,10 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          //actionsIconTheme: PeerGigIcons.,
           title: Text(
             'Peer Gig',
             style: GoogleFonts.mallanna(
-              color: Colors.amberAccent,
+              color: AppColors.primaryLight,
               fontSize: 50.0,
               fontWeight: FontWeight.w900,
             ),
