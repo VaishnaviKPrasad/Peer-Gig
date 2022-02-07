@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../config/constants/colors.dart';
@@ -24,11 +23,12 @@ class TextDisplay extends StatelessWidget implements PreferredSizeWidget{
           color: AppColors.primaryDark!,
           width:1.0
         )
-        borderRadius: BorderRadius.all(Radius.circular(5))
+        borderRadius: BorderRadius.all(Radius.circular(15))
       )   
     );
   }
  @override
+  // ignore: todo
   // TODO: implement preferredSize
   Size get preferredSize => throw UnimplementedError();
 }

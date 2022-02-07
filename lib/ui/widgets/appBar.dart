@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../config/constants/colors.dart';
@@ -11,8 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: CustomAppBar(
+    return CustomAppBar(
       backgroundColor: AppColors.primary,
       foregroundColor: AppColors.primaryLight,
       title: Text(txt!,
@@ -22,10 +20,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               fontWeight: FontWeight.bold)),
       centerTitle: true,
       elevation: 0,
-    ));
+    );
   }
 
   @override
+  // ignore: todo
   // TODO: implement preferredSize
   Size get preferredSize => throw UnimplementedError();
 }
