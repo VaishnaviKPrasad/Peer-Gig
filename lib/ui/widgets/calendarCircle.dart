@@ -26,11 +26,7 @@ class CalendarCircle extends StatelessWidget implements PreferredSizeWidget{
         height: 30.0,
         decoration: BoxDecoration(
           color: AppColors.primaryLight,
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: AppColors.primaryDark!,
-            width:1.0
-          ),
+          shape: BoxShape.circle
         )
       );
     }

@@ -14,10 +14,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: AppColors.primary,
       foregroundColor: AppColors.primaryLight,
       title: Text(txt!,
-          style: const TextStyle(
-              fontFamily: 'mallanna',
-              fontSize: 36,
-              fontWeight: FontWeight.bold)),
+          style:
+              GoogleFonts.mallanna(fontSize: 36, fontWeight: FontWeight.bold)),
       centerTitle: true,
       elevation: 0,
     );
