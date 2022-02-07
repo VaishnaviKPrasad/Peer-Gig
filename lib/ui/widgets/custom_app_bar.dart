@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../config/constants/colors.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatelessWidget {
   final String? txt;
   const CustomAppBar({
     Key? key,
@@ -10,7 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return CustomAppBar(
+    return AppBar(
       backgroundColor: AppColors.primary,
       foregroundColor: AppColors.primaryLight,
       title: Text(txt!,
@@ -20,9 +20,4 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
     );
   }
-
-  @override
-  // ignore: todo
-  // TODO: implement preferredSize
-  Size get preferredSize => throw UnimplementedError();
 }

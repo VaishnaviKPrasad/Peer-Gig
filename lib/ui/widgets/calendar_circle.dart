@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../config/constants/colors.dart';
 
-class CalendarCircle extends StatelessWidget implements PreferredSizeWidget{
+class CalendarCircle extends StatelessWidget{
   final bool? disabled;
   final String? txt;
   const CalendarCircle({Key? key , this.txt, this.disabled,}) : super(key: key);
@@ -54,9 +54,4 @@ class CalendarCircle extends StatelessWidget implements PreferredSizeWidget{
       }
     }  
   }
-
-  @override
-  // ignore: todo
-  // TODO: implement preferredSize
-  Size get preferredSize => throw UnimplementedError();
 }
