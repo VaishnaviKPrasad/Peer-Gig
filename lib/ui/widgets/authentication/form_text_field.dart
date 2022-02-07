@@ -5,13 +5,14 @@ import 'package:google_fonts/google_fonts.dart';
 class CustomTextField extends StatelessWidget
 {
   final String? txt;
-  const CustomTextField({ Key? key, this.txt }) : super(key: key);
+  final bool? password; 
+  const CustomTextField({ Key? key, this.txt, this.password }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: TextField(
-        obscureText: true,
+        obscureText: (password!) ? true : false,      
         decoration: InputDecoration(
           label: Text(
             txt!,
@@ -21,6 +22,11 @@ class CustomTextField extends StatelessWidget
             fontWeight: FontWeight.normal,
             )
           ),        
+        ),
+        style: GoogleFonts.mallanna(
+          color: AppColors.primaryDark,
+          fontSize: 12,
+          fontWeight: FontWeight.normal,
         )
       ),
       height: 15.0,
