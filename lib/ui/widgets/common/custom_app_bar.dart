@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../config/constants/colors.dart';
+import '../../config/constants/colors.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String? txt;

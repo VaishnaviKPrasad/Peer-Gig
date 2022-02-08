@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../config/constants/colors.dart';
+import '../../config/constants/colors.dart';
 
-class TextDisplay extends StatelessWidget implements PreferredSizeWidget {
+class TextDisplay extends StatelessWidget {
   final String? txt;
   const TextDisplay({
     Key? key,
@@ -21,9 +21,4 @@ class TextDisplay extends StatelessWidget implements PreferredSizeWidget {
             border: Border.all(color: AppColors.primaryDark!, width: 1.0),
             borderRadius: const BorderRadius.all(Radius.circular(15))));
   }
-
-  @override
-  // ignore: todo
-  // TODO: implement preferredSize
-  Size get preferredSize => throw UnimplementedError();
 }
