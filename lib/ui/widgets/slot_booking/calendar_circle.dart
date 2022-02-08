@@ -7,9 +7,10 @@ class CalendarCircle extends StatelessWidget {
   final String? txt;
   const CalendarCircle({
     Key? key,
-    this.txt,
-    this.disabled,
+    required this.txt,
+    required this.disabled,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     //weekday is disabled
