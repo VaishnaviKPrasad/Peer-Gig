@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 
+import './single_post_info_db_helper.dart';
+
 class MyPostsDBHelper {
   final CollectionReference myPostsCollection =
       FirebaseFirestore.instance.collection('MyPosts');
@@ -16,7 +18,8 @@ class MyPostsDBHelper {
 
   // add a new post in 'my posts' (share a new post)
   Future<void> addNewPost(
-      {@required String? userId, @required String? postId}) async {
+      {@required String? userId, @required Map<String, Object>? map}) async {
+    String postId = await SinglePostInfoDBHelper().addNewPost(map);
     await myPostsCollection
         .doc(userId)
         .get()
