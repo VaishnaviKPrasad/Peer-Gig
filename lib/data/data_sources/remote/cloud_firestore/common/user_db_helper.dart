@@ -85,8 +85,8 @@ class UserDBHelper {
     return res;
   }
 
-  Future<String> getTechStack(String userId) async {
-    String res = await usersCollection
+  Future<List<String>> getTechStack(String userId) async {
+    List<String> res = await usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => docSnap.data()['techStack']);
