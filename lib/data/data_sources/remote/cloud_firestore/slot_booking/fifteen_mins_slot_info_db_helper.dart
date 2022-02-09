@@ -13,14 +13,14 @@ class FifteenMinsSlotInfoDBHelper {
         .then((docSnap) => docSnap.data()['days']);
   }
 
-  Future<int> startTime(String userId) async {
+  Future<int> getStartTime(String userId) async {
     return await fifteenMinsSlotInfoCollection
         .doc(userId)
         .get()
         .then((docSnap) => docSnap.data()['startTime']);
   }
 
-  Future<int> endTime(String userId) async {
+  Future<int> getEndTime(String userId) async {
     return await fifteenMinsSlotInfoCollection
         .doc(userId)
         .get()
