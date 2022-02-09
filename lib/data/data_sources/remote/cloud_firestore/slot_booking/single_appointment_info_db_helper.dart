@@ -19,4 +19,8 @@ class SingleAppointmentInfoDBHelper {
         .then((docRef) => docRef.id);
     return appointmentId;
   }
+
+  Future<void> deleteAppointment(String appointmentId) async {
+    await singleAppointmentInfoCollection.doc(appointmentId).delete();
+  }
 }
