@@ -13,14 +13,14 @@ class MockInterviewSlotInfoDBHelper {
         .then((docSnap) => docSnap.data()['days']);
   }
 
-  Future<String> startTime(String userId) async {
+  Future<int> startTime(String userId) async {
     return await mockInterviewSlotInfoCollection
         .doc(userId)
         .get()
         .then((docSnap) => docSnap.data()['startTime']);
   }
 
-  Future<String> endTime(String userId) async {
+  Future<int> endTime(String userId) async {
     return await mockInterviewSlotInfoCollection
         .doc(userId)
         .get()
