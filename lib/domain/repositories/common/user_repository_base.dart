@@ -20,11 +20,5 @@ abstract class UserRepositoryBase {
   Future<void> updateYear({@required String userid, int newVal});
   Future<void> updateCourse({@required String userid, String newVal});
 
-  Future<List<User>> searchByBranch(String branchVal);
-  Future<List<User>> searchByAchievement(String achievementVal);
-  Future<List<User>> searchByAskMeAbout(String askMeAboutVal);
-  Future<List<User>> searchByCompany(String companyVal);
-  Future<List<User>> searchByCourse(String courseVal);
-  Future<List<User>> searchByTechStacks(String techStacksVal);
-  Future<List<User>> searchByYear(int yearVal);
+  Future<List<String>> searchAndGetUsers(Map<String, Object> filters);
 }

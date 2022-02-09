@@ -9,7 +9,7 @@ class UserDBHelper {
     List<String> res = await usersCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['achievements']);
+        .then((docSnap) => docSnap.data().['achievements'] );
     return res;
   }
 
@@ -138,35 +138,6 @@ class UserDBHelper {
         .then((docSnap) => docSnap.data()['techStack'].add(value));
   }
 
-  // functions to delete a value from the array of values for eligible user details
-  Future<void> deleteAchievement({String? userId, String? value}) async {
-    await usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => docSnap.data()['achievements'].remove(value));
-  }
-
-  Future<void> deleteAskMeAbout({String? userId, String? value}) async {
-    await usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => docSnap.data()['askMeAbout'].remove(value));
-  }
-
-  Future<void> deleteCompany({String? userId, String? value}) async {
-    await usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => docSnap.data()['company'].remove(value));
-  }
-
-  Future<void> deleteTechStack({String? userId, String? value}) async {
-    await usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => docSnap.data()['techStack'].remove(value));
-  }
-
   // functions to update a user detail (replace the existing value with a new value)
   Future<void> updateBranch({String? userId, String? newVal}) async {
     await usersCollection
@@ -258,4 +229,34 @@ class UserDBHelper {
 
     return res;
   }
+
+  /* functions to delete a value from the array of values for eligible user details
+  Future<void> deleteAchievement({String? userId, String? value}) async {
+    await usersCollection
+        .doc(userId)
+        .get()
+        .then((docSnap) => docSnap.data()['achievements'].remove(value));
+  }
+
+  Future<void> deleteAskMeAbout({String? userId, String? value}) async {
+    await usersCollection
+        .doc(userId)
+        .get()
+        .then((docSnap) => docSnap.data()['askMeAbout'].remove(value));
+  }
+
+  Future<void> deleteCompany({String? userId, String? value}) async {
+    await usersCollection
+        .doc(userId)
+        .get()
+        .then((docSnap) => docSnap.data()['company'].remove(value));
+  }
+
+  Future<void> deleteTechStack({String? userId, String? value}) async {
+    await usersCollection
+        .doc(userId)
+        .get()
+        .then((docSnap) => docSnap.data()['techStack'].remove(value));
+  }
+  */
 }
