@@ -14,6 +14,24 @@ class SinglePostInfoDBHelper {
     return body;
   }
 
+  Future<int> getPostDate(String postId) async {
+    int date = await singlePostInfoCollection
+        .doc(postId)
+        .get()
+        .then((docSnap) => docSnap.data()['date']);
+
+    return date;
+  }
+
+  Future<String> getPostedBy(String postId) async {
+    String postedBy = await singlePostInfoCollection
+        .doc(postId)
+        .get()
+        .then((docSnap) => docSnap.data()['postedBy']);
+
+    return postedBy;
+  }
+
   // add new post
   Future<String> addNewPost(Map<String, Object>? map) async {
     String postId =

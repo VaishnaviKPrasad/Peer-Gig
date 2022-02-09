@@ -6,8 +6,9 @@ class CustomAppBar extends StatelessWidget {
   final String? txt;
   const CustomAppBar({
     Key? key,
-    this.txt,
+    @required this.txt,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
