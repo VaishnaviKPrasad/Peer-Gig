@@ -31,7 +31,9 @@ class MyAppointmentsDBHelper {
 
   //delete a fifteen mins appointment
   Future<void> deleteFifteenMinsAppointment(
-      {String? userId1, String? userId2, String? appointmentId}) async {
+      {@required String? userId1,
+      @required String? userId2,
+      @required String? appointmentId}) async {
     await myAppointmentsCollection.doc(userId1).get().then((docSnap) =>
         docSnap.data()['fifteenMinsAppointments'].remove(appointmentId));
     await myAppointmentsCollection.doc(userId2).get().then((docSnap) =>
