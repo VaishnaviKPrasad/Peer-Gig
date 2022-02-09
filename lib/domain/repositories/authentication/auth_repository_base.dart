@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-abstract class IAuthRepository {
+abstract class AuthRepositoryBase {
   Future<void> signUpWithEmailAndPassword(
       {@required String email, @required String password});
 
