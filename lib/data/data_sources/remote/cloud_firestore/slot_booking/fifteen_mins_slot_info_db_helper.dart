@@ -28,4 +28,9 @@ class FifteenMinsSlotInfoDBHelper {
       @required Map<String, Object>? newDetails}) async {
     await fifteenMinsSlotInfoCollection.doc(userId).update(newDetails!);
   }
+
+  // delete the availability of user
+  Future<void> deleteAppointmentDetails(String userId) async {
+    await fifteenMinsSlotInfoCollection.doc(userId).delete();
+  }
 }

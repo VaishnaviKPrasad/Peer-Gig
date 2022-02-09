@@ -28,4 +28,9 @@ class MockInterviewSlotInfoDBHelper {
       @required Map<String, Object>? newDetails}) async {
     await mockInterviewSlotInfoCollection.doc(userId).update(newDetails!);
   }
+
+  // delete the availability of user
+  Future<void> deleteAppointmentDetails(String userId) async {
+    await mockInterviewSlotInfoCollection.doc(userId).delete();
+  }
 }
