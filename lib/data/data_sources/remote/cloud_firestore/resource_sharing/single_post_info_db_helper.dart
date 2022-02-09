@@ -14,8 +14,8 @@ class SinglePostInfoDBHelper {
     return body;
   }
 
-  Future<Timestamp> getPostDate(String postId) async {
-    Timestamp date = await singlePostInfoCollection
+  Future<int> getPostDate(String postId) async {
+    int date = await singlePostInfoCollection
         .doc(postId)
         .get()
         .then((docSnap) => docSnap.data()['date']);

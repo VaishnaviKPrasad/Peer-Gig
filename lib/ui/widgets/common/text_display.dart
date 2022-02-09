@@ -6,7 +6,7 @@ class TextDisplay extends StatelessWidget {
   final String? txt;
   const TextDisplay({
     Key? key,
-    required this.txt,
+    @required this.txt,
   }) : super(key: key);
 
   @override

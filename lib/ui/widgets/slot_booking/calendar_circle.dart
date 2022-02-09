@@ -7,8 +7,8 @@ class CalendarCircle extends StatelessWidget {
   final String? txt;
   const CalendarCircle({
     Key? key,
-    required this.txt,
-    required this.disabled,
+    @required this.txt,
+    @required this.disabled,
   }) : super(key: key);
 
   @override

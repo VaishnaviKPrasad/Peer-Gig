@@ -13,27 +13,12 @@ class FilterTagsDBHelper {
     return res;
   }
 
-  // add a new value in the filter tag list
-  Future<void> addAchievementInList(String value) async {
-    await filterTagsCollection
-        .doc('achievements')
-        .get()
-        .then((docSnap) => docSnap.data()['achievements'].add(value));
-  }
-
   Future<List<String>> getAskMeAboutList() async {
     List<String> res = await filterTagsCollection
         .doc('askMeAbout')
         .get()
         .then((docSnap) => docSnap.data()['askMeAbout']);
     return res;
-  }
-
-  Future<void> addAskMeAboutInList(String value) async {
-    await filterTagsCollection
-        .doc('askMeAbout')
-        .get()
-        .then((docSnap) => docSnap.data()['askMeAbout'].add(value));
   }
 
   Future<List<String>> getBranchList() async {
@@ -44,41 +29,12 @@ class FilterTagsDBHelper {
     return res;
   }
 
-  Future<void> addBranchInList(String value) async {
-    await filterTagsCollection
-        .doc('branch')
-        .get()
-        .then((docSnap) => docSnap.data()['branch'].add(value));
-  }
-
   Future<List<String>> getCourseList() async {
     List<String> res = await filterTagsCollection
         .doc('course')
         .get()
         .then((docSnap) => docSnap.data()['course']);
     return res;
-  }
-
-  Future<void> addCourseInList(String value) async {
-    await filterTagsCollection
-        .doc('course')
-        .get()
-        .then((docSnap) => docSnap.data()['course'].add(value));
-  }
-
-  Future<List<String>> getCompanyList() async {
-    List<String> res = await filterTagsCollection
-        .doc('company')
-        .get()
-        .then((docSnap) => docSnap.data()['company']);
-    return res;
-  }
-
-  Future<void> addCompanyInList(String value) async {
-    await filterTagsCollection
-        .doc('company')
-        .get()
-        .then((docSnap) => docSnap.data()['company'].add(value));
   }
 
   Future<List<String>> getTeckStackList() async {
@@ -89,11 +45,12 @@ class FilterTagsDBHelper {
     return res;
   }
 
-  Future<void> addTechStackInList(String value) async {
-    await filterTagsCollection
-        .doc('techStack')
+  Future<List<String>> getCompanyList() async {
+    List<String> res = await filterTagsCollection
+        .doc('company')
         .get()
-        .then((docSnap) => docSnap.data()['techStack'].add(value));
+        .then((docSnap) => docSnap.data()['company']);
+    return res;
   }
 
   Future<List<int>> getYearList() async {
@@ -102,6 +59,49 @@ class FilterTagsDBHelper {
         .get()
         .then((docSnap) => docSnap.data()['year']);
     return res;
+  }
+
+  // add a new value in the filter tag list
+  Future<void> addAchievementInList(String value) async {
+    await filterTagsCollection
+        .doc('achievements')
+        .get()
+        .then((docSnap) => docSnap.data()['achievements'].add(value));
+  }
+
+  Future<void> addAskMeAboutInList(String value) async {
+    await filterTagsCollection
+        .doc('askMeAbout')
+        .get()
+        .then((docSnap) => docSnap.data()['askMeAbout'].add(value));
+  }
+
+  Future<void> addBranchInList(String value) async {
+    await filterTagsCollection
+        .doc('branch')
+        .get()
+        .then((docSnap) => docSnap.data()['branch'].add(value));
+  }
+
+  Future<void> addCourseInList(String value) async {
+    await filterTagsCollection
+        .doc('course')
+        .get()
+        .then((docSnap) => docSnap.data()['course'].add(value));
+  }
+
+  Future<void> addCompanyInList(String value) async {
+    await filterTagsCollection
+        .doc('company')
+        .get()
+        .then((docSnap) => docSnap.data()['company'].add(value));
+  }
+
+  Future<void> addTechStackInList(String value) async {
+    await filterTagsCollection
+        .doc('techStack')
+        .get()
+        .then((docSnap) => docSnap.data()['techStack'].add(value));
   }
 
   Future<void> addYearInList(int value) async {

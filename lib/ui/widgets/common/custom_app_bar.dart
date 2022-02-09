@@ -6,7 +6,7 @@ class CustomAppBar extends StatelessWidget {
   final String? txt;
   const CustomAppBar({
     Key? key,
-    required this.txt,
+    @required this.txt,
   }) : super(key: key);
 
   @override
