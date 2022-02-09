@@ -255,5 +255,7 @@ class UserDBHelper {
         }
       }
     }
+
+    return res;
   }
 }
