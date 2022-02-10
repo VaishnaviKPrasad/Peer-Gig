@@ -11,7 +11,7 @@ class FilterRepository extends FilterRepositoryBase{
     List<String> res = await filterTagsCollection
         .doc('achievements')
         .get()
-        .then((docSnap) => docSnap.data()['achievements']);
+        .then((docSnap) => (docSnap.data()! as Map)['achievements']);
     return res;
   }
 
@@ -20,7 +20,7 @@ class FilterRepository extends FilterRepositoryBase{
     List<String> res = await filterTagsCollection
         .doc('askMeAbout')
         .get()
-        .then((docSnap) => docSnap.data()['askMeAbout']);
+        .then((docSnap) => (docSnap.data()! as Map)['askMeAbout']);
     return res;
   }
 
@@ -29,7 +29,7 @@ class FilterRepository extends FilterRepositoryBase{
     List<String> res = await filterTagsCollection
         .doc('branch')
         .get()
-        .then((docSnap) => docSnap.data()['branch']);
+        .then((docSnap) => (docSnap.data()! as Map)['branch']);
     return res;
   }
 
@@ -38,7 +38,7 @@ class FilterRepository extends FilterRepositoryBase{
     List<String> res = await filterTagsCollection
         .doc('course')
         .get()
-        .then((docSnap) => docSnap.data()['course']);
+        .then((docSnap) => (docSnap.data()! as Map)['course']);
     return res;
   }
 
@@ -47,7 +47,7 @@ class FilterRepository extends FilterRepositoryBase{
     List<String> res = await filterTagsCollection
         .doc('techStack')
         .get()
-        .then((docSnap) => docSnap.data()['techStack']);
+        .then((docSnap) => (docSnap.data()! as Map)['techStack']);
     return res;
   }
 
@@ -56,7 +56,7 @@ class FilterRepository extends FilterRepositoryBase{
     List<String> res = await filterTagsCollection
         .doc('company')
         .get()
-        .then((docSnap) => docSnap.data()['company']);
+        .then((docSnap) => (docSnap.data()! as Map)['company']);
     return res;
   }
 
@@ -65,7 +65,7 @@ class FilterRepository extends FilterRepositoryBase{
     List<int> res = await filterTagsCollection
         .doc('year')
         .get()
-        .then((docSnap) => docSnap.data()['year']);
+        .then((docSnap) => (docSnap.data()! as Map)['year']);
     return res;
   }
 
@@ -75,7 +75,7 @@ class FilterRepository extends FilterRepositoryBase{
     await filterTagsCollection
         .doc('achievements')
         .get()
-        .then((docSnap) => docSnap.data()['achievements'].add(value));
+        .then((docSnap) => (docSnap.data()! as Map)['achievements'].add(value));
   }
 
   @override
@@ -83,7 +83,7 @@ class FilterRepository extends FilterRepositoryBase{
     await filterTagsCollection
         .doc('askMeAbout')
         .get()
-        .then((docSnap) => docSnap.data()['askMeAbout'].add(value));
+        .then((docSnap) => (docSnap.data()! as Map)['askMeAbout'].add(value));
   }
 
   @override
@@ -91,7 +91,7 @@ class FilterRepository extends FilterRepositoryBase{
     await filterTagsCollection
         .doc('branch')
         .get()
-        .then((docSnap) => docSnap.data()['branch'].add(value));
+        .then((docSnap) => (docSnap.data()! as Map)['branch'].add(value));
   }
 
   @override
@@ -99,7 +99,7 @@ class FilterRepository extends FilterRepositoryBase{
     await filterTagsCollection
         .doc('course')
         .get()
-        .then((docSnap) => docSnap.data()['course'].add(value));
+        .then((docSnap) => (docSnap.data()! as Map)['course'].add(value));
   }
 
   @override
@@ -107,7 +107,7 @@ class FilterRepository extends FilterRepositoryBase{
     await filterTagsCollection
         .doc('company')
         .get()
-        .then((docSnap) => docSnap.data()['company'].add(value));
+        .then((docSnap) => (docSnap.data()! as Map)['company'].add(value));
   }
 
   @override
@@ -115,7 +115,7 @@ class FilterRepository extends FilterRepositoryBase{
     await filterTagsCollection
         .doc('techStack')
         .get()
-        .then((docSnap) => docSnap.data()['techStack'].add(value));
+        .then((docSnap) => (docSnap.data()! as Map)['techStack'].add(value));
   }
 
   @override
@@ -123,6 +123,6 @@ class FilterRepository extends FilterRepositoryBase{
     await filterTagsCollection
         .doc('year')
         .get()
-        .then((docSnap) => docSnap.data()['year'].add(value));
+        .then((docSnap) => (docSnap.data()! as Map)['year'].add(value));
   }
 }
