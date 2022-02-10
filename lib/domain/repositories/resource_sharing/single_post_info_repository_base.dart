@@ -1,5 +1,5 @@
 
-abstract class SinglePostRepositorybase {
+abstract class SinglePostInfoRepositorybase {
 
   Future<String> getPostBody(String postId);
   Future<int> getPostDate(String postId);
