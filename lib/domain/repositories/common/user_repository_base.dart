@@ -19,19 +19,29 @@ abstract class UserRepositoryBase {
   Future<int> getCurrentYear(String userId);
   Future<String> getCourse(String userId);
 
-  Future<void> addAchievement({@required String userid, String achievement});
-  Future<void> addAskMeAbout({@required String userid, String askMeAbout});
-  Future<void> addCompany({@required String userid, String company});
-  Future<void> addTechStack({@required String userid, String techStack});
-
-  Future<void> updateFullName({@required String userid, String newVal});
-  Future<void> updateBranch({@required String userid, String newVal});
-  Future<void> updateExperience({@required String userid, String newVal});
-  Future<void> updateGithub({@required String userid, String newVal});
-  Future<void> updateHeadline({@required String userid, String newVal});
-  Future<void> updateLinkedIn({@required String userid, String newVal});
-  Future<void> updateYear({@required String userid, int newVal});
-  Future<void> updateCourse({@required String userid, String newVal});
+  Future<void> addAchievement(
+      {@required String? userId, @required String? achievement});
+  Future<void> addAskMeAbout(
+      {@required String? userId, @required String? askMeAbout});
+  Future<void> addCompany(
+      {@required String? userId, @required String? company});
+  Future<void> addTechStack(
+      {@required String? userId, @required String? techStack});
+  Future<void> updateFullName(
+      {@required String userId, @required String? newVal});
+  Future<void> updateBranch(
+      {@required String? userId, @required String? newVal});
+  Future<void> updateExperience(
+      {@required String userId, @required String? newVal});
+  Future<void> updateGithub(
+      {@required String? userId, @required String? newVal});
+  Future<void> updateHeadline(
+      {@required String? userId, @required String? newVal});
+  Future<void> updateLinkedIn(
+      {@required String? userId, @required String? newVal});
+  Future<void> updateYear({@required String? userId, @required int? newVal});
+  Future<void> updateCourse(
+      {@required String? userId, @required String? newVal});
 
   Future<List<String>> searchAndGetUsers(Map<String, Object> filters);
 }
