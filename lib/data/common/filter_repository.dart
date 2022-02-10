@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../domain/repositories/common/filter_repository_base.dart';
 
-class FilterRepository extends FilterRepositoryBase{
+class FilterRepository extends FilterRepositoryBase {
   final CollectionReference filterTagsCollection =
       FirebaseFirestore.instance.collection('Filter');
 
@@ -11,7 +11,7 @@ class FilterRepository extends FilterRepositoryBase{
     List<String> res = await filterTagsCollection
         .doc('achievements')
         .get()
-        .then((docSnap) => docSnap.data()['achievements']);
+        .then((docSnap) => (docSnap.data()! as Map)['achievements']);
     return res;
   }
 

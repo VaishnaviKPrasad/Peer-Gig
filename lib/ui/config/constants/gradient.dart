@@ -1,0 +1,3 @@
+class SplashScreenGradient {}
+
+class AppScreenGradient {}

@@ -1,8 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-class UserRepository {
+import 'package:peer_gig/domain/entities/common/user.dart';
+import '../../domain/repositories/common/user_repository_base.dart';
+class UserRepository extends UserRepositoryBase {
   final CollectionReference usersCollection =
       FirebaseFirestore.instance.collection('users');
+
+  Future<void> addUser(User user) async {}
+
+  Future<void> deleteUser(String userId) async {}
 
   // getter functions for user details from firestore
   Future<List<String>> getAchievements(String userId) async {
