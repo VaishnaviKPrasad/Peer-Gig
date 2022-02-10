@@ -10,21 +10,21 @@ class MockInterviewSlotInfoRepository {
     return await mockInterviewSlotInfoCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['days']);
+        .then((docSnap) => (docSnap.data()! as Map)['days']);
   }
 
   Future<int> getStartTime(String userId) async {
     return await mockInterviewSlotInfoCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['startTime']);
+        .then((docSnap) => (docSnap.data()! as Map)['startTime']);
   }
 
   Future<int> getEndTime(String userId) async {
     return await mockInterviewSlotInfoCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['endTime']);
+        .then((docSnap) => (docSnap.data()! as Map)['endTime']);
   }
 
   // add appointment details for a new/existing user
