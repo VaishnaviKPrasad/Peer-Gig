@@ -13,7 +13,7 @@ class MyPostsRepository extends MyPostsRepositoryBase{
     List<String> res = await myPostsCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['myPosts']);
+        .then((docSnap) => (docSnap.data()! as Map)['myPosts']);
     return res;
   }
 
@@ -25,6 +25,6 @@ class MyPostsRepository extends MyPostsRepositoryBase{
     await myPostsCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['myPosts'].add(postId));
+        .then((docSnap) => (docSnap.data()! as Map)['myPosts'].add(postId));
   }
 }
