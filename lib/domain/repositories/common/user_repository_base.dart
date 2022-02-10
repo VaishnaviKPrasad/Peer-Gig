@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../entities/authentication/user.dart';
+import '../../entities/common/user.dart';
 
 abstract class UserRepositoryBase {
   Future<void> addUser(User user);
-
   Future<void> deleteUser(String userId);
 
   Future<void> addAchievement({@required String userid, String achievement});
