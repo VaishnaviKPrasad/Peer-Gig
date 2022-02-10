@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class SingleAppointmentInfoDBHelper {
+class SingleAppointmentInfoRepository {
   final CollectionReference singleAppointmentInfoCollection =
       FirebaseFirestore.instance.collection('SingleAppointmentInfo');
 

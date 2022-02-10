@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
-class FifteenMinsSlotInfoDBHelper {
+class FifteenMinsSlotInfoRepository {
   final CollectionReference fifteenMinsSlotInfoCollection =
       FirebaseFirestore.instance.collection('FifteenMinsSlotInfo');
 

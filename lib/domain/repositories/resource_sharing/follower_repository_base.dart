@@ -1,4 +1,4 @@
-import '../../entities/authentication/user.dart';
+import '../../entities/common/user.dart';
 
 abstract class FollowerRepositoryBase {
   Future<void> addFollower(String userId, String peerId);

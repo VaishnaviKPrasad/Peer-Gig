@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import './single_appointment_info_db_helper.dart';
+import './single_appointment_info_repository.dart';
 
-class MyAppointmentsDBHelper {
+class MyAppointmentsRepository {
   final CollectionReference myAppointmentsCollection =
       FirebaseFirestore.instance.collection('MyAppointments');
 
@@ -27,7 +27,7 @@ class MyAppointmentsDBHelper {
       {@required String? userId1,
       @required String? userId2,
       @required Map<String, Object>? appointmentDetails}) async {
-    String appointmentId = await SingleAppointmentInfoDBHelper()
+    String appointmentId = await SingleAppointmentInfoRepository()
         .addNewAppointment(appointmentDetails);
 
     await myAppointmentsCollection.doc(userId1).get().then((docSnap) =>

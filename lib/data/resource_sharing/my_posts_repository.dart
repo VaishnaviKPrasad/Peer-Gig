@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 import './single_post_info_db_helper.dart';
 
-class MyPostsDBHelper {
+class MyPostsRepository {
   final CollectionReference myPostsCollection =
       FirebaseFirestore.instance.collection('MyPosts');
 

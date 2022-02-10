@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class FilterDBHelper {
+class FilterRepository {
   final CollectionReference filterTagsCollection =
       FirebaseFirestore.instance.collection('Filter');
 

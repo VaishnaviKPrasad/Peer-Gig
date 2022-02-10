@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class FollowInfoDBHelper {
+class FollowInfoRepository {
   final CollectionReference followInfoCollection =
       FirebaseFirestore.instance.collection('FollowInfo');
 

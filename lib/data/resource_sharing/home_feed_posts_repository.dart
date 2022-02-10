@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import './single_post_info_db_helper.dart';
 
-class HomeFeedPostsDBHelper {
+class HomeFeedPostsRepository {
   final CollectionReference homeFeedPostsCollection =
       FirebaseFirestore.instance.collection('HomeFeedPosts');
 
