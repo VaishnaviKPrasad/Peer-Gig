@@ -11,7 +11,7 @@ class SinglePostInfoRepository extends SinglePostInfoRepositorybase{
     String body = await singlePostInfoCollection
         .doc(postId)
         .get()
-        .then((docSnap) => docSnap.data()['body']);
+        .then((docSnap) => (docSnap.data()! as Map)['body']);
 
     return body;
   }
@@ -21,7 +21,7 @@ class SinglePostInfoRepository extends SinglePostInfoRepositorybase{
     int date = await singlePostInfoCollection
         .doc(postId)
         .get()
-        .then((docSnap) => docSnap.data()['date']);
+        .then((docSnap) => (docSnap.data()! as Map)['date']);
 
     return date;
   }
@@ -31,7 +31,7 @@ class SinglePostInfoRepository extends SinglePostInfoRepositorybase{
     String postedBy = await singlePostInfoCollection
         .doc(postId)
         .get()
-        .then((docSnap) => docSnap.data()['postedBy']);
+        .then((docSnap) => (docSnap.data()! as Map)['postedBy']);
 
     return postedBy;
   }

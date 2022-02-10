@@ -11,7 +11,7 @@ class FollowInfoRepository extends FollowInfoRepositoryBase{
     return await followInfoCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['followers'].length);
+        .then((docSnap) => (docSnap.data()! as Map)['followers'].length);
   }
 
   // get the count of following
@@ -20,7 +20,7 @@ class FollowInfoRepository extends FollowInfoRepositoryBase{
     return await followInfoCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['following'].length);
+        .then((docSnap) => (docSnap.data()! as Map)['following'].length);
   }
 
   // get followers of a user
@@ -29,7 +29,7 @@ class FollowInfoRepository extends FollowInfoRepositoryBase{
     return await followInfoCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['followers']);
+        .then((docSnap) => (docSnap.data()! as Map)['followers']);
   }
 
   // get following of a user
@@ -38,7 +38,7 @@ class FollowInfoRepository extends FollowInfoRepositoryBase{
     return await followInfoCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['following']);
+        .then((docSnap) => (docSnap.data()! as Map)['following']);
   }
 
   // add a new follower for a user
@@ -48,7 +48,7 @@ class FollowInfoRepository extends FollowInfoRepositoryBase{
     return await followInfoCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['followers'].add(newFollowerUserId));
+        .then((docSnap) => (docSnap.data()! as Map)['followers'].add(newFollowerUserId));
   }
 
   // add a new following for a user
@@ -58,6 +58,6 @@ class FollowInfoRepository extends FollowInfoRepositoryBase{
     return await followInfoCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['following'].add(newFollowingUserId));
+        .then((docSnap) => (docSnap.data()! as Map)['following'].add(newFollowingUserId));
   }
 }

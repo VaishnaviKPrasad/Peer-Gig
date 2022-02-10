@@ -13,7 +13,7 @@ class HomeFeedPostsRepository extends HomeFeedPostsRepositoryBase{
     List<String> res = await homeFeedPostsCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['homeFeedPosts']);
+        .then((docSnap) => (docSnap.data()! as Map)['homeFeedPosts']);
     return res;
   }
 
@@ -25,6 +25,6 @@ class HomeFeedPostsRepository extends HomeFeedPostsRepositoryBase{
     await homeFeedPostsCollection
         .doc(userId)
         .get()
-        .then((docSnap) => docSnap.data()['homeFeedPosts'].add(postId));
+        .then((docSnap) =>(docSnap.data()! as Map)['homeFeedPosts'].add(postId));
   }
 }
