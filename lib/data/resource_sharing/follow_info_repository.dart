@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../../domain/repositories/resource_sharing/follow_info_repository_base.dart';
 
-class FollowInfoRepository {
+class FollowInfoRepository extends FollowInfoRepositoryBase{
   final CollectionReference followInfoCollection =
       FirebaseFirestore.instance.collection('FollowInfo');
 
   // get the count of followers
+  @override
   Future<int> getFollowersCount(String userId) async {
     return await followInfoCollection
         .doc(userId)
@@ -13,6 +15,7 @@ class FollowInfoRepository {
   }
 
   // get the count of following
+  @override
   Future<int> getFollowingCount(String userId) async {
     return await followInfoCollection
         .doc(userId)
@@ -21,6 +24,7 @@ class FollowInfoRepository {
   }
 
   // get followers of a user
+  @override
   Future<List<String>> getFollowers(String userId) async {
     return await followInfoCollection
         .doc(userId)
@@ -29,6 +33,7 @@ class FollowInfoRepository {
   }
 
   // get following of a user
+  @override
   Future<List<String>> getFollowing(String userId) async {
     return await followInfoCollection
         .doc(userId)
@@ -37,6 +42,7 @@ class FollowInfoRepository {
   }
 
   // add a new follower for a user
+  @override
   Future<void> addNewFollower(
       {String? userId, String? newFollowerUserId}) async {
     return await followInfoCollection
@@ -46,6 +52,7 @@ class FollowInfoRepository {
   }
 
   // add a new following for a user
+  @override
   Future<void> addNewFollowing(
       {String? userId, String? newFollowingUserId}) async {
     return await followInfoCollection
