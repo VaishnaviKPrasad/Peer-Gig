@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class FilterTagsDBHelper {
+class FilterDBHelper {
   final CollectionReference filterTagsCollection =
-      FirebaseFirestore.instance.collection('filterTags');
+      FirebaseFirestore.instance.collection('Filter');
 
   // get the list of values for a particular filter tag
   Future<List<String>> getAchievementsList() async {
