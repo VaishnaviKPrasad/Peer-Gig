@@ -202,14 +202,18 @@ class UserRepository extends UserRepositoryBase {
         .then((docSnap) => (docSnap.data()! as Map)['headline'] = newVal);
   }
 
-  Future<void> updateLinkedin({String? userId, String? newVal}) async {
+  @override
+  Future<void> updateLinkedIn(
+      {@required String? userId, @required String? newVal}) async {
     await usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['linkedin'] = newVal);
   }
 
-  Future<void> updateCurrentYear({String? userId, String? newVal}) async {
+  @override
+  Future<void> updateYear(
+      {@required String? userId, @required int? newVal}) async {
     await usersCollection
         .doc(userId)
         .get()
@@ -259,64 +263,4 @@ class UserRepository extends UserRepositoryBase {
 
     return res;
   }
-
-  /*@override
-  Future<void> addUser(User user) {
-    // ignore: todo
-    // TODO: implement addUser
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<void> deleteUser(String userId) {
-    // ignore: todo
-    // TODO: implement deleteUser
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<void> updateLinkedIn(
-      {@required String? userId, @required String? newVal}) {
-    // ignore: todo
-    // TODO: implement updateLinkedIn
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<void> updateYear({@required String? userId, @required int? newVal}) {
-    // ignore: todo
-    // TODO: implement updateYear
-    throw UnimplementedError();
-  }
-
-  /* functions to delete a value from the array of values for eligible user details
-  Future<void> deleteAchievement({String? userId, String? value}) async {
-    await usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => docSnap.data()['achievements'].remove(value));
-  }
-
-  Future<void> deleteAskMeAbout({String? userId, String? value}) async {
-    await usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => docSnap.data()['askMeAbout'].remove(value));
-  }
-
-  Future<void> deleteCompany({String? userId, String? value}) async {
-    await usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => docSnap.data()['company'].remove(value));
-  }
-
-  Future<void> deleteTechStack({String? userId, String? value}) async {
-    await usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => docSnap.data()['techStack'].remove(value));
-  }
-  */
-}*/
 }
