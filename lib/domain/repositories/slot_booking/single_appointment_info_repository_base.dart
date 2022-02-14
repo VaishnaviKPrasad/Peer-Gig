@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import '../../entities/slot_booking/appointment.dart';
 
 abstract class SingleAppointmentRepositoryBase {
