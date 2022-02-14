@@ -5,7 +5,14 @@ import './ui/config/constants/colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    name: 'peer-gig',
+    options: const FirebaseOptions(
+        apiKey: "xxxx",
+        projectId: "xxxx",
+        messagingSenderId: "xxxxx",
+        appId: "xxxx"),
+  );
   runApp(const MyApp());
 }
 
