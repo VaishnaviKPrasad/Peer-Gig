@@ -12,10 +12,10 @@ class AppScreenGradient extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
-            colors: [AppColors.primary!, AppColors.secondary!],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          )),
+                  colors: [AppColors.primary!, AppColors.secondary!],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: const [0.60, 0.1])),
         ));
   }
 }
