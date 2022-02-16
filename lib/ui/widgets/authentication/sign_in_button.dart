@@ -9,24 +9,19 @@ class SignInButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          minimumSize: const Size(50, 14),
-        ),
+    return ElevatedButton.icon(
         onPressed: () {},
-        child: Wrap(children: <Widget>[
-          Row(mainAxisAlignment: MainAxisAlignment.center),
-          const Icon(FontAwesomeIcons.google),
-          Text(
-            txt!,
+        icon: const Icon(FontAwesomeIcons.google),
+        label: Text(txt!,
             style: GoogleFonts.mallanna(
               color: AppColors.primaryDark,
-              backgroundColor: AppColors.primaryLight,
               fontSize: 12,
               fontWeight: FontWeight.bold,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ]));
+            )),
+        style: ElevatedButton.styleFrom(
+            primary: AppColors.primaryLight,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            )));
   }
 }
