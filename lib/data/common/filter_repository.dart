@@ -34,7 +34,7 @@ class FilterRepository extends FilterRepositoryBase {
   }
 
   @override
-  Future<List<String>> getCourseList(String? course) async {
+  Future<List<String>> getCourseList() async {
     List<String> res = await filterTagsCollection
         .doc('course')
         .get()
