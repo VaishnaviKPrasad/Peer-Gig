@@ -4,7 +4,7 @@ abstract class FilterRepositoryBase {
   Future<List<String>> getAskMeABoutList(String? askMeAbout);
   Future<List<String>> getBranchList(String? branch);
   Future<List<String>> getCompanyList(String? company);
-  Future<List<String>> getCourseList(String? course);
+  Future<List<String>> getCourseList();
   Future<List<String>> getTechStackList(String? techStack);
   Future<List<int>> getYearList(String? year);
 
