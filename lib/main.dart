@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:peer_gig/ui/screens/create_account.dart';
 import './ui/config/constants/colors.dart';
 
 void main() async {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        extendBody: true,
         appBar: AppBar(
           //actionsIconTheme: PeerGigIcons.,
           title: Text(
@@ -33,8 +35,11 @@ class MyApp extends StatelessWidget {
               fontSize: 50.0,
               fontWeight: FontWeight.w900,
             ),
+            textAlign: TextAlign.center,
           ),
+          backgroundColor: AppColors.primary,
         ),
+        body: const CreateAccount(),      
       ),
     );
   }
