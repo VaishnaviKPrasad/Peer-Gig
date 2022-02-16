@@ -4,7 +4,6 @@ import 'package:peer_gig/ui/config/constants/colors.dart';
 import '../widgets/authentication/custom_text_field.dart';
 import '../widgets/common/drop_down_button.dart';
 import '../../data/common/filter_repository.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({ Key? key }) : super(key: key);
@@ -73,7 +72,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             }
 
                             if (snapshot.connectionState == ConnectionState.done) {
-                              List<String> data = snapshot.data;
+                              List<String> data = snapshot.data();
                               return CustomDropDownButton(txt: 'Branch', fields: data, filter: false);
                             }
 
