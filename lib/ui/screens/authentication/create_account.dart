@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:peer_gig/ui/config/constants/colors.dart';
-import '../widgets/authentication/custom_text_field.dart';
-import '../widgets/common/drop_down_button.dart';
-import '../../data/common/filter_repository.dart';
+import '../../widgets/authentication/custom_text_field.dart';
+import '../../widgets/common/drop_down_button.dart';
+import '../../../data/common/filter_repository.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({ Key? key }) : super(key: key);
