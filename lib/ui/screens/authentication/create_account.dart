@@ -73,10 +73,10 @@ class _CreateAccountState extends State<CreateAccount> {
 
                             if (snapshot.connectionState == ConnectionState.done) {
                               List<String> data = snapshot.data();
-                              return CustomDropDownButton(txt: 'Branch', fields: data, filter: false);
+                              return CustomDropDownButton(txt: 'Course', fields: data, filter: false);
                             }
 
-                            return const Text("loading");
+                            return const CircularProgressIndicator();
                         },
                       ),
                       const SizedBox(height: 20.0),
