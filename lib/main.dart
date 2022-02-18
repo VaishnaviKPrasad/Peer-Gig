@@ -6,14 +6,7 @@ import './ui/config/constants/colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    name: 'peer-gig',
-    options: const FirebaseOptions(
-        apiKey: "xxxx",
-        projectId: "xxxx",
-        messagingSenderId: "xxxxx",
-        appId: "xxxx"),
-  );
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -39,7 +32,7 @@ class MyApp extends StatelessWidget {
           ),
           backgroundColor: AppColors.primary,
         ),
-        body: const CreateAccount(),      
+        body: const CreateAccount(),
       ),
     );
   }
