@@ -1,11 +1,10 @@
-import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/ui/components/dp_username_display.dart';
 import 'package:peer_gig/ui/widgets/common/post.dart';
 
 class HomeFeedPosts extends StatelessWidget {
   final String? txt;
-  final Url? dpUrl;
+  final String? dpUrl;
   final String? username;
   const HomeFeedPosts(
       {Key? key,
