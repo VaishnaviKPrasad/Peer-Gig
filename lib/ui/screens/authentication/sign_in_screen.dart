@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_gig/ui/config/constants/colors.dart';
 import 'package:peer_gig/ui/widgets/authentication/sign_in_button.dart';
+import '../../config/constants/colors.dart';
 import '../../widgets/authentication/sign_in_button.dart';
 
 class SignIn extends StatelessWidget {

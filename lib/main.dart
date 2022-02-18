@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           ),
           backgroundColor: AppColors.primary,
         ),
-        body: const CreateAccount(),      
+        body: const CreateAccount(),
       ),
     );
   }
