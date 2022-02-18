@@ -1,10 +1,9 @@
-import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/ui/widgets/common/text_display.dart';
 import '../config/constants/colors.dart';
 
 class DpUsernameDisplay extends StatelessWidget {
-  final Url? dpUrl;
+  final String? dpUrl;
   final String? username;
   const DpUsernameDisplay(
       {Key? key, @required this.dpUrl, @required this.username})

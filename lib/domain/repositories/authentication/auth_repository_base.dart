@@ -1,5 +1,5 @@
-abstract class AuthRepositoryBase {
-  Future<void> signUpWithGoogle();
+import 'package:peer_gig/domain/entities/authentication/auth_user_details.dart';
 
-  Future<void> signInWithGoogle();
+abstract class AuthRepositoryBase {
+  Future<AuthUserDetails> authenticateWithGoogle();
 }
