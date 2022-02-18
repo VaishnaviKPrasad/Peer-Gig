@@ -33,7 +33,7 @@ class _CreateAccountState extends State<CreateAccount> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 5.0),
+                const SizedBox(height: 20.0),
                 const Image(
                   image: AssetImage(
                     'assets/images/add_profile_pic.png',
@@ -71,7 +71,7 @@ class _CreateAccountState extends State<CreateAccount> {
                               return const Text("Something went wrong");
                             }
 
-                            if (snapshot.connectionState == ConnectionState.done) {
+                            if (snapshot.connectionState == ConnectionState.done || snapshot.hasData) {
                               List<String> data = snapshot.data();
                               return CustomDropDownButton(txt: 'Course', fields: data, filter: false);
                             }
