@@ -31,6 +31,7 @@ class AuthRepository extends AuthRepositoryBase {
             isNewUser: _additionalUserInfo!.isNewUser);
       } // end of if
       else {
+        signOut();
         throw InvalidChoiceException(
             errorType: "Invalid Choice Exception",
             errorMsg: "Choose your banasthali account plz.");
@@ -38,5 +39,9 @@ class AuthRepository extends AuthRepositoryBase {
     } on PlatformException catch (error) {
       throw UnknownException(errorType: error.code, errorMsg: error.message);
     }
+  }
+
+  Future<void> signOut() async {
+    GoogleSignIn().disconnect();
   }
 }

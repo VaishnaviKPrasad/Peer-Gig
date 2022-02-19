@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:peer_gig/data/authentication/auth__repository.dart';
 import 'package:peer_gig/domain/entities/authentication/auth_user_details.dart';
+import 'package:peer_gig/ui/screens/authentication/create_account.dart';
+import 'package:peer_gig/ui/screens/common/home_screen.dart';
 import 'package:peer_gig/utils/exceptions.dart';
 
 class AuthAppService {
@@ -10,9 +12,10 @@ class AuthAppService {
           await AuthRepository().authenticateWithGoogle();
 
       if (_authUserDetails.isNewUser!) {
-        // navigate to create new account screen passing the email id
+        Navigator.of(context).pushReplacementNamed(CreateAccount.routeName,
+            arguments: _authUserDetails.email);
       } else {
-        // navigate to the home feed
+        Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
       }
     } on InvalidChoiceException catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(
