@@ -7,7 +7,9 @@ import '../../widgets/common/drop_down_button.dart';
 import '../../../data/common/filter_repository.dart';
 
 class CreateAccount extends StatefulWidget {
-  const CreateAccount({ Key? key }) : super(key: key);
+  static const routeName = '/createNewAccount';
+  final String email;
+  const CreateAccount(this.email, {Key? key}) : super(key: key);
 
   @override
   _CreateAccountState createState() => _CreateAccountState();
@@ -19,9 +21,10 @@ class _CreateAccountState extends State<CreateAccount> {
   
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
+    return Scaffold(
+      body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
             colors: [AppColors.primary!, AppColors.secondary!],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -183,6 +186,7 @@ class _CreateAccountState extends State<CreateAccount> {
             ),
           ),
         )
+      )
     );
   }
 }
