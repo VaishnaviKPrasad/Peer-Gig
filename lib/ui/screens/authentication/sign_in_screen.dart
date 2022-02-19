@@ -3,8 +3,9 @@ import 'package:peer_gig/ui/widgets/authentication/sign_in_button.dart';
 import '../../config/constants/colors.dart';
 import '../../widgets/authentication/sign_in_button.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({Key? key}) : super(key: key);
+class SignInScreen extends StatelessWidget {
+  static const routeName = '/';
+  const SignInScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +19,11 @@ class SignIn extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('assets/images/peergig_logo'),
+            Image.asset(
+              'assets/images/peergig_logo.png',
+              width: 200,
+              height: 200,
+            ),
             SignInButton(
                 txt: "SignIn/SignUp with Google Account", cxt: context),
           ],
