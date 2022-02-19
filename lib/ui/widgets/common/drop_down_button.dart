@@ -10,17 +10,19 @@ class CustomDropDownButton extends StatefulWidget {
   bool filter;
 
   CustomDropDownButton(
-      {Key? key, required this.txt, required this.fields, required this.filter})
+      {Key? key, required this.txt, required this.fields, required this.filter,})
       : super(key: key);
+      
 
   @override
   _CustomDropDownButtonState createState() => _CustomDropDownButtonState();
 }
 
 class _CustomDropDownButtonState extends State<CustomDropDownButton> {
+  
   @override
   Widget build(BuildContext context) {
-    widget.fields?.add('Other');
+    //widget.fields?.add('Other');
     return FormField(builder: (FormFieldState state) {
       return InputDecorator(
         decoration: InputDecoration(
@@ -99,6 +101,8 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
             iconSize: (widget.filter) ? 15 : 25,
             iconEnabledColor: AppColors.primaryDark,
             iconDisabledColor: AppColors.primaryDark,
+            dropdownColor: AppColors.primaryLight,
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
       );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:peer_gig/ui/config/constants/colors.dart';
+import 'package:peer_gig/ui/widgets/authentication/sign_in_button.dart';
 import '../../widgets/authentication/custom_text_field.dart';
 import '../../widgets/common/drop_down_button.dart';
 import '../../../data/common/filter_repository.dart';
@@ -63,40 +64,118 @@ class _CreateAccountState extends State<CreateAccount> {
                       const SizedBox(height: 20.0),
                       const CustomTextField(txt: 'Headline', password: false,),
                       const SizedBox(height: 20.0),
-                      //CustomDropDownButton(txt: 'Course', fields: _courseList, filter: false),
                       FutureBuilder(
                         future: obj.getCourseList(),
                         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) { 
                             if (snapshot.hasError) {
-                              return const Text("Something went wrong");
+                              return Text(snapshot.error.toString());
+                              //return const Text("Something went wrong");
                             }
-
                             if (snapshot.connectionState == ConnectionState.done || snapshot.hasData) {
-                              List<String> data = snapshot.data();
+                              List<String> data = snapshot.data;
                               return CustomDropDownButton(txt: 'Course', fields: data, filter: false);
                             }
-
                             return const CircularProgressIndicator();
                         },
                       ),
                       const SizedBox(height: 20.0),
-                      //CustomDropDownButton(txt: 'Branch', fields: await obj.getBranchList('Branch'), filter: false),
+                      FutureBuilder(
+                        future: obj.getBranchList(),
+                        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) { 
+                            if (snapshot.hasError) {
+                              return Text(snapshot.error.toString());
+                              //return const Text("Something went wrong");
+                            }
+                            if (snapshot.connectionState == ConnectionState.done || snapshot.hasData) {
+                              List<String> data = snapshot.data;
+                              return CustomDropDownButton(txt: 'Branch', fields: data, filter: false);
+                            }
+                            return const CircularProgressIndicator();
+                        },
+                      ),
                       const SizedBox(height: 20.0),
-                      //CustomDropDownButton(txt: 'Year', fields: await obj.getYearList('Year'), filter: false),
+                      FutureBuilder(
+                        future: obj.getYearList(),
+                        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) { 
+                            if (snapshot.hasError) {
+                              return Text(snapshot.error.toString());
+                              //return const Text("Something went wrong");
+                            }
+                            if (snapshot.connectionState == ConnectionState.done || snapshot.hasData) {
+                              List<String> data = List<String>.from(snapshot.data);
+                              return CustomDropDownButton(txt: 'Year', fields: data, filter: false);
+                            }
+                            return const CircularProgressIndicator();
+                        },
+                      ),
                       const SizedBox(height: 20.0),
-                      //CustomDropDownButton(txt: 'Company', fields: await obj.getCompanyList('Company'), filter: false),                    
+                      FutureBuilder(
+                        future: obj.getCompanyList(),
+                        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) { 
+                            if (snapshot.hasError) {
+                              return Text(snapshot.error.toString());
+                              //return const Text("Something went wrong");
+                            }
+                            if (snapshot.connectionState == ConnectionState.done || snapshot.hasData) {
+                              List<String> data = snapshot.data;
+                              return CustomDropDownButton(txt: 'Company', fields: data, filter: false);
+                            }
+                            return const CircularProgressIndicator();
+                        },
+                      ),                   
                       const SizedBox(height: 20.0),
-                      //const CustomTextField(txt: 'Experience', password: false,),
+                      const CustomTextField(txt: 'Experience', password: false,),
                       const SizedBox(height: 20.0),
-                      //CustomDropDownButton(txt: 'Achievements', fields: await obj.getAchievementsList('Achievements'), filter: false),                    
+                      FutureBuilder(
+                        future: obj.getAchievementsList(),
+                        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) { 
+                            if (snapshot.hasError) {
+                              return Text(snapshot.error.toString());
+                              //return const Text("Something went wrong");
+                            }
+                            if (snapshot.connectionState == ConnectionState.done || snapshot.hasData) {
+                              List<String> data = snapshot.data;
+                              return CustomDropDownButton(txt: 'Achievements', fields: data, filter: false);
+                            }
+                            return const CircularProgressIndicator();
+                        },
+                      ),                   
                       const SizedBox(height: 20.0),
-                      //CustomDropDownButton(txt: 'TechStack', fields: await obj.getTechStackList('TechStack'), filter: false),                    
-                      const SizedBox(height: 20.0),
-                      //CustomDropDownButton(txt: 'Ask Me About', fields: await obj.getAskMeABoutList('AskMeAbout'), filter: false),                    
+                      FutureBuilder(
+                        future: obj.getTechStackList(),
+                        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) { 
+                            if (snapshot.hasError) {
+                              return Text(snapshot.error.toString());
+                              //return const Text("Something went wrong");
+                            }
+                            if (snapshot.connectionState == ConnectionState.done || snapshot.hasData) {
+                              List<String> data = snapshot.data;
+                              return CustomDropDownButton(txt: 'Tech-Stack', fields: data, filter: false);
+                            }
+                            return const CircularProgressIndicator();
+                        },
+                      ),                  
+                      const SizedBox(height: 20.0),   
+                      FutureBuilder(
+                        future: obj.getAskMeAboutList(),
+                        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) { 
+                            if (snapshot.hasError) {
+                              return Text(snapshot.error.toString());
+                              //return const Text("Something went wrong");
+                            }
+                            if (snapshot.connectionState == ConnectionState.done || snapshot.hasData) {
+                              List<String> data = snapshot.data;
+                              return CustomDropDownButton(txt: 'Ask Me About', fields: data, filter: false);
+                            }
+                            return const CircularProgressIndicator();
+                        },
+                      ),                 
                       const SizedBox(height: 20.0),
                       const CustomTextField(txt: 'LinkedIn Profile', password: false,),
                       const SizedBox(height: 20.0),
                       const CustomTextField(txt: 'Github Profile', password: false,),
+                      const SizedBox(height: 20.0),
+                      SignInButton(txt: 'Create Account', cxt: context),
                     ],
                   )
                 ),
@@ -108,19 +187,3 @@ class _CreateAccountState extends State<CreateAccount> {
   }
 }
 
-
-/*
-FutureBuilder(
-                        future: obj.getCourseList('Course'),
-                        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) async{ 
-                            switch(snapshot.connectionState)
-                            {
-                              case ConnectionState.none : return const Text('none');
-                              case ConnectionState.waiting : return const Text('waiting');
-                              case ConnectionState.active : return const Text('active');
-                              case ConnectionState.done : return CustomDropDownButton(txt: 'Course', fields: await obj.getCourseList('Course'), filter: false);
-                              default : return const Text('loading');
-                            }
-                        },
-                      ),
-*/
