@@ -22,11 +22,14 @@ class AccountDetails extends StatelessWidget {
           onTap: () {},
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          title: Text(txt!,
+          title: Text(title!,
               style: GoogleFonts.mallanna(
                   color: AppColors.primaryDark,
                   fontSize: 18,
                   fontWeight: FontWeight.bold)),
+          subtitle: Text(txt!,
+              style: GoogleFonts.mallanna(
+                  color: AppColors.primaryDark, fontSize: 18)),
           trailing: Icon(PeerGigIcons.edit, color: AppColors.primaryDark));
     } else {
       return ListTile(
