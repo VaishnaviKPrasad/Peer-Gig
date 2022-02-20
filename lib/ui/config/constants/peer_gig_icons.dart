@@ -11,4 +11,6 @@ class PeerGigIcons {
   static const IconData clock = Icons.access_alarm;
   static const IconData follow = Icons.person_add_alt_outlined;
   static const IconData following = Icons.person_outline;
+  static const IconData about = Icons.info_outline;
+  static const IconData edit = Icons.create_rounded;
 }
