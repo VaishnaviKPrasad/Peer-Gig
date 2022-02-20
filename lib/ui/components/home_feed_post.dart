@@ -23,9 +23,12 @@ class HomeFeedPost extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Post(txt: txt),
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-            DpUsernameDisplay(dpUrl: dpUrl, username: username),
-          ])
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                DpUsernameDisplay(dpUrl: dpUrl, username: username),
+                Text(postID!)
+              ])
         ]);
   }
 }
