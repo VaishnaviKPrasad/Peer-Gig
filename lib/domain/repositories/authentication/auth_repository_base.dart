@@ -1,13 +1,5 @@
-import 'package:flutter/foundation.dart';
-
-import '../../entities/common/user.dart';
+import 'package:peer_gig/domain/entities/authentication/auth_user_details.dart';
 
 abstract class AuthRepositoryBase {
-  Future<void> signUpWithEmailAndPassword(
-      {@required String? email,
-      @required String? password,
-      @required User? user});
-
-  Future<void> signInWithEmailAndPassword(
-      {@required String? email, @required String? password});
+  Future<AuthUserDetails> authenticateWithGoogle();
 }

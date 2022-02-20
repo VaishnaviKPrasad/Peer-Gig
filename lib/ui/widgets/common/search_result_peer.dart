@@ -1,10 +1,9 @@
-import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../config/constants/colors.dart';
 
 class SearchResultPeer extends StatelessWidget {
-  final Url? dpUrl;
+  final String? dpUrl;
   final String? title;
   final String? subtitle;
 
