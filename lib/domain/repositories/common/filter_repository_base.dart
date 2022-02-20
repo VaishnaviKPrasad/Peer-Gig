@@ -6,7 +6,7 @@ abstract class FilterRepositoryBase {
   Future<List<String>> getCompanyList();
   Future<List<String>> getCourseList();
   Future<List<String>> getTechStackList();
-  Future<List<int>> getYearList();
+  Future<List<String>> getYearList();
 
   Future<void> addAchievementInList(String? value);
   Future<void> addAskMeAboutInList(String? value);

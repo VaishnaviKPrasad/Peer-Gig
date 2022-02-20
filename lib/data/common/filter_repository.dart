@@ -12,7 +12,6 @@ class FilterRepository extends FilterRepositoryBase {
         .doc('achievements')
         .get()
         .then((docSnap) => List<String>.from((docSnap.data()! as Map)['achievements']));
-    res.add('Other');
     return res;
   }
 
@@ -22,7 +21,6 @@ class FilterRepository extends FilterRepositoryBase {
         .doc('askMeAbout')
         .get()
         .then((docSnap) => List<String>.from((docSnap.data()! as Map)['askMeAbout']));
-    res.add('Other');
     return res;
   }
 
@@ -32,7 +30,6 @@ class FilterRepository extends FilterRepositoryBase {
         .doc('branch')
         .get()
         .then((docSnap) => List<String>.from((docSnap.data()! as Map)['branch']));
-    res.add('Other');
     return res;
   }
 
@@ -42,7 +39,6 @@ class FilterRepository extends FilterRepositoryBase {
         .doc('course')
         .get()
         .then((docSnap) => List<String>.from((docSnap.data()! as Map)['course']));
-    res.add('Other');
     return res;
   }
 
@@ -52,7 +48,6 @@ class FilterRepository extends FilterRepositoryBase {
         .doc('techStack')
         .get()
         .then((docSnap) => List<String>.from((docSnap.data()! as Map)['techStack']));
-    res.add('Other');
     return res;
   }
 
@@ -62,17 +57,15 @@ class FilterRepository extends FilterRepositoryBase {
         .doc('company')
         .get()
         .then((docSnap) => List<String>.from((docSnap.data()! as Map)['company']));
-    res.add('Other');
     return res;
   }
 
   @override
-  Future<List<int>> getYearList() async {
-    List<int> res = await filterTagsCollection
+  Future<List<String>> getYearList() async {
+    List<String> res = await filterTagsCollection
         .doc('year')
         .get()
-        .then((docSnap) => List<int>.from((docSnap.data()! as Map)['year']));
-    //res.add('Other');
+        .then((docSnap) => List<String>.from((docSnap.data()! as Map)['year']));
     return res;
   }
 

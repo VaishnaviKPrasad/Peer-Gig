@@ -27,10 +27,11 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
       return InputDecorator(
         decoration: InputDecoration(
           isDense: true,
+          floatingLabelBehavior: FloatingLabelBehavior.never,
           label: Text(widget.txt,
               style: GoogleFonts.mallanna(
                 color: AppColors.primaryDark,
-                fontSize: 15,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               )),
           labelStyle: GoogleFonts.mallanna(
