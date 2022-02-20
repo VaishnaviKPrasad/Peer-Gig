@@ -5,8 +5,8 @@ import '../../config/constants/colors.dart';
 import '../../widgets/authentication/sign_in_button.dart';
 import '../../config/constants/peer_gig_icons.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({Key? key}) : super(key: key);
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
