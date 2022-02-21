@@ -3,10 +3,10 @@ import 'package:peer_gig/ui/widgets/common/text_display.dart';
 import '../config/constants/colors.dart';
 
 // ignore: must_be_immutable
-class DurationDisplay extends StatelessWidget {
+class DurationDisplayComponent extends StatelessWidget {
   int startTime;
   int endTime;
-  DurationDisplay({ Key? key, required this.startTime, required this.endTime}) : super(key: key);
+  DurationDisplayComponent({ Key? key, required this.startTime, required this.endTime}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

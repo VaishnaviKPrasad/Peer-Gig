@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:peer_gig/ui/config/constants/colors.dart';
 import 'package:peer_gig/ui/config/constants/gradient.dart';
 import 'package:peer_gig/ui/widgets/common/custom_button.dart';
-import '../../components/duration_display_dropdown_component.dart';
 import '../../widgets/authentication/custom_text_field.dart';
 import '../../widgets/common/drop_down_button.dart';
 import '../../../data/common/filter_repository.dart';
