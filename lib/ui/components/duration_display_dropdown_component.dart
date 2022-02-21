@@ -19,13 +19,13 @@ class _DurationDisplayDropdownComponentState extends State<DurationDisplayDropdo
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        CustomDropDownButton(txt: 'StartTime', fields: widget.start, filter: true), 
+        Expanded(child: CustomDropDownButton(txt: 'Start Time', fields: widget.start, isfilter: true)), 
         Icon(
           Icons.horizontal_rule_rounded,
           color: AppColors.primaryLight,
           size: 20.0,
         ),
-        CustomDropDownButton(txt: 'EndTime', fields: widget.end, filter: true), 
+        Expanded(child: CustomDropDownButton(txt: 'End Time', fields: widget.end, isfilter: true)), 
       ]
     );
   }

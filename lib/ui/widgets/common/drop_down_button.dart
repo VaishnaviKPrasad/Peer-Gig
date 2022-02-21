@@ -7,10 +7,10 @@ class CustomDropDownButton extends StatefulWidget {
   final List<String>? fields;
   String txt;
   String? currentValue;
-  bool filter;
+  bool isfilter;
 
   CustomDropDownButton(
-      {Key? key, required this.txt, required this.fields, required this.filter,})
+      {Key? key, required this.txt, required this.fields, required this.isfilter,})
       : super(key: key);
       
 
@@ -46,7 +46,7 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
               color: AppColors.primaryDark!,
               width: 1.0,
             ),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: (widget.isfilter) ? BorderRadius.circular(30) : BorderRadius.circular(10),
           ),
           hintText: 'Enter ${widget.txt}',
           hintStyle: GoogleFonts.mallanna(
@@ -59,19 +59,20 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
               color: AppColors.primaryDark!,
               width: 2.0,
             ),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: (widget.isfilter) ? BorderRadius.circular(30) : BorderRadius.circular(10),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
               color: AppColors.primaryDark!,
               width: 2.0,
             ),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: (widget.isfilter) ? BorderRadius.circular(30) : BorderRadius.circular(10),
           ),
         ),
         isEmpty: widget.currentValue == '',
         child: DropdownButtonHideUnderline(
           child: DropdownButton<String>(
+            itemHeight: null,
             isDense: true,
             hint: Text('Select ${widget.txt}',
               style: GoogleFonts.mallanna(
@@ -99,7 +100,7 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
             },
             value: widget.currentValue,
             icon: const Icon(Icons.arrow_drop_down),
-            iconSize: (widget.filter) ? 15 : 25,
+            iconSize: (widget.isfilter) ? 20 : 25,
             iconEnabledColor: AppColors.primaryDark,
             iconDisabledColor: AppColors.primaryDark,
             dropdownColor: AppColors.primaryLight,
