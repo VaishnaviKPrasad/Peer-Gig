@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_gig/ui/config/constants/colors.dart';
 import 'package:peer_gig/ui/widgets/authentication/sign_in_button.dart';
 import '../../config/constants/colors.dart';
 import '../../widgets/authentication/sign_in_button.dart';
@@ -10,12 +11,15 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: [AppColors.primary!, AppColors.secondary!],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: const [0.60, 0.1])),
+            colors: [AppColors.primary!, AppColors.secondary!],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: const [0.60, 1.0],
+          )
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -24,6 +28,7 @@ class SignInScreen extends StatelessWidget {
               width: 200,
               height: 200,
             ),
+            const SizedBox(height: 60.0,),
             SignInButton(
                 txt: "SignIn/SignUp with Google Account", cxt: context),
           ],

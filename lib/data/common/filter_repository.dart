@@ -7,29 +7,29 @@ class FilterRepository extends FilterRepositoryBase {
 
   // get the list of values for a particular filter tag
   @override
-  Future<List<String>> getAchievementsList(String? achievements) async {
+  Future<List<String>> getAchievementsList() async {
     List<String> res = await filterTagsCollection
         .doc('achievements')
         .get()
-        .then((docSnap) => (docSnap.data()! as Map)['achievements']);
+        .then((docSnap) => List<String>.from((docSnap.data()! as Map)['achievements']));
     return res;
   }
 
   @override
-  Future<List<String>> getAskMeABoutList(String? askMeAbout) async {
+  Future<List<String>> getAskMeAboutList() async {
     List<String> res = await filterTagsCollection
         .doc('askMeAbout')
         .get()
-        .then((docSnap) => (docSnap.data()! as Map)['askMeAbout']);
+        .then((docSnap) => List<String>.from((docSnap.data()! as Map)['askMeAbout']));
     return res;
   }
 
   @override
-  Future<List<String>> getBranchList(String? branch) async {
+  Future<List<String>> getBranchList() async {
     List<String> res = await filterTagsCollection
         .doc('branch')
         .get()
-        .then((docSnap) => (docSnap.data()! as Map)['branch']);
+        .then((docSnap) => List<String>.from((docSnap.data()! as Map)['branch']));
     return res;
   }
 
@@ -38,34 +38,34 @@ class FilterRepository extends FilterRepositoryBase {
     List<String> res = await filterTagsCollection
         .doc('course')
         .get()
-        .then((docSnap) => (docSnap.data()! as Map)['course']);
+        .then((docSnap) => List<String>.from((docSnap.data()! as Map)['course']));
     return res;
   }
 
   @override
-  Future<List<String>> getTechStackList(String? techStack) async {
+  Future<List<String>> getTechStackList() async {
     List<String> res = await filterTagsCollection
         .doc('techStack')
         .get()
-        .then((docSnap) => (docSnap.data()! as Map)['techStack']);
+        .then((docSnap) => List<String>.from((docSnap.data()! as Map)['techStack']));
     return res;
   }
 
   @override
-  Future<List<String>> getCompanyList(String? company) async {
+  Future<List<String>> getCompanyList() async {
     List<String> res = await filterTagsCollection
         .doc('company')
         .get()
-        .then((docSnap) => (docSnap.data()! as Map)['company']);
+        .then((docSnap) => List<String>.from((docSnap.data()! as Map)['company']));
     return res;
   }
 
   @override
-  Future<List<int>> getYearList(String? year) async {
-    List<int> res = await filterTagsCollection
+  Future<List<String>> getYearList() async {
+    List<String> res = await filterTagsCollection
         .doc('year')
         .get()
-        .then((docSnap) => (docSnap.data()! as Map)['year']);
+        .then((docSnap) => List<String>.from((docSnap.data()! as Map)['year']));
     return res;
   }
 
