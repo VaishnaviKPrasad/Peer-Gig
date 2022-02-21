@@ -20,7 +20,7 @@ class DpUsernameDisplay extends StatelessWidget {
                 "",
               ),
               radius: 12)),
-      TextDisplay(txt: username)
+      TextDisplay(txt: username, isSelector: null,)
     ]);
   }
 }

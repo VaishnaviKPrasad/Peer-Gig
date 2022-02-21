@@ -17,13 +17,13 @@ class DurationDisplayComponent extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            TextDisplay(txt: startTime.toString().substring(0,2)+":"+startTime.toString().substring(2)), 
+            TextDisplay(txt: startTime.toString().substring(0,2)+":"+startTime.toString().substring(2), isSelector: false,), 
             Icon(
               Icons.horizontal_rule_rounded,
               color: AppColors.primaryLight,
               size: 20.0,
             ),
-            TextDisplay(txt: endTime.toString().substring(0,2)+":"+endTime.toString().substring(2)),
+            TextDisplay(txt: endTime.toString().substring(0,2)+":"+endTime.toString().substring(2), isSelector: false,),
           ],
         ),
         const SizedBox(height: 20.0),
@@ -32,26 +32,32 @@ class DurationDisplayComponent extends StatelessWidget {
           children: [
             Stack(
               children: [
-                const TextDisplay(txt: '-Select Date-'),
+                const TextDisplay(txt: '-Select Date-', isSelector: true,),
                 Positioned(
-                  right: 10.0, 
-                  child: Icon(
-                    PeerGigIcons.calendar,
-                    size: 20.0,
-                    color: AppColors.primaryLight,
+                  right: 8.0, 
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(
+                      PeerGigIcons.calendar,
+                      size: 18.0,
+                      color: AppColors.primaryDark,
+                    ),
                   )
                 )
               ]
             ),
             Stack(
               children: [
-                const TextDisplay(txt: '-Select Time-'),
+                const TextDisplay(txt: '-Select Time-', isSelector: true,),
                 Positioned(
-                  right: 10.0, 
-                  child: Icon(
-                    PeerGigIcons.clock,
-                    size: 20.0,
-                    color: AppColors.primaryLight,
+                  right: 8.0, 
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(
+                      PeerGigIcons.clock,
+                      size: 21.0,
+                      color: AppColors.primaryDark,
+                    ),
                   )
                 )
               ]

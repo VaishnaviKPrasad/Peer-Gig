@@ -4,21 +4,26 @@ import '../../config/constants/colors.dart';
 
 class TextDisplay extends StatelessWidget {
   final String? txt;
+  final bool? isSelector;
   const TextDisplay({
     Key? key,
     @required this.txt,
+    @required this.isSelector,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 100.0,
-        child: Text(txt!,
-            style: GoogleFonts.mallanna(
-                color: AppColors.primaryDark, 
-                fontSize: 18,
-            ),
-            textAlign: TextAlign.center
+        width: (isSelector == true) ? 160.0 : 100.0,
+        child: Padding(
+          padding: (isSelector == true) ? const EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0) : const EdgeInsets.all(0.0),
+          child: Text(txt!,
+              style: GoogleFonts.mallanna(
+                  color: AppColors.primaryDark, 
+                  fontSize: 18,
+              ),
+              textAlign: (isSelector == true) ? TextAlign.start : TextAlign.center,
+          ),
         ),
         decoration: BoxDecoration(            
             color: AppColors.primaryLight,
