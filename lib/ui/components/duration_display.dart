@@ -17,7 +17,7 @@ class DurationDisplay extends StatelessWidget {
         Icon(
           Icons.horizontal_rule_rounded,
           color: AppColors.primaryLight,
-          size: 15.0,
+          size: 20.0,
         ),
         TextDisplay(txt: endTime.toString().substring(0,2)+":"+endTime.toString().substring(2)),
       ],

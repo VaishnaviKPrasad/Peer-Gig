@@ -12,13 +12,16 @@ class TextDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: AppColors.primaryLight,
-        height: 12.0,
-        width: 40.0,
+        width: 100.0,
         child: Text(txt!,
             style: GoogleFonts.mallanna(
-                color: AppColors.primaryDark, fontSize: 18)),
-        decoration: BoxDecoration(
+                color: AppColors.primaryDark, 
+                fontSize: 18,
+            ),
+            textAlign: TextAlign.center
+        ),
+        decoration: BoxDecoration(            
+            color: AppColors.primaryLight,
             border: Border.all(color: AppColors.primaryDark!, width: 1.0),
             borderRadius: const BorderRadius.all(Radius.circular(15))));
   }

@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      initialRoute: SignInScreen.routeName,
+      initialRoute: CreateAccount.routeName,
       onGenerateRoute: GenerateRoutes.generateRoutes,
     );
   }
