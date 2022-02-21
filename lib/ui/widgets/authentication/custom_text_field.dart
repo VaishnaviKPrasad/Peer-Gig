@@ -14,6 +14,7 @@ class CustomTextField extends StatelessWidget {
             textAlignVertical: TextAlignVertical.center,
             obscureText: (password!) ? true : false,
             decoration: InputDecoration(
+              floatingLabelBehavior: FloatingLabelBehavior.never,
               isDense: true,
               label: Text(txt!,
                   style: GoogleFonts.mallanna(
@@ -24,7 +25,7 @@ class CustomTextField extends StatelessWidget {
                 ),
               labelStyle: GoogleFonts.mallanna(
                   color: AppColors.primaryDark,
-                  fontSize: 15,
+                  fontSize: 20,
                   fontWeight: FontWeight.w900,
                 ), 
               filled: true,

@@ -15,11 +15,14 @@ class SignInButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: () => AuthAppService().authenticateWithGoogle(cxt!),
-      icon: const Icon(FontAwesomeIcons.google),
+      icon: const Icon(
+        FontAwesomeIcons.google,
+        color: Color.fromARGB(255, 179, 148, 36),
+      ),
       label: Text(txt!,
           style: GoogleFonts.mallanna(
             color: AppColors.primaryDark,
-            fontSize: 12,
+            fontSize: 18,
             fontWeight: FontWeight.bold,
           )),
       style: ElevatedButton.styleFrom(

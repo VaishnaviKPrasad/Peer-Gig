@@ -1,12 +1,12 @@
 
 abstract class FilterRepositoryBase {
-  Future<List<String>> getAchievementsList(String? achievements);
-  Future<List<String>> getAskMeABoutList(String? askMeAbout);
-  Future<List<String>> getBranchList(String? branch);
-  Future<List<String>> getCompanyList(String? company);
+  Future<List<String>> getAchievementsList();
+  Future<List<String>> getAskMeAboutList();
+  Future<List<String>> getBranchList();
+  Future<List<String>> getCompanyList();
   Future<List<String>> getCourseList();
-  Future<List<String>> getTechStackList(String? techStack);
-  Future<List<int>> getYearList(String? year);
+  Future<List<String>> getTechStackList();
+  Future<List<String>> getYearList();
 
   Future<void> addAchievementInList(String? value);
   Future<void> addAskMeAboutInList(String? value);
