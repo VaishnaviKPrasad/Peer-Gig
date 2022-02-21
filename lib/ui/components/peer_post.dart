@@ -6,12 +6,7 @@ import 'package:peer_gig/ui/widgets/common/post.dart';
 class PeerPost extends StatelessWidget {
   final String? txt;
   final String? postDate;
-  final String? date;
-  const PeerPost(
-      {Key? key,
-      @required this.txt,
-      @required this.postDate,
-      @required this.date})
+  const PeerPost({Key? key, @required this.txt, @required this.postDate})
       : super(key: key);
 
   @override

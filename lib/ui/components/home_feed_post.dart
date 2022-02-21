@@ -7,16 +7,14 @@ import '../config/constants/colors.dart';
 class HomeFeedPost extends StatelessWidget {
   final String? txt;
   final String? dpUrl;
-  final String? postDate;
   final String? username;
-  final String? date;
+  final String? postDate;
   const HomeFeedPost(
       {Key? key,
       @required this.txt,
       @required this.dpUrl,
       @required this.username,
-      @required this.postDate,
-      @required this.date})
+      @required this.postDate})
       : super(key: key);
 
   @override

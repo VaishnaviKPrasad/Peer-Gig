@@ -10,8 +10,8 @@ class AccountProfile extends StatelessWidget {
   final String? username;
   final int? followerCount;
   final int? followingCount;
-  final bool? myAccount;
-  final bool? following;
+  final bool? isMyAccount;
+  final bool? isFollowing;
 
   const AccountProfile(
       {Key? key,
@@ -19,13 +19,13 @@ class AccountProfile extends StatelessWidget {
       @required this.username,
       @required this.followerCount,
       @required this.followingCount,
-      @required this.myAccount,
-      @required this.following})
+      @required this.isMyAccount,
+      @required this.isFollowing})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (myAccount!) {
+    if (isMyAccount!) {
       return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -34,12 +34,14 @@ class AccountProfile extends StatelessWidget {
                 radius: 13,
                 child: const CircleAvatar(
                     backgroundImage: NetworkImage(
-                      "",
+                      "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
                     ),
                     radius: 12)),
             Column(children: <Widget>[
               //first row with username
-              Row(children: <Widget>[TextDisplay(txt: username)]),
+              Row(children: <Widget>[
+                TextDisplay(txt: username),
+              ]),
 
               //second with follower and following counts
               Row(children: <Widget>[
@@ -60,7 +62,7 @@ class AccountProfile extends StatelessWidget {
               ])
             ]),
           ]);
-    } else if (following!) {
+    } else if (isFollowing!) {
       return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -107,7 +109,7 @@ class AccountProfile extends StatelessWidget {
                 radius: 13,
                 child: const CircleAvatar(
                     backgroundImage: NetworkImage(
-                      "",
+                      "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
                     ),
                     radius: 12)),
             Column(children: <Widget>[
