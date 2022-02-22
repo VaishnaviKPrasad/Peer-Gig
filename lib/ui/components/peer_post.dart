@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:peer_gig/ui/components/dp_username_display.dart';
+import 'package:peer_gig/ui/config/constants/colors.dart';
 import 'package:peer_gig/ui/widgets/common/post.dart';
-import '../config/constants/colors.dart';
 
-class HomeFeedPost extends StatelessWidget {
+class PeerPost extends StatelessWidget {
   final String? txt;
-  final String? dpUrl;
-  final String? username;
   final String? postDate;
-  const HomeFeedPost(
-      {Key? key,
-      @required this.txt,
-      @required this.dpUrl,
-      @required this.username,
-      @required this.postDate})
+  const PeerPost({Key? key, @required this.txt, @required this.postDate})
       : super(key: key);
 
   @override
@@ -25,10 +17,12 @@ class HomeFeedPost extends StatelessWidget {
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                DpUsernameDisplay(dpUrl: dpUrl, username: username),
                 Text(postDate!,
                     style: GoogleFonts.mallanna(
-                        color: AppColors.highlightColor, fontSize: 18))
+                      color: AppColors.highlightColor,
+                      fontSize: 18,
+                    ),
+                    textAlign: TextAlign.right)
               ]),
           Post(txt: txt)
         ]);
