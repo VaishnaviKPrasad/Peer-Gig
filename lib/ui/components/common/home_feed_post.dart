@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:peer_gig/ui/components/dp_username_display.dart';
 import 'package:peer_gig/ui/widgets/resource_sharing/post_widget.dart';
-import '../../domain/entities/resource_sharing/post.dart';
+import '../../../domain/entities/resource_sharing/post.dart';
+import 'dp_username_display.dart';
 
 class HomeFeedPost extends StatelessWidget {
   final Post? postDetails;

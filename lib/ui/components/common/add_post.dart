@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:peer_gig/ui/components/dp_username_display.dart';
-import 'package:peer_gig/ui/widgets/resource_sharing/post_widget.dart';
+import 'package:peer_gig/ui/components/common/dp_username_display.dart';
+
+import '../../widgets/resource_sharing/post_widget.dart';
 
 class AddPost extends StatelessWidget {
   final String? dpUrl;
