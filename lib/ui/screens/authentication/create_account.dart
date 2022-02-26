@@ -89,7 +89,7 @@ class _CreateAccountState extends State<CreateAccount> {
                               snapshot.hasData) {
                             List<String> data = snapshot.data;
                             return CustomDropDownButton(
-                                txt: 'Course', fields: data, filter: false);
+                                txt: 'Course', fields: data, isfilter: false);
                           }
                           return const CircularProgressIndicator();
                         },
@@ -108,7 +108,7 @@ class _CreateAccountState extends State<CreateAccount> {
                               snapshot.hasData) {
                             List<String> data = snapshot.data;
                             return CustomDropDownButton(
-                                txt: 'Branch', fields: data, filter: false);
+                                txt: 'Branch', fields: data, isfilter: false);
                           }
                           return const CircularProgressIndicator();
                         },
@@ -127,7 +127,7 @@ class _CreateAccountState extends State<CreateAccount> {
                               snapshot.hasData) {
                             List<String> data = snapshot.data;
                             return CustomDropDownButton(
-                                txt: 'Year', fields: data, filter: false);
+                                txt: 'Year', fields: data, isfilter: false);
                           }
                           return const CircularProgressIndicator();
                         },
@@ -146,7 +146,7 @@ class _CreateAccountState extends State<CreateAccount> {
                               snapshot.hasData) {
                             List<String> data = snapshot.data;
                             return CustomDropDownButton(
-                                txt: 'Company', fields: data, filter: false);
+                                txt: 'Company', fields: data, isfilter: false);
                           }
                           return const CircularProgressIndicator();
                         },
@@ -172,7 +172,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             return CustomDropDownButton(
                                 txt: 'Achievements',
                                 fields: data,
-                                filter: false);
+                                isfilter: false);
                           }
                           return const CircularProgressIndicator();
                         },
@@ -191,7 +191,7 @@ class _CreateAccountState extends State<CreateAccount> {
                               snapshot.hasData) {
                             List<String> data = snapshot.data;
                             return CustomDropDownButton(
-                                txt: 'Tech-Stack', fields: data, filter: false);
+                                txt: 'Tech-Stack', fields: data, isfilter: false);
                           }
                           return const CircularProgressIndicator();
                         },
@@ -212,7 +212,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             return CustomDropDownButton(
                                 txt: 'Ask Me About',
                                 fields: data,
-                                filter: false);
+                                isfilter: false);
                           }
                           return const CircularProgressIndicator();
                         },

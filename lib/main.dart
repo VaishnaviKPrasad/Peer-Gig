@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/ui/config/routes.dart';
+import 'package:peer_gig/ui/screens/authentication/create_account.dart';
 import 'package:peer_gig/ui/screens/authentication/sign_in_screen.dart';
 
 void main() async {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      initialRoute: SignInScreen.routeName,
+      initialRoute: CreateAccount.routeName,
       onGenerateRoute: GenerateRoutes.generateRoutes,
     );
   }
