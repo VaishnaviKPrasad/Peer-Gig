@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:peer_gig/ui/widgets/common/text_display.dart';
-import '../config/constants/colors.dart';
-import '../config/constants/peer_gig_icons.dart';
+import '../../config/constants/colors.dart';
+import '../../config/constants/peer_gig_icons.dart';
 
 class AccountProfile extends StatelessWidget {
   final String? dpUrl;

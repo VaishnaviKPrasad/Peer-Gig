@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_gig/ui/widgets/common/text_display.dart';
-import '../config/constants/colors.dart';
+import '../../config/constants/colors.dart';
 
 class DpUsernameDisplay extends StatelessWidget {
   final String? dpUrl;
