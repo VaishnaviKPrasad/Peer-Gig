@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/slot_booking/calendar_circle.dart';
+import '../../widgets/slot_booking/calendar_circle.dart';
 
 class DaysAvailable extends StatelessWidget {
   final bool? isWeekends;
