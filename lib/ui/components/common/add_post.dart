@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_gig/ui/components/dp_username_display.dart';
+import 'package:peer_gig/ui/components/common/dp_username_display.dart';
 import 'package:peer_gig/ui/widgets/common/post.dart';
 
 class AddPost extends StatelessWidget {

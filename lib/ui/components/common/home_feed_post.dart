@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:peer_gig/ui/components/dp_username_display.dart';
+import 'package:peer_gig/ui/components/common/dp_username_display.dart';
 import 'package:peer_gig/ui/widgets/common/post.dart';
-import '../config/constants/colors.dart';
+import '../../config/constants/colors.dart';
 
 class HomeFeedPost extends StatelessWidget {
   final String? txt;
