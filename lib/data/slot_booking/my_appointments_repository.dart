@@ -4,13 +4,13 @@ import '../../domain/repositories/slot_booking/my_appointments_repository_base.d
 import './single_appointment_info_repository.dart';
 
 class MyAppointmentsRepository extends MyAppointmentsRepositoryBase {
-  final CollectionReference myAppointmentsCollection =
+  final CollectionReference _myAppointmentsCollection =
       FirebaseFirestore.instance.collection('MyAppointments');
 
   // get fifteen mins appointments
   @override
   Future<List<String>> getFifteenMinsAppointments(String userId) async {
-    return await myAppointmentsCollection
+    return await _myAppointmentsCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['fifteenMinsAppointments']);
@@ -19,7 +19,7 @@ class MyAppointmentsRepository extends MyAppointmentsRepositoryBase {
   // get mock interview appointments
   @override
   Future<List<String>> getMockInterviewAppointments(String userId) async {
-    return await myAppointmentsCollection.doc(userId).get().then(
+    return await _myAppointmentsCollection.doc(userId).get().then(
         (docSnap) => (docSnap.data()! as Map)['mockInterviewAppointments']);
   }
 
@@ -32,10 +32,10 @@ class MyAppointmentsRepository extends MyAppointmentsRepositoryBase {
     String appointmentId = await SingleAppointmentInfoRepository()
         .addNewAppointment(appointmentDetails);
 
-    await myAppointmentsCollection.doc(userId1).get().then((docSnap) =>
+    await _myAppointmentsCollection.doc(userId1).get().then((docSnap) =>
         (docSnap.data()! as Map)['fifteenMinsAppointments'].add(appointmentId));
 
-    await myAppointmentsCollection.doc(userId2).get().then((docSnap) =>
+    await _myAppointmentsCollection.doc(userId2).get().then((docSnap) =>
         (docSnap.data()! as Map)['fifteenMinsAppointments'].add(appointmentId));
   }
 
@@ -48,11 +48,11 @@ class MyAppointmentsRepository extends MyAppointmentsRepositoryBase {
     String appointmentId = await SingleAppointmentInfoRepository()
         .addNewAppointment(appointmentDetails);
 
-    await myAppointmentsCollection.doc(userId1).get().then((docSnap) =>
+    await _myAppointmentsCollection.doc(userId1).get().then((docSnap) =>
         (docSnap.data()! as Map)['mockInterviewAppointments']
             .add(appointmentId));
 
-    await myAppointmentsCollection.doc(userId2).get().then((docSnap) =>
+    await _myAppointmentsCollection.doc(userId2).get().then((docSnap) =>
         (docSnap.data()! as Map)['mockInterviewAppointments']
             .add(appointmentId));
   }
@@ -63,10 +63,10 @@ class MyAppointmentsRepository extends MyAppointmentsRepositoryBase {
       {@required String? userId1,
       @required String? userId2,
       @required String? appointmentId}) async {
-    await myAppointmentsCollection.doc(userId1).get().then((docSnap) =>
+    await _myAppointmentsCollection.doc(userId1).get().then((docSnap) =>
         (docSnap.data()! as Map)['fifteenMinsAppointments']
             .remove(appointmentId));
-    await myAppointmentsCollection.doc(userId2).get().then((docSnap) =>
+    await _myAppointmentsCollection.doc(userId2).get().then((docSnap) =>
         (docSnap.data()! as Map)['fifteenMinsAppointments']
             .remove(appointmentId));
     await SingleAppointmentInfoRepository().deleteAppointment(appointmentId!);
@@ -78,10 +78,10 @@ class MyAppointmentsRepository extends MyAppointmentsRepositoryBase {
       {@required String? userId1,
       @required String? userId2,
       @required String? appointmentId}) async {
-    await myAppointmentsCollection.doc(userId1).get().then((docSnap) =>
+    await _myAppointmentsCollection.doc(userId1).get().then((docSnap) =>
         (docSnap.data()! as Map)['mockInterviewAppointments']
             .remove(appointmentId));
-    await myAppointmentsCollection.doc(userId2).get().then((docSnap) =>
+    await _myAppointmentsCollection.doc(userId2).get().then((docSnap) =>
         (docSnap.data()! as Map)['mockInterviewAppointments']
             .remove(appointmentId));
     await SingleAppointmentInfoRepository().deleteAppointment(appointmentId!);

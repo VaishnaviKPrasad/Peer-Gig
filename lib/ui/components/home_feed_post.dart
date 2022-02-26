@@ -1,34 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:peer_gig/ui/components/dp_username_display.dart';
-import 'package:peer_gig/ui/widgets/common/post.dart';
+import 'package:peer_gig/ui/widgets/resource_sharing/post_widget.dart';
+import '../../domain/entities/resource_sharing/post.dart';
 
 class HomeFeedPost extends StatelessWidget {
-  final String? txt;
-  final String? dpUrl;
-  final String? postID;
-  final String? username;
-  final String? date;
-  const HomeFeedPost(
-      {Key? key,
-      @required this.txt,
-      @required this.dpUrl,
-      @required this.username,
-      @required this.postID,
-      @required this.date})
-      : super(key: key);
+  final Post? postDetails;
+  const HomeFeedPost({Key? key, @required this.postDetails}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Post(txt: txt),
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                DpUsernameDisplay(dpUrl: dpUrl, username: username),
-                Text(postID!)
-              ])
-        ]);
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            DpUsernameDisplay(
+                dpUrl: postDetails!.dpUrl!,
+                username: postDetails!.postedByUsername!),
+            Text(postDetails!.datePosted!),
+          ],
+        ),
+        PostWidget(txt: postDetails!.body!),
+      ],
+    );
   }
 }

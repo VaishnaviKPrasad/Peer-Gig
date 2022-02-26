@@ -14,6 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           gradient: AppScreenGradient(),
         ),
@@ -21,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: const [
-            Text('Home Screen'),
+            Text("Home Screen"),
           ],
         ),
       ),

@@ -11,16 +11,20 @@ class DpUsernameDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-      CircleAvatar(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        CircleAvatar(
           backgroundColor: AppColors.primaryLight,
           radius: 13,
-          child: const CircleAvatar(
+          child: CircleAvatar(
               backgroundImage: NetworkImage(
-                "",
+                dpUrl!,
               ),
-              radius: 12)),
-      TextDisplay(txt: username)
-    ]);
+              radius: 12),
+        ),
+        TextDisplay(txt: username)
+      ],
+    );
   }
 }
