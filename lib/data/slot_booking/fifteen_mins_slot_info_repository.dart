@@ -2,26 +2,26 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
 class FifteenMinsSlotInfoRepository {
-  final CollectionReference fifteenMinsSlotInfoCollection =
+  final CollectionReference _fifteenMinsSlotInfoCollection =
       FirebaseFirestore.instance.collection('FifteenMinsSlotInfo');
 
   // get slot details
   Future<String> getDays(String userId) async {
-    return await fifteenMinsSlotInfoCollection
+    return await _fifteenMinsSlotInfoCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['days']);
   }
 
   Future<int> getStartTime(String userId) async {
-    return await fifteenMinsSlotInfoCollection
+    return await _fifteenMinsSlotInfoCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['startTime']);
   }
 
   Future<int> getEndTime(String userId) async {
-    return await fifteenMinsSlotInfoCollection
+    return await _fifteenMinsSlotInfoCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['endTime']);
@@ -31,7 +31,7 @@ class FifteenMinsSlotInfoRepository {
   Future<void> addAppointmentDetails(
       {@required String? userId,
       @required Map<String, Object>? appointmentDetails}) async {
-    await fifteenMinsSlotInfoCollection
+    await _fifteenMinsSlotInfoCollection
         .add(userId)
         .then((docRef) => docRef.set(appointmentDetails));
   }
@@ -40,11 +40,11 @@ class FifteenMinsSlotInfoRepository {
   Future<void> updateSlotInfo(
       {@required String? userId,
       @required Map<String, Object>? newDetails}) async {
-    await fifteenMinsSlotInfoCollection.doc(userId).update(newDetails!);
+    await _fifteenMinsSlotInfoCollection.doc(userId).update(newDetails!);
   }
 
   // delete the availability of user
   Future<void> deleteAppointmentDetails(String userId) async {
-    await fifteenMinsSlotInfoCollection.doc(userId).delete();
+    await _fifteenMinsSlotInfoCollection.doc(userId).delete();
   }
 }

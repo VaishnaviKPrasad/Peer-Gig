@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_gig/ui/components/common/dp_username_display.dart';
-import 'package:peer_gig/ui/widgets/common/post.dart';
+
+import '../../widgets/resource_sharing/post_widget.dart';
 
 class AddPost extends StatelessWidget {
   final String? dpUrl;
@@ -12,7 +13,7 @@ class AddPost extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
       DpUsernameDisplay(dpUrl: dpUrl, username: username),
-      const Post(txt: 'Type your post...')
+      const PostWidget(txt: 'Type your post...')
     ]);
   }
 }

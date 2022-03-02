@@ -4,8 +4,8 @@ import 'package:peer_gig/domain/entities/common/user.dart';
 import 'package:peer_gig/domain/repositories/common/user_repository_base.dart';
 
 class UserRepository extends UserRepositoryBase {
-  final CollectionReference usersCollection =
-      FirebaseFirestore.instance.collection('users');
+  final CollectionReference _usersCollection =
+      FirebaseFirestore.instance.collection('Users');
 
   @override
   Future<void> addUser(User user) async {}
@@ -15,8 +15,13 @@ class UserRepository extends UserRepositoryBase {
 
   // getter functions for user details from firestore
   @override
+  Future<String> getDpUrl(String userId) async {
+    return "";
+  }
+
+  @override
   Future<List<String>> getAchievements(String userId) async {
-    List<String> res = await usersCollection
+    List<String> res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['achievements']);
@@ -25,7 +30,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<List<String>> getAskMeAbout(String userId) async {
-    List<String> res = await usersCollection
+    List<String> res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['askMeAbout']);
@@ -34,7 +39,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<String> getBranch(String userId) async {
-    String res = await usersCollection
+    String res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['branch']);
@@ -43,7 +48,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<List<String>> getCompany(String userId) async {
-    List<String> res = await usersCollection
+    List<String> res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['company']);
@@ -52,7 +57,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<String> getEmail(String userId) async {
-    String res = await usersCollection
+    String res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['email']);
@@ -61,7 +66,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<String> getExperience(String userId) async {
-    String res = await usersCollection
+    String res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['experience']);
@@ -70,7 +75,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<String> getFullName(String userId) async {
-    String res = await usersCollection
+    String res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['fullName']);
@@ -79,7 +84,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<String> getGithub(String userId) async {
-    String res = await usersCollection
+    String res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['github']);
@@ -88,7 +93,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<String> getHeadline(String userId) async {
-    String res = await usersCollection
+    String res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['headline']);
@@ -97,7 +102,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<String> getLinkedin(String userId) async {
-    String res = await usersCollection
+    String res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['linkedin']);
@@ -106,7 +111,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<List<String>> getTechStack(String userId) async {
-    List<String> res = await usersCollection
+    List<String> res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['techStack']);
@@ -115,7 +120,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<int> getCurrentYear(String userId) async {
-    int res = await usersCollection
+    int res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['currentYear']);
@@ -124,7 +129,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<String> getCourse(String userId) async {
-    String res = await usersCollection
+    String res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['course']);
@@ -135,20 +140,20 @@ class UserRepository extends UserRepositoryBase {
   @override
   Future<void> addAchievement(
       {@required String? userId, @required String? achievement}) async {
-    await usersCollection.doc(userId).get().then(
+    await _usersCollection.doc(userId).get().then(
         (docSnap) => (docSnap.data()! as Map)['achievements'].add(achievement));
   }
 
   @override
   Future<void> addAskMeAbout(
       {@required String? userId, @required String? askMeAbout}) async {
-    await usersCollection.doc(userId).get().then(
+    await _usersCollection.doc(userId).get().then(
         (docSnap) => (docSnap.data()! as Map)['askMeAbout'].add(askMeAbout));
   }
 
   @override
   Future<void> addCompany({String? userId, String? company}) async {
-    await usersCollection
+    await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['company'].add(company));
@@ -157,14 +162,14 @@ class UserRepository extends UserRepositoryBase {
   @override
   Future<void> addTechStack(
       {@required String? userId, @required String? techStack}) async {
-    await usersCollection.doc(userId).get().then(
+    await _usersCollection.doc(userId).get().then(
         (docSnap) => (docSnap.data()! as Map)['techStack'].add(techStack));
   }
 
   // functions to update a user detail (replace the existing value with a new value)
   @override
   Future<void> updateBranch({String? userId, String? newVal}) async {
-    await usersCollection
+    await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['branch'] = newVal);
@@ -172,7 +177,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<void> updateExperience({String? userId, String? newVal}) async {
-    await usersCollection
+    await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['experience'] = newVal);
@@ -180,7 +185,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<void> updateFullName({String? userId, String? newVal}) async {
-    await usersCollection
+    await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['fullName'] = newVal);
@@ -188,7 +193,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<void> updateGithub({String? userId, String? newVal}) async {
-    await usersCollection
+    await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['github'] = newVal);
@@ -196,7 +201,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<void> updateHeadline({String? userId, String? newVal}) async {
-    await usersCollection
+    await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['headline'] = newVal);
@@ -205,7 +210,7 @@ class UserRepository extends UserRepositoryBase {
   @override
   Future<void> updateLinkedIn(
       {@required String? userId, @required String? newVal}) async {
-    await usersCollection
+    await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['linkedin'] = newVal);
@@ -214,7 +219,7 @@ class UserRepository extends UserRepositoryBase {
   @override
   Future<void> updateYear(
       {@required String? userId, @required int? newVal}) async {
-    await usersCollection
+    await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['currentYear'] = newVal);
@@ -222,7 +227,7 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<void> updateCourse({String? userId, String? newVal}) async {
-    await usersCollection
+    await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['course'] = newVal);
@@ -237,7 +242,7 @@ class UserRepository extends UserRepositoryBase {
           i == 'askMeAbout' ||
           i == 'company' ||
           i == 'techStack') {
-        QuerySnapshot querySnapshots = await usersCollection
+        QuerySnapshot querySnapshots = await _usersCollection
             .where(
               i,
               arrayContains: filters[i],
@@ -248,7 +253,7 @@ class UserRepository extends UserRepositoryBase {
           res.add(singleDoc.id);
         }
       } else {
-        QuerySnapshot querySnapshots = await usersCollection
+        QuerySnapshot querySnapshots = await _usersCollection
             .where(
               i,
               isEqualTo: filters[i],

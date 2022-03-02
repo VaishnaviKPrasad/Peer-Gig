@@ -4,13 +4,13 @@ import 'package:peer_gig/domain/entities/slot_booking/appointment.dart';
 import '../../domain/repositories/slot_booking/single_appointment_info_repository_base.dart';
 
 class SingleAppointmentInfoRepository extends SingleAppointmentRepositoryBase {
-  final CollectionReference singleAppointmentInfoCollection =
+  final CollectionReference _singleAppointmentInfoCollection =
       FirebaseFirestore.instance.collection('SingleAppointmentInfo');
 
   // get appointment details
   @override
   Future<String> getBookedWith(String appointmentId) async {
-    return await singleAppointmentInfoCollection
+    return await _singleAppointmentInfoCollection
         .doc(appointmentId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['bookedWith']);
@@ -18,7 +18,7 @@ class SingleAppointmentInfoRepository extends SingleAppointmentRepositoryBase {
 
   @override
   Future<int> getDate(String appointmentId) async {
-    return await singleAppointmentInfoCollection
+    return await _singleAppointmentInfoCollection
         .doc(appointmentId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['date']);
@@ -26,7 +26,7 @@ class SingleAppointmentInfoRepository extends SingleAppointmentRepositoryBase {
 
   @override
   Future<int> getStartTime(String appointmentId) async {
-    return await singleAppointmentInfoCollection
+    return await _singleAppointmentInfoCollection
         .doc(appointmentId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['startTime']);
@@ -34,7 +34,7 @@ class SingleAppointmentInfoRepository extends SingleAppointmentRepositoryBase {
 
   @override
   Future<int> getEndTime(String appointmentId) async {
-    return await singleAppointmentInfoCollection
+    return await _singleAppointmentInfoCollection
         .doc(appointmentId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['endTime']);
@@ -42,7 +42,7 @@ class SingleAppointmentInfoRepository extends SingleAppointmentRepositoryBase {
 
   @override
   Future<bool> getIsBookedByMe(String appointmentId) async {
-    return await singleAppointmentInfoCollection
+    return await _singleAppointmentInfoCollection
         .doc(appointmentId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['isBookedByMe']);
@@ -51,7 +51,7 @@ class SingleAppointmentInfoRepository extends SingleAppointmentRepositoryBase {
   // add new appointment
   @override
   Future<String> addNewAppointment(Map<String, Object>? map) async {
-    String appointmentId = await singleAppointmentInfoCollection
+    String appointmentId = await _singleAppointmentInfoCollection
         .add(map)
         .then((docRef) => docRef.id);
     return appointmentId;
@@ -59,7 +59,7 @@ class SingleAppointmentInfoRepository extends SingleAppointmentRepositoryBase {
 
   @override
   Future<void> deleteAppointment(String? appointmentId) async {
-    await singleAppointmentInfoCollection.doc(appointmentId).delete();
+    await _singleAppointmentInfoCollection.doc(appointmentId).delete();
   }
 
   @override

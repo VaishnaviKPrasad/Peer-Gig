@@ -1,36 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:peer_gig/ui/components/common/dp_username_display.dart';
-import 'package:peer_gig/ui/widgets/common/post.dart';
-import '../../config/constants/colors.dart';
+import 'package:peer_gig/ui/widgets/resource_sharing/post_widget.dart';
+import '../../../domain/entities/resource_sharing/post.dart';
+import 'dp_username_display.dart';
 
 class HomeFeedPost extends StatelessWidget {
-  final String? txt;
-  final String? dpUrl;
-  final String? username;
-  final String? postDate;
-  const HomeFeedPost(
-      {Key? key,
-      @required this.txt,
-      @required this.dpUrl,
-      @required this.username,
-      @required this.postDate})
-      : super(key: key);
+  final Post? postDetails;
+  const HomeFeedPost({Key? key, @required this.postDetails}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                DpUsernameDisplay(dpUrl: dpUrl, username: username),
-                Text(postDate!,
-                    style: GoogleFonts.mallanna(
-                        color: AppColors.highlightColor, fontSize: 18))
-              ]),
-          Post(txt: txt)
-        ]);
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            DpUsernameDisplay(
+                dpUrl: postDetails!.dpUrl!,
+                username: postDetails!.postedByUsername!),
+            Text(postDetails!.datePosted!),
+          ],
+        ),
+        PostWidget(txt: postDetails!.body!),
+      ],
+    );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/ui/config/routes.dart';
-import 'package:peer_gig/ui/screens/authentication/create_account.dart';
-import 'package:peer_gig/ui/screens/authentication/sign_in_screen.dart';
+import 'package:peer_gig/ui/screens/common/home_screen.dart';
+import 'package:peer_gig/ui/screens/resource_sharing/home_feed_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,9 +16,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      initialRoute: CreateAccount.routeName,
-      onGenerateRoute: GenerateRoutes.generateRoutes,
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(),
+        body: HomeFeedScreen(),
+      ),
+      // initialRoute: HomeScreen.routeName,
+      // onGenerateRoute: GenerateRoutes.generateRoutes,
     );
   }
 }

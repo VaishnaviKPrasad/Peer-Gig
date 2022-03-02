@@ -5,6 +5,7 @@ abstract class UserRepositoryBase {
   Future<void> addUser(User user);
   Future<void> deleteUser(String userId);
 
+  Future<String> getDpUrl(String userId);
   Future<List<String>> getAchievements(String userId);
   Future<List<String>> getAskMeAbout(String userId);
   Future<String> getBranch(String userId);
