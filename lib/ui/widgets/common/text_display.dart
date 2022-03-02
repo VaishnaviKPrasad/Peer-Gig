@@ -14,11 +14,11 @@ class TextDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: (isSelector == true) ? 160.0 : 100.0,
+        //width: (isSelector == true) ? 160.0 : 100.0,
         child: Padding(
           padding: (isSelector == true)
               ? const EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0)
-              : const EdgeInsets.all(0.0),
+              : const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
           child: Text(
             txt!,
             style: GoogleFonts.mallanna(

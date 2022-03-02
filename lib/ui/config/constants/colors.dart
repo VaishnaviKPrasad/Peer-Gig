@@ -7,4 +7,5 @@ class AppColors {
   static Color? primaryDark = Colors.purple[700];
   static Color? disabledColor = Colors.grey[400];
   static Color? highlightColor = Colors.white;
+  static Color? text = Colors.black;
 }

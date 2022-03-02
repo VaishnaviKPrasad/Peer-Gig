@@ -21,7 +21,9 @@ class HomeFeedPost extends StatelessWidget {
             Text(postDetails!.datePosted!),
           ],
         ),
+        const SizedBox(height: 10.0),
         PostWidget(txt: postDetails!.body!),
+        const SizedBox(height: 10.0),
       ],
     );
   }

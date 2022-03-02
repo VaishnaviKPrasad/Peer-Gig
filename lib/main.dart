@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        body: HomeFeedScreen(),
+        body: const HomeFeedScreen(),
       ),
       // initialRoute: HomeScreen.routeName,
       // onGenerateRoute: GenerateRoutes.generateRoutes,
