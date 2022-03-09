@@ -15,15 +15,16 @@ class PeerPost extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(postDate!,
-                  style: GoogleFonts.mallanna(
-                    color: AppColors.highlightColor,
-                    fontSize: 18,
-                  ),
-                  textAlign: TextAlign.right)
-            ]),
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(postDate!,
+                style: GoogleFonts.mallanna(
+                  color: AppColors.highlightColor,
+                  fontSize: 18,
+                ),
+                textAlign: TextAlign.right)
+          ],
+        ),
         PostWidget(txt: txt),
       ],
     );
