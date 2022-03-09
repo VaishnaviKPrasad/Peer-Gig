@@ -5,7 +5,6 @@ import 'package:peer_gig/ui/config/constants/gradient.dart';
 import 'package:peer_gig/ui/widgets/common/custom_button.dart';
 import 'package:peer_gig/ui/widgets/common/custome_future_builder.dart';
 import '../../widgets/authentication/custom_text_field.dart';
-import '../../widgets/common/drop_down_button.dart';
 import '../../../data/common/filter_repository.dart';
 
 class CreateAccount extends StatefulWidget {
