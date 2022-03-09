@@ -12,15 +12,20 @@ class PostWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150.0,
-      width: 300.0,
-      child: Text(
-        txt!,
-        style: GoogleFonts.mallanna(color: AppColors.primaryDark, fontSize: 16),
+      height: 175.0,
+      width: MediaQuery.of(context).size.width,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Text(
+            txt!,
+            style: GoogleFonts.mallanna(color: AppColors.text, fontSize: 16),
+          ),
+        ),
       ),
       decoration: BoxDecoration(
         color: AppColors.highlightColor,
-        border: Border.all(color: AppColors.primaryDark!, width: 1.0),
+        border: Border.all(color: AppColors.primaryDark!, width: 1.5),
         borderRadius: const BorderRadius.all(
           Radius.circular(15),
         ),

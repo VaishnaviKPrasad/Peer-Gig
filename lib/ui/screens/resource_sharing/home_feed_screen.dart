@@ -65,7 +65,7 @@ class HomeFeedPostBuilder extends StatelessWidget {
           );
         }
 
-        return Text("No data");
+        return const Text("No data");
       },
     );
   }
