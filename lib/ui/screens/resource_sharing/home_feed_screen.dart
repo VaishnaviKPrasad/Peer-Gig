@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/data/database_service.dart';
+
 import '../../../application/resource_sharing/post_app_service.dart';
 import '../../../domain/entities/resource_sharing/post.dart';
 import '../../components/common/home_feed_post.dart';
