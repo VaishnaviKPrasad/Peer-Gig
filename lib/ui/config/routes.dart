@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_gig/ui/screens/authentication/create_account.dart';
+import 'package:peer_gig/ui/screens/authentication/create_account_screen.dart';
 import 'package:peer_gig/ui/screens/authentication/sign_in_screen.dart';
 import 'package:peer_gig/ui/screens/common/error_screen.dart';
 import 'package:peer_gig/ui/screens/common/home_screen.dart';
@@ -15,9 +15,9 @@ class GenerateRoutes {
           builder: (context) => const SignInScreen(),
         );
 
-      case CreateAccount.routeName:
+      case CreateAccountScreen.routeName:
         return MaterialPageRoute(
-          builder: (context) => CreateAccount(args.toString()),
+          builder: (context) => CreateAccountScreen(args.toString()),
         );
 
       case HomeScreen.routeName:

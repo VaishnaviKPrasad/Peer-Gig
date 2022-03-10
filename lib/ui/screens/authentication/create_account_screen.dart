@@ -7,16 +7,16 @@ import '../../widgets/authentication/custom_text_field.dart';
 import '../../widgets/common/drop_down_button.dart';
 import '../../../data/common/filter_repository.dart';
 
-class CreateAccount extends StatefulWidget {
+class CreateAccountScreen extends StatefulWidget {
   static const routeName = '/createNewAccount';
   final String email;
-  const CreateAccount(this.email, {Key? key}) : super(key: key);
+  const CreateAccountScreen(this.email, {Key? key}) : super(key: key);
 
   @override
-  _CreateAccountState createState() => _CreateAccountState();
+  _CreateAccountScreenState createState() => _CreateAccountScreenState();
 }
 
-class _CreateAccountState extends State<CreateAccount> {
+class _CreateAccountScreenState extends State<CreateAccountScreen> {
   FilterRepository obj = FilterRepository();
 
   @override
@@ -191,7 +191,9 @@ class _CreateAccountState extends State<CreateAccount> {
                               snapshot.hasData) {
                             List<String> data = snapshot.data;
                             return CustomDropDownButton(
-                                txt: 'Tech-Stack', fields: data, isfilter: false);
+                                txt: 'Tech-Stack',
+                                fields: data,
+                                isfilter: false);
                           }
                           return const CircularProgressIndicator();
                         },
