@@ -5,7 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 class CustomTextField extends StatelessWidget {
   final String? txt;
   final bool? password;
-  const CustomTextField({Key? key, required this.txt, required this.password}) : super(key: key);
+  const CustomTextField({Key? key, required this.txt, required this.password})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +62,6 @@ class CustomTextField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            style: GoogleFonts.mallanna(
-              color: AppColors.primaryDark,
-              fontSize: 15,
-              fontWeight: FontWeight.normal,
-            )
-        );        
+          );
   }
 }

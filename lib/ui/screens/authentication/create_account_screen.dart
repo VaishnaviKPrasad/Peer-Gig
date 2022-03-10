@@ -7,16 +7,16 @@ import 'package:peer_gig/ui/widgets/common/custome_future_builder.dart';
 import '../../widgets/authentication/custom_text_field.dart';
 import '../../../data/common/filter_repository.dart';
 
-class CreateAccount extends StatefulWidget {
+class CreateAccountScreen extends StatefulWidget {
   static const routeName = '/createNewAccount';
   final String email;
-  const CreateAccount(this.email, {Key? key}) : super(key: key);
+  const CreateAccountScreen(this.email, {Key? key}) : super(key: key);
 
   @override
-  _CreateAccountState createState() => _CreateAccountState();
+  _CreateAccountScreenState createState() => _CreateAccountScreenState();
 }
 
-class _CreateAccountState extends State<CreateAccount> {
+class _CreateAccountScreenState extends State<CreateAccountScreen> {
   FilterRepository obj = FilterRepository();
 
   @override
@@ -76,24 +76,45 @@ class _CreateAccountState extends State<CreateAccount> {
                         password: false,
                       ),
                       const SizedBox(height: 20.0),
-                      CustomFutureBuilder(obj: obj.getCourseList(), txt: 'Course',),
+                      CustomFutureBuilder(
+                        obj: obj.getCourseList(),
+                        txt: 'Course',
+                      ),
                       const SizedBox(height: 20.0),
-                      CustomFutureBuilder(obj: obj.getBranchList(), txt: 'Branch',),
+                      CustomFutureBuilder(
+                        obj: obj.getBranchList(),
+                        txt: 'Branch',
+                      ),
                       const SizedBox(height: 20.0),
-                      CustomFutureBuilder(obj: obj.getYearList(), txt: 'Year',),
+                      CustomFutureBuilder(
+                        obj: obj.getYearList(),
+                        txt: 'Year',
+                      ),
                       const SizedBox(height: 20.0),
-                      CustomFutureBuilder(obj: obj.getCompanyList(), txt: 'Course',),
+                      CustomFutureBuilder(
+                        obj: obj.getCompanyList(),
+                        txt: 'Course',
+                      ),
                       const SizedBox(height: 20.0),
                       const CustomTextField(
                         txt: 'Experience',
                         password: false,
                       ),
                       const SizedBox(height: 20.0),
-                      CustomFutureBuilder(obj: obj.getAchievementsList(), txt: 'Achievements',),
+                      CustomFutureBuilder(
+                        obj: obj.getAchievementsList(),
+                        txt: 'Achievements',
+                      ),
                       const SizedBox(height: 20.0),
-                      CustomFutureBuilder(obj: obj.getTechStackList(), txt: 'Tech-Stack',),
+                      CustomFutureBuilder(
+                        obj: obj.getTechStackList(),
+                        txt: 'Tech-Stack',
+                      ),
                       const SizedBox(height: 20.0),
-                      CustomFutureBuilder(obj: obj.getAskMeAboutList(), txt: 'Ask me About',),
+                      CustomFutureBuilder(
+                        obj: obj.getAskMeAboutList(),
+                        txt: 'Ask me About',
+                      ),
                       const SizedBox(height: 20.0),
                       const CustomTextField(
                         txt: 'LinkedIn Profile',

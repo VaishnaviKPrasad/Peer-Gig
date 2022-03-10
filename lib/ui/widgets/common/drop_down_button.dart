@@ -9,17 +9,18 @@ class CustomDropDownButton extends StatefulWidget {
   String? currentValue;
   bool isfilter;
 
-  CustomDropDownButton(
-      {Key? key, required this.txt, required this.fields, required this.isfilter,})
-      : super(key: key);
-      
+  CustomDropDownButton({
+    Key? key,
+    required this.txt,
+    required this.fields,
+    required this.isfilter,
+  }) : super(key: key);
 
   @override
   _CustomDropDownButtonState createState() => _CustomDropDownButtonState();
 }
 
 class _CustomDropDownButtonState extends State<CustomDropDownButton> {
-  
   @override
   Widget build(BuildContext context) {
     //widget.fields?.add('Other');
@@ -46,7 +47,9 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
               color: AppColors.primaryDark!,
               width: 1.0,
             ),
-            borderRadius: (widget.isfilter) ? BorderRadius.circular(30) : BorderRadius.circular(10),
+            borderRadius: (widget.isfilter)
+                ? BorderRadius.circular(30)
+                : BorderRadius.circular(10),
           ),
           hintText: 'Enter ${widget.txt}',
           hintStyle: GoogleFonts.mallanna(
@@ -59,14 +62,18 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
               color: AppColors.primaryDark!,
               width: 2.0,
             ),
-            borderRadius: (widget.isfilter) ? BorderRadius.circular(30) : BorderRadius.circular(10),
+            borderRadius: (widget.isfilter)
+                ? BorderRadius.circular(30)
+                : BorderRadius.circular(10),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
               color: AppColors.primaryDark!,
               width: 2.0,
             ),
-            borderRadius: (widget.isfilter) ? BorderRadius.circular(30) : BorderRadius.circular(10),
+            borderRadius: (widget.isfilter)
+                ? BorderRadius.circular(30)
+                : BorderRadius.circular(10),
           ),
         ),
         isEmpty: widget.currentValue == '',
@@ -74,12 +81,14 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
           child: DropdownButton<String>(
             itemHeight: null,
             isDense: true,
-            hint: Text('Select ${widget.txt}',
+            hint: Text(
+              'Select ${widget.txt}',
               style: GoogleFonts.mallanna(
                 color: AppColors.primaryDark,
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
-              )),
+              ),
+            ),
             items: widget.fields?.map((String dropdownStringItem) {
               return DropdownMenuItem<String>(
                 value: dropdownStringItem,
