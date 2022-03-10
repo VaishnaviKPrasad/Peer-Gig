@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:peer_gig/ui/config/constants/colors.dart';
 import 'package:peer_gig/ui/config/constants/gradient.dart';
 import 'package:peer_gig/ui/widgets/common/custom_button.dart';
+import 'package:peer_gig/ui/widgets/common/custome_future_builder.dart';
 import '../../widgets/authentication/custom_text_field.dart';
-import '../../widgets/common/drop_down_button.dart';
 import '../../../data/common/filter_repository.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -76,147 +76,24 @@ class _CreateAccountState extends State<CreateAccount> {
                         password: false,
                       ),
                       const SizedBox(height: 20.0),
-                      FutureBuilder(
-                        future: obj.getCourseList(),
-                        builder: (BuildContext context,
-                            AsyncSnapshot<dynamic> snapshot) {
-                          if (snapshot.hasError) {
-                            return Text(snapshot.error.toString());
-                            //return const Text("Something went wrong");
-                          }
-                          if (snapshot.connectionState ==
-                                  ConnectionState.done ||
-                              snapshot.hasData) {
-                            List<String> data = snapshot.data;
-                            return CustomDropDownButton(
-                                txt: 'Course', fields: data, isfilter: false);
-                          }
-                          return const CircularProgressIndicator();
-                        },
-                      ),
+                      CustomFutureBuilder(obj: obj.getCourseList(), txt: 'Course',),
                       const SizedBox(height: 20.0),
-                      FutureBuilder(
-                        future: obj.getBranchList(),
-                        builder: (BuildContext context,
-                            AsyncSnapshot<dynamic> snapshot) {
-                          if (snapshot.hasError) {
-                            return Text(snapshot.error.toString());
-                            //return const Text("Something went wrong");
-                          }
-                          if (snapshot.connectionState ==
-                                  ConnectionState.done ||
-                              snapshot.hasData) {
-                            List<String> data = snapshot.data;
-                            return CustomDropDownButton(
-                                txt: 'Branch', fields: data, isfilter: false);
-                          }
-                          return const CircularProgressIndicator();
-                        },
-                      ),
+                      CustomFutureBuilder(obj: obj.getBranchList(), txt: 'Branch',),
                       const SizedBox(height: 20.0),
-                      FutureBuilder(
-                        future: obj.getYearList(),
-                        builder: (BuildContext context,
-                            AsyncSnapshot<dynamic> snapshot) {
-                          if (snapshot.hasError) {
-                            return Text(snapshot.error.toString());
-                            //return const Text("Something went wrong");
-                          }
-                          if (snapshot.connectionState ==
-                                  ConnectionState.done ||
-                              snapshot.hasData) {
-                            List<String> data = snapshot.data;
-                            return CustomDropDownButton(
-                                txt: 'Year', fields: data, isfilter: false);
-                          }
-                          return const CircularProgressIndicator();
-                        },
-                      ),
+                      CustomFutureBuilder(obj: obj.getYearList(), txt: 'Year',),
                       const SizedBox(height: 20.0),
-                      FutureBuilder(
-                        future: obj.getCompanyList(),
-                        builder: (BuildContext context,
-                            AsyncSnapshot<dynamic> snapshot) {
-                          if (snapshot.hasError) {
-                            return Text(snapshot.error.toString());
-                            //return const Text("Something went wrong");
-                          }
-                          if (snapshot.connectionState ==
-                                  ConnectionState.done ||
-                              snapshot.hasData) {
-                            List<String> data = snapshot.data;
-                            return CustomDropDownButton(
-                                txt: 'Company', fields: data, isfilter: false);
-                          }
-                          return const CircularProgressIndicator();
-                        },
-                      ),
+                      CustomFutureBuilder(obj: obj.getCompanyList(), txt: 'Course',),
                       const SizedBox(height: 20.0),
                       const CustomTextField(
                         txt: 'Experience',
                         password: false,
                       ),
                       const SizedBox(height: 20.0),
-                      FutureBuilder(
-                        future: obj.getAchievementsList(),
-                        builder: (BuildContext context,
-                            AsyncSnapshot<dynamic> snapshot) {
-                          if (snapshot.hasError) {
-                            return Text(snapshot.error.toString());
-                            //return const Text("Something went wrong");
-                          }
-                          if (snapshot.connectionState ==
-                                  ConnectionState.done ||
-                              snapshot.hasData) {
-                            List<String> data = snapshot.data;
-                            return CustomDropDownButton(
-                                txt: 'Achievements',
-                                fields: data,
-                                isfilter: false);
-                          }
-                          return const CircularProgressIndicator();
-                        },
-                      ),
+                      CustomFutureBuilder(obj: obj.getAchievementsList(), txt: 'Achievements',),
                       const SizedBox(height: 20.0),
-                      FutureBuilder(
-                        future: obj.getTechStackList(),
-                        builder: (BuildContext context,
-                            AsyncSnapshot<dynamic> snapshot) {
-                          if (snapshot.hasError) {
-                            return Text(snapshot.error.toString());
-                            //return const Text("Something went wrong");
-                          }
-                          if (snapshot.connectionState ==
-                                  ConnectionState.done ||
-                              snapshot.hasData) {
-                            List<String> data = snapshot.data;
-                            return CustomDropDownButton(
-                                txt: 'Tech-Stack', fields: data, isfilter: false);
-                          }
-                          return const CircularProgressIndicator();
-                        },
-                      ),
+                      CustomFutureBuilder(obj: obj.getTechStackList(), txt: 'Tech-Stack',),
                       const SizedBox(height: 20.0),
-                      FutureBuilder(
-                        future: obj.getAskMeAboutList(),
-                        builder: (BuildContext context,
-                            AsyncSnapshot<dynamic> snapshot) {
-                          if (snapshot.hasError) {
-                            return Text(snapshot.error.toString());
-                            //return const Text("Something went wrong");
-                          }
-                          if (snapshot.connectionState ==
-                                  ConnectionState.done ||
-                              snapshot.hasData) {
-                            List<String> data = snapshot.data;
-                            return CustomDropDownButton(
-                                txt: 'Ask Me About',
-                                fields: data,
-                                isfilter: false);
-                          }
-                          return const CircularProgressIndicator();
-                        },
-                      ),
+                      CustomFutureBuilder(obj: obj.getAskMeAboutList(), txt: 'Ask me About',),
                       const SizedBox(height: 20.0),
                       const CustomTextField(
                         txt: 'LinkedIn Profile',
