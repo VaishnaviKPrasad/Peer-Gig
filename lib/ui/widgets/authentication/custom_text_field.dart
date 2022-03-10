@@ -9,7 +9,10 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+            validator: (String? value){
+              return (value == null) ? 'This field cannot be empty' : null;
+            },
             textAlign: TextAlign.start, 
             textAlignVertical: TextAlignVertical.center,
             obscureText: (password!) ? true : false,
