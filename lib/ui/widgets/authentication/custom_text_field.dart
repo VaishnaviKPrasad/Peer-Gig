@@ -10,21 +10,22 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: (String? value) {
+        return (value == null) ? 'This field cannot be empty' : null;
+      },
       textAlign: TextAlign.start,
       textAlignVertical: TextAlignVertical.center,
       obscureText: (password!) ? true : false,
       decoration: InputDecoration(
         floatingLabelBehavior: FloatingLabelBehavior.never,
         isDense: true,
-        label: Text(
-          txt!,
-          style: GoogleFonts.mallanna(
-            color: AppColors.primaryDark,
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        label: Text(txt!,
+            style: GoogleFonts.mallanna(
+              color: AppColors.primaryDark,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            )),
         labelStyle: GoogleFonts.mallanna(
           color: AppColors.primaryDark,
           fontSize: 20,
@@ -59,11 +60,6 @@ class CustomTextField extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(10),
         ),
-      ),
-      style: GoogleFonts.mallanna(
-        color: AppColors.primaryDark,
-        fontSize: 15,
-        fontWeight: FontWeight.normal,
       ),
     );
   }
