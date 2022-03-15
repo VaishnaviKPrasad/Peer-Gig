@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/ui/config/routes.dart';
+import 'package:peer_gig/ui/screens/authentication/create_account_screen.dart';
 import 'package:peer_gig/ui/screens/common/home_screen.dart';
 import 'package:peer_gig/ui/screens/resource_sharing/home_feed_screen.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        body: const HomeFeedScreen(),
+        body: const CreateAccountScreen("sargam123india@gmail.com"),
       ),
       // initialRoute: HomeScreen.routeName,
       // onGenerateRoute: GenerateRoutes.generateRoutes,

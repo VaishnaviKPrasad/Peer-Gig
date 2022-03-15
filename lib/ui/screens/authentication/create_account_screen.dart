@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:multi_select_flutter/dialog/multi_select_dialog_field.dart';
+import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:peer_gig/ui/config/constants/colors.dart';
 import 'package:peer_gig/ui/config/constants/gradient.dart';
+import 'package:peer_gig/ui/widgets/authentication/custom_multi_selector_future_builder.dart';
 import 'package:peer_gig/ui/widgets/common/custom_button.dart';
-import 'package:peer_gig/ui/widgets/common/custome_future_builder.dart';
+import 'package:peer_gig/ui/widgets/common/custom_future_builder.dart';
 import '../../widgets/authentication/custom_text_field.dart';
 import '../../../data/common/filter_repository.dart';
 
@@ -17,7 +20,22 @@ class CreateAccountScreen extends StatefulWidget {
 }
 
 class _CreateAccountScreenState extends State<CreateAccountScreen> {
-  FilterRepository obj = FilterRepository();
+  final FilterRepository obj = FilterRepository();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _headlineController = TextEditingController();
+  final TextEditingController _experienceController = TextEditingController();
+  final TextEditingController _linkedinController = TextEditingController();
+  final TextEditingController _githubController = TextEditingController();
+
+  String? _validateFullName(String? val) {
+    if (val == null || val.trim().isEmpty || val.trim().length > 30) {
+      return "Please enter a correct value. The value should be upto 30 characters only.";
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,82 +72,83 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   ),
                   const SizedBox(height: 20.0),
                   Form(
-                      child: Column(
-                    children: [
-                      const CustomTextField(
-                        txt: 'Full Name',
-                        password: false,
-                      ),
-                      const SizedBox(height: 20.0),
-                      const CustomTextField(
-                        txt: 'Email Id',
-                        password: false,
-                      ),
-                      const SizedBox(height: 20.0),
-                      const CustomTextField(
-                        txt: 'Password',
-                        password: true,
-                      ),
-                      const SizedBox(height: 20.0),
-                      const CustomTextField(
-                        txt: 'Headline',
-                        password: false,
-                      ),
-                      const SizedBox(height: 20.0),
-                      CustomFutureBuilder(
-                        obj: obj.getCourseList(),
-                        txt: 'Course',
-                      ),
-                      const SizedBox(height: 20.0),
-                      CustomFutureBuilder(
-                        obj: obj.getBranchList(),
-                        txt: 'Branch',
-                      ),
-                      const SizedBox(height: 20.0),
-                      CustomFutureBuilder(
-                        obj: obj.getYearList(),
-                        txt: 'Year',
-                      ),
-                      const SizedBox(height: 20.0),
-                      CustomFutureBuilder(
-                        obj: obj.getCompanyList(),
-                        txt: 'Course',
-                      ),
-                      const SizedBox(height: 20.0),
-                      const CustomTextField(
-                        txt: 'Experience',
-                        password: false,
-                      ),
-                      const SizedBox(height: 20.0),
-                      CustomFutureBuilder(
-                        obj: obj.getAchievementsList(),
-                        txt: 'Achievements',
-                      ),
-                      const SizedBox(height: 20.0),
-                      CustomFutureBuilder(
-                        obj: obj.getTechStackList(),
-                        txt: 'Tech-Stack',
-                      ),
-                      const SizedBox(height: 20.0),
-                      CustomFutureBuilder(
-                        obj: obj.getAskMeAboutList(),
-                        txt: 'Ask me About',
-                      ),
-                      const SizedBox(height: 20.0),
-                      const CustomTextField(
-                        txt: 'LinkedIn Profile',
-                        password: false,
-                      ),
-                      const SizedBox(height: 20.0),
-                      const CustomTextField(
-                        txt: 'Github Profile',
-                        password: false,
-                      ),
-                      const SizedBox(height: 20.0),
-                      const CustomButton(txt: 'Create Account'),
-                      const SizedBox(height: 20.0),
-                    ],
-                  )),
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        CustomTextField(
+                          txt: 'Full Name',
+                          maxLength: 30,
+                          validatorFunc: _validateFullName,
+                          textController: _fullNameController,
+                        ),
+                        const SizedBox(height: 20.0),
+                        CustomTextField(
+                          txt: 'Email Id',
+                          textController: _emailController,
+                        ),
+                        const SizedBox(height: 20.0),
+                        CustomTextField(
+                          txt: 'Headline',
+                          maxLength: 150,
+                          textController: _headlineController,
+                        ),
+                        const SizedBox(height: 20.0),
+                        CustomFutureBuilder(
+                          obj: obj.getCourseList(),
+                          txt: 'Course',
+                        ),
+                        const SizedBox(height: 20.0),
+                        CustomFutureBuilder(
+                          obj: obj.getBranchList(),
+                          txt: 'Branch',
+                        ),
+                        const SizedBox(height: 20.0),
+                        CustomFutureBuilder(
+                          obj: obj.getYearList(),
+                          txt: 'Year',
+                        ),
+                        const SizedBox(height: 20.0),
+                        CustomMultiSelectorFutureBuilder(
+                          obj: obj.getCompanyList(),
+                          txt: 'Company',
+                        ),
+                        const SizedBox(height: 20.0),
+                        CustomTextField(
+                          txt: 'Experience',
+                          maxLength: 2000,
+                          textController: _experienceController,
+                        ),
+                        const SizedBox(height: 20.0),
+                        CustomMultiSelectorFutureBuilder(
+                          obj: obj.getAchievementsList(),
+                          txt: 'Achievements',
+                        ),
+                        const SizedBox(height: 20.0),
+                        CustomMultiSelectorFutureBuilder(
+                          obj: obj.getTechStackList(),
+                          txt: 'Tech-Stack',
+                        ),
+                        const SizedBox(height: 20.0),
+                        CustomMultiSelectorFutureBuilder(
+                          obj: obj.getAskMeAboutList(),
+                          txt: 'Ask me About',
+                        ),
+                        const SizedBox(height: 20.0),
+                        CustomTextField(
+                          txt: 'LinkedIn Profile',
+                          textController: _linkedinController,
+                        ),
+                        const SizedBox(height: 20.0),
+                        CustomTextField(
+                          txt: 'Github Profile',
+                          textController: _githubController,
+                        ),
+                        const SizedBox(height: 20.0),
+                        const CustomButton(txt: 'Create Account'),
+                        const SizedBox(height: 20.0),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -19,12 +19,14 @@ class SignInButton extends StatelessWidget {
         FontAwesomeIcons.google,
         color: Color.fromARGB(255, 179, 148, 36),
       ),
-      label: Text(txt!,
-          style: GoogleFonts.mallanna(
-            color: AppColors.primaryDark,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          )),
+      label: Text(
+        txt!,
+        style: GoogleFonts.mallanna(
+          color: AppColors.primaryDark,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       style: ElevatedButton.styleFrom(
         primary: AppColors.primaryLight,
         shape: RoundedRectangleBorder(

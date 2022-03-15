@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
 class CustomDropDownButton extends StatefulWidget {
-  final List<String>? fields;
-  String txt;
+  final List<String> fields;
+  final String txt;
   String? currentValue;
-  bool isfilter;
+  final bool isfilter;
 
   CustomDropDownButton({
     Key? key,
@@ -89,7 +89,7 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            items: widget.fields?.map((String dropdownStringItem) {
+            items: widget.fields.map((String dropdownStringItem) {
               return DropdownMenuItem<String>(
                 value: dropdownStringItem,
                 child: Text(
@@ -120,3 +120,29 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
     });
   }
 }
+
+/*
+  
+
+  late List<MultiSelectItem<String?>> _items;
+  late List<String> _selectedItems = [];
+
+  @override
+  void initState() {
+    _items =
+        widget.fields.map((val) => MultiSelectItem<String?>(val, val)).toList();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiSelectDialogField(
+      items: _items,
+      onConfirm: (values) {
+        _selectedItems = values as List<String>;
+      },
+      buttonText: Text(widget.txt),
+      title: Text(widget.txt),
+    );
+  }
+  */

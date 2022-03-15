@@ -3,29 +3,37 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextField extends StatelessWidget {
-  final String? txt;
-  final bool? password;
-  const CustomTextField({Key? key, required this.txt, required this.password})
+  final String txt;
+  final int? maxLength;
+  final String? Function(String?)? validatorFunc;
+  final TextEditingController textController;
+  const CustomTextField(
+      {Key? key,
+      required this.txt,
+      this.maxLength,
+      this.validatorFunc,
+      required this.textController})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: (String? value) {
-        return (value == null) ? 'This field cannot be empty' : null;
-      },
+      controller: textController,
+      maxLength: maxLength,
+      validator: validatorFunc,
       textAlign: TextAlign.start,
       textAlignVertical: TextAlignVertical.center,
-      obscureText: (password!) ? true : false,
       decoration: InputDecoration(
         floatingLabelBehavior: FloatingLabelBehavior.never,
         isDense: true,
-        label: Text(txt!,
-            style: GoogleFonts.mallanna(
-              color: AppColors.primaryDark,
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-            )),
+        label: Text(
+          txt,
+          style: GoogleFonts.mallanna(
+            color: AppColors.primaryDark,
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         labelStyle: GoogleFonts.mallanna(
           color: AppColors.primaryDark,
           fontSize: 20,
