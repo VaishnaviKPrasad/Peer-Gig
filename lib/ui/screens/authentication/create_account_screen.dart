@@ -32,9 +32,21 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
   String? _validateFullName(String? val) {
     if (val == null || val.trim().isEmpty || val.trim().length > 30) {
-      return "Please enter a correct value. The value should be upto 30 characters only.";
+      return "The value should be upto 30 characters.";
     }
     return null;
+  }
+
+  String? _validateDropDownFields(dynamic val) {
+    print("########### Value Passed by drop down: $val");
+    if (val == null) {
+      return "This field is required";
+    }
+    return null;
+  }
+
+  void _onSubmitForm() {
+    if (_formKey.currentState!.validate()) {}
   }
 
   @override
@@ -96,16 +108,19 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         CustomFutureBuilder(
                           obj: obj.getCourseList(),
                           txt: 'Course',
+                          validatorFunc: _validateDropDownFields,
                         ),
                         const SizedBox(height: 20.0),
                         CustomFutureBuilder(
                           obj: obj.getBranchList(),
                           txt: 'Branch',
+                          validatorFunc: _validateDropDownFields,
                         ),
                         const SizedBox(height: 20.0),
                         CustomFutureBuilder(
                           obj: obj.getYearList(),
                           txt: 'Year',
+                          validatorFunc: _validateDropDownFields,
                         ),
                         const SizedBox(height: 20.0),
                         CustomMultiSelectorFutureBuilder(
@@ -144,7 +159,10 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           textController: _githubController,
                         ),
                         const SizedBox(height: 20.0),
-                        const CustomButton(txt: 'Create Account'),
+                        CustomButton(
+                          txt: 'Create Account',
+                          onPressedFunc: _onSubmitForm,
+                        ),
                         const SizedBox(height: 20.0),
                       ],
                     ),
