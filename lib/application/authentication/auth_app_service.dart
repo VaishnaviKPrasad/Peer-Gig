@@ -36,4 +36,8 @@ class AuthAppService {
       );
     }
   }
+
+  String? getEmailOfUser() {
+    return AuthRepository().getEmailOfUser();
+  }
 }

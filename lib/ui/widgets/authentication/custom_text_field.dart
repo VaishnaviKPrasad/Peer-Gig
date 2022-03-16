@@ -6,12 +6,14 @@ class CustomTextField extends StatelessWidget {
   final String txt;
   final int? maxLength;
   final String? Function(String?)? validatorFunc;
+  final void Function(String?)? onSavedFunc;
   final TextEditingController textController;
   const CustomTextField(
       {Key? key,
       required this.txt,
       this.maxLength,
       this.validatorFunc,
+      required this.onSavedFunc,
       required this.textController})
       : super(key: key);
 
@@ -21,6 +23,7 @@ class CustomTextField extends StatelessWidget {
       controller: textController,
       maxLength: maxLength,
       validator: validatorFunc,
+      onSaved: onSavedFunc,
       textAlign: TextAlign.start,
       textAlignVertical: TextAlignVertical.center,
       decoration: InputDecoration(

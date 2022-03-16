@@ -41,7 +41,13 @@ class AuthRepository extends AuthRepositoryBase {
     }
   }
 
+  @override
   Future<void> signOut() async {
     GoogleSignIn().disconnect();
+  }
+
+  @override
+  String? getEmailOfUser() {
+    return FirebaseAuth.instance.currentUser?.email;
   }
 }

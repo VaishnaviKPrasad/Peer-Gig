@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../config/constants/colors.dart';
 
-class TextDisplay extends StatelessWidget {
+class CustomTextDisplay extends StatelessWidget {
   final String? txt;
   final bool? isSelector;
-  const TextDisplay({
+  const CustomTextDisplay({
     Key? key,
     @required this.txt,
     @required this.isSelector,
@@ -14,7 +14,7 @@ class TextDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        //width: (isSelector == true) ? 160.0 : 100.0,
+      //width: (isSelector == true) ? 160.0 : 100.0,
       child: Padding(
         padding: (isSelector == true)
             ? const EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0)
@@ -25,8 +25,7 @@ class TextDisplay extends StatelessWidget {
             color: AppColors.primaryDark,
             fontSize: 18,
           ),
-          textAlign:
-              (isSelector == true) ? TextAlign.start : TextAlign.center,
+          textAlign: (isSelector == true) ? TextAlign.start : TextAlign.center,
         ),
       ),
       decoration: BoxDecoration(

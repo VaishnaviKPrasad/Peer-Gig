@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:multi_select_flutter/dialog/multi_select_dialog_field.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
-import 'package:peer_gig/ui/widgets/authentication/custom_text_field.dart';
 import 'package:textfield_tags/textfield_tags.dart';
 
 class CustomMultiSelectorFieldWidget extends StatefulWidget {
   final List<String> fields;
   final String displayText;
+  final void Function(List<String?>) onSavedFunc;
   const CustomMultiSelectorFieldWidget(
-      {Key? key, required this.displayText, required this.fields})
+      {Key? key,
+      required this.displayText,
+      required this.fields,
+      required this.onSavedFunc})
       : super(key: key);
 
   @override
@@ -20,6 +23,9 @@ class _CustomMultiSelectorFieldWidgetState
     extends State<CustomMultiSelectorFieldWidget> {
   late List<MultiSelectItem<String?>> _items;
   bool _isOtherSelected = false;
+
+  List<String?> _selectedValues = [];
+  List<String?> _tagValues = [];
   @override
   void initState() {
     _items =
@@ -34,9 +40,15 @@ class _CustomMultiSelectorFieldWidgetState
       children: [
         MultiSelectDialogField(
           items: _items,
+          onSaved: (_) {
+            if (_isOtherSelected) {
+              _selectedValues.addAll(_tagValues);
+            }
+            widget.onSavedFunc(_selectedValues);
+          },
           onConfirm: (values) {
-            if ((values as List<String?>)
-                .any((element) => (element?.compareTo("Other") == 0))) {
+            _selectedValues = values as List<String?>;
+            if ((values).any((element) => (element?.compareTo("Other") == 0))) {
               setState(() {
                 _isOtherSelected = true;
               });
@@ -52,18 +64,23 @@ class _CustomMultiSelectorFieldWidgetState
         if (_isOtherSelected)
           TextFieldTags(
               letterCase: LetterCase.none,
-              textSeparators: [','],
+              textSeparators: const [','],
               tagsStyler: TagsStyler(),
               textFieldStyler: TextFieldStyler(),
-              onTag: (_) {},
-              onDelete: (_) {}),
+              validator: (val) {
+                if (widget.fields.any((element) =>
+                    element.toLowerCase().compareTo(val.toLowerCase()) == 0)) {
+                  return "This value is already present in the drop down above.";
+                }
+                return null;
+              },
+              onTag: (val) {
+                _tagValues.add(val);
+              },
+              onDelete: (val) {
+                _tagValues.remove(val);
+              }),
       ],
     );
   }
 }
-/*
-CustomTextField(
-              txt:
-                  "You chose 'Other'. Enter your desired ${widget.displayText}.",
-              textController: TextEditingController()),
-              */

@@ -4,8 +4,12 @@ import 'package:peer_gig/ui/widgets/authentication/custom_multi_selector_field_w
 class CustomMultiSelectorFutureBuilder extends StatelessWidget {
   final Future<List<String>>? obj;
   final String? txt;
+  final void Function(List<String?>) onSavedFunc;
   const CustomMultiSelectorFutureBuilder(
-      {Key? key, required this.obj, required this.txt})
+      {Key? key,
+      required this.obj,
+      required this.txt,
+      required this.onSavedFunc})
       : super(key: key);
 
   @override
@@ -20,7 +24,10 @@ class CustomMultiSelectorFutureBuilder extends StatelessWidget {
             snapshot.hasData) {
           List<String> data = snapshot.data;
           return CustomMultiSelectorFieldWidget(
-              displayText: txt!, fields: data);
+            displayText: txt!,
+            fields: data,
+            onSavedFunc: onSavedFunc,
+          );
         }
         return const CircularProgressIndicator();
       },

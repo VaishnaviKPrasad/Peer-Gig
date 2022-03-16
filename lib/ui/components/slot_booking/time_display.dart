@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_gig/ui/widgets/common/text_display.dart';
+import 'package:peer_gig/ui/widgets/common/custom_text_display.dart';
 
 import '../../config/constants/colors.dart';
 
@@ -15,7 +15,7 @@ class TimeDisplay extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        TextDisplay(txt: startTime.toString()),
+        CustomTextDisplay(txt: startTime.toString()),
         Container(
             color: AppColors.primaryLight,
             height: 3.0,
@@ -23,7 +23,7 @@ class TimeDisplay extends StatelessWidget {
             decoration: BoxDecoration(
                 border: Border.all(color: AppColors.primaryDark!, width: 1.0),
                 borderRadius: const BorderRadius.all(Radius.circular(15)))),
-        TextDisplay(txt: endTime.toString())
+        CustomTextDisplay(txt: endTime.toString())
       ],
     );
   }

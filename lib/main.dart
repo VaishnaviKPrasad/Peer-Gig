@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/ui/config/routes.dart';
 import 'package:peer_gig/ui/screens/authentication/create_account_screen.dart';
+import 'package:peer_gig/ui/screens/authentication/sign_in_screen.dart';
 import 'package:peer_gig/ui/screens/common/home_screen.dart';
 import 'package:peer_gig/ui/screens/resource_sharing/home_feed_screen.dart';
 
@@ -20,10 +22,26 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        body: const CreateAccountScreen("sargam123india@gmail.com"),
+        body: StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (BuildContext context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const CircularProgressIndicator();
+              }
+              if (snapshot.hasError) {
+                return SnackBar(
+                  content: Text(snapshot.error.toString()),
+                );
+              }
+              if (snapshot.hasData) {
+                return const HomeScreen();
+              } else {
+                return const SignInScreen();
+              }
+            }),
       ),
-      // initialRoute: HomeScreen.routeName,
-      // onGenerateRoute: GenerateRoutes.generateRoutes,
+      // initialRoute: SignInScreen.routeName,
+      onGenerateRoute: GenerateRoutes.generateRoutes,
     );
   }
 }

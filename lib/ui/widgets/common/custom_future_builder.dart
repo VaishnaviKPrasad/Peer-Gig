@@ -5,12 +5,14 @@ import 'package:peer_gig/ui/widgets/common/custom_drop_down_button.dart';
 class CustomFutureBuilder extends StatelessWidget {
   Future<List<String>>? obj;
   String? txt;
-  final String? Function(dynamic)? validatorFunc;
+  final String? Function(String?)? validatorFunc;
+  final void Function(String?)? onSavedFunc;
   CustomFutureBuilder(
       {Key? key,
       required this.obj,
       required this.txt,
-      required this.validatorFunc})
+      required this.validatorFunc,
+      required this.onSavedFunc})
       : super(key: key);
 
   @override
@@ -30,6 +32,7 @@ class CustomFutureBuilder extends StatelessWidget {
             fields: data,
             isfilter: false,
             validatorFunc: validatorFunc,
+            onSavedFunc: onSavedFunc,
           );
         }
         return const CircularProgressIndicator();

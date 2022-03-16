@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:peer_gig/ui/widgets/common/text_display.dart';
+import 'package:peer_gig/ui/widgets/common/custom_text_display.dart';
 import '../../config/constants/colors.dart';
 import '../../config/constants/peer_gig_icons.dart';
 
@@ -40,7 +40,7 @@ class AccountProfile extends StatelessWidget {
             Column(children: <Widget>[
               //first row with username
               Row(children: <Widget>[
-                TextDisplay(txt: username),
+                CustomTextDisplay(txt: username),
               ]),
 
               //second with follower and following counts
@@ -77,7 +77,7 @@ class AccountProfile extends StatelessWidget {
             Column(children: <Widget>[
               //first row with username and FOLLOWING icon
               Row(children: <Widget>[
-                TextDisplay(txt: username),
+                CustomTextDisplay(txt: username),
                 Icon(PeerGigIcons.following, color: AppColors.highlightColor)
               ]),
 
@@ -115,7 +115,7 @@ class AccountProfile extends StatelessWidget {
             Column(children: <Widget>[
               //first row with username and FOLLOW icon
               Row(children: <Widget>[
-                TextDisplay(txt: username),
+                CustomTextDisplay(txt: username),
                 Icon(PeerGigIcons.follow, color: AppColors.highlightColor)
               ]),
 

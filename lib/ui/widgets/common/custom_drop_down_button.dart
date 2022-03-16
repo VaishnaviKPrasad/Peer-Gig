@@ -6,7 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 class CustomDropDownButton extends FormField<String> {
   final List<String> fields;
   final String txt;
-  final String? Function(dynamic)? validatorFunc;
+  final String? Function(String?)? validatorFunc;
+  final void Function(String?)? onSavedFunc;
   String? currentValue = "";
   final bool isfilter;
 
@@ -15,10 +16,12 @@ class CustomDropDownButton extends FormField<String> {
     required this.txt,
     required this.fields,
     required this.validatorFunc,
+    required this.onSavedFunc,
     required this.isfilter,
   }) : super(
           key: key,
           validator: validatorFunc,
+          onSaved: onSavedFunc,
           builder: (FormFieldState<String> state) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +120,7 @@ class CustomDropDownButton extends FormField<String> {
                 ),
                 state.hasError
                     ? Padding(
-                        padding: EdgeInsets.only(left: 9, top: 6),
+                        padding: const EdgeInsets.only(left: 9, top: 6),
                         child: Text(
                           state.errorText!,
                           style:

@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:peer_gig/domain/entities/common/user.dart';
 import 'package:peer_gig/domain/repositories/common/user_repository_base.dart';
 
 class UserRepository extends UserRepositoryBase {
@@ -8,7 +7,9 @@ class UserRepository extends UserRepositoryBase {
       FirebaseFirestore.instance.collection('Users');
 
   @override
-  Future<void> addUser(User user) async {}
+  Future<void> addUser(Map<String, Object?> user) async {
+    _usersCollection.doc(user['email'] as String).set(user);
+  }
 
   @override
   Future<void> deleteUser(String userId) async {}

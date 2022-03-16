@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../entities/common/user.dart';
 
 abstract class UserRepositoryBase {
-  Future<void> addUser(User user);
+  Future<void> addUser(Map<String, Object> user);
   Future<void> deleteUser(String userId);
 
   Future<String> getDpUrl(String userId);
