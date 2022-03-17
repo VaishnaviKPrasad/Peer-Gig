@@ -4,7 +4,7 @@ import 'package:peer_gig/ui/widgets/authentication/custom_multi_selector_field_w
 class CustomMultiSelectorFutureBuilder extends StatelessWidget {
   final Future<List<String>>? obj;
   final String? txt;
-  final void Function(List<String?>) onSavedFunc;
+  final void Function(List<String?>, List<String?>) onSavedFunc;
   const CustomMultiSelectorFutureBuilder(
       {Key? key,
       required this.obj,

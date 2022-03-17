@@ -34,9 +34,13 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   late String? _year;
   late String? _experience;
   late List<String?> _companyList;
+  late List<String?> _companyTags;
   late List<String?> _achievementsList;
+  late List<String?> _achievementsTags;
   late List<String?> _techStackList;
+  late List<String?> _techStackTags;
   late List<String?> _askMeAboutList;
+  late List<String?> _askMeAboutTags;
   late String? _linkedIn;
   late String? _github;
 
@@ -84,20 +88,24 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     _experience = val;
   }
 
-  void _saveCompanyList(List<String?> val) {
+  void _saveCompanyList(List<String?> val, List<String?> companyTags) {
     _companyList = val;
+    _companyTags = companyTags;
   }
 
-  void _saveAchievementsList(List<String?> val) {
+  void _saveAchievementsList(List<String?> val, List<String?> achievementTags) {
     _achievementsList = val;
+    _achievementsTags = achievementTags;
   }
 
-  void _saveAskMeAboutList(List<String?> val) {
+  void _saveAskMeAboutList(List<String?> val, List<String?> askMeAboutTags) {
     _askMeAboutList = val;
+    _askMeAboutTags = askMeAboutTags;
   }
 
-  void _saveTechStackList(List<String?> val) {
+  void _saveTechStackList(List<String?> val, List<String?> techStackTags) {
     _techStackList = val;
+    _techStackTags = techStackTags;
   }
 
   void _saveLinkedIn(String? val) {
@@ -126,7 +134,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
       inputDetailsByUser['askMeAbout'] = _askMeAboutList;
       inputDetailsByUser['linkedIn'] = _linkedIn;
       inputDetailsByUser['github'] = _github;
-      UserAppService.addUser(inputDetailsByUser, context);
+      UserAppService.addUser(
+        inputDetailsByUser: inputDetailsByUser,
+        context: context,
+        companyTags: _companyTags,
+        askMeAboutTags: _askMeAboutTags,
+        achievementsTags: _achievementsTags,
+        techStackTags: _techStackTags,
+      );
     }
   }
 

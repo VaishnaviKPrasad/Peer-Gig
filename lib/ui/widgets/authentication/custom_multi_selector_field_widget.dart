@@ -7,7 +7,7 @@ import 'package:textfield_tags/textfield_tags.dart';
 class CustomMultiSelectorFieldWidget extends StatefulWidget {
   final List<String> fields;
   final String displayText;
-  final void Function(List<String?>) onSavedFunc;
+  final void Function(List<String?>, List<String?>) onSavedFunc;
   const CustomMultiSelectorFieldWidget(
       {Key? key,
       required this.displayText,
@@ -44,7 +44,7 @@ class _CustomMultiSelectorFieldWidgetState
             if (_isOtherSelected) {
               _selectedValues.addAll(_tagValues);
             }
-            widget.onSavedFunc(_selectedValues);
+            widget.onSavedFunc(_selectedValues, _tagValues);
           },
           onConfirm: (values) {
             _selectedValues = values as List<String?>;

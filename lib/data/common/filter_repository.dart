@@ -62,58 +62,51 @@ class FilterRepository extends FilterRepositoryBase {
 
   // add a new value in the filter tag list
   @override
-  Future<void> addAchievementInList(String? value) async {
+  Future<void> addAchievementInList(List<String?> value) async {
     await _filterTagsCollection
         .doc('achievements')
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['achievements'].add(value));
+        .update({"achievements": FieldValue.arrayUnion(value)});
   }
 
   @override
-  Future<void> addAskMeAboutInList(String? value) async {
+  Future<void> addAskMeAboutInList(List<String?> value) async {
     await _filterTagsCollection
         .doc('askMeAbout')
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['askMeAbout'].add(value));
+        .update({"askMeAbout": FieldValue.arrayUnion(value)});
   }
 
   @override
-  Future<void> addBranchInList(String? value) async {
+  Future<void> addBranchInList(List<String?> value) async {
     await _filterTagsCollection
         .doc('branch')
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['branch'].add(value));
+        .update({"branch": FieldValue.arrayUnion(value)});
   }
 
   @override
-  Future<void> addCourseInList(String? value) async {
+  Future<void> addCourseInList(List<String?> value) async {
     await _filterTagsCollection
         .doc('course')
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['course'].add(value));
+        .update({"course": FieldValue.arrayUnion(value)});
   }
 
   @override
-  Future<void> addCompanyInList(String? value) async {
+  Future<void> addCompanyInList(List<String?> value) async {
     await _filterTagsCollection
         .doc('company')
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['company'].add(value));
+        .update({"company": FieldValue.arrayUnion(value)});
   }
 
   @override
-  Future<void> addTeckStackInList(String? value) async {
+  Future<void> addTeckStackInList(List<String?> value) async {
     await _filterTagsCollection
         .doc('techStack')
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['techStack'].add(value));
+        .update({"techStack": FieldValue.arrayUnion(value)});
   }
 
   @override
-  Future<void> addYearInList(int? value) async {
+  Future<void> addYearInList(List<String?> value) async {
     await _filterTagsCollection
         .doc('year')
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['year'].add(value));
+        .update({"year": FieldValue.arrayUnion(value)});
   }
 }
