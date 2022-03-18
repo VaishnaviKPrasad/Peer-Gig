@@ -73,7 +73,7 @@ class _MyAppointmentsComponentState extends State<MyAppointmentsComponent> {
           ],
         ),
         const SizedBox(width: 5.0),
-        const CustomButton(txt: 'Cancel'),
+        CustomButton(txt: 'Cancel', onPressedFunc: () {  },),
       ],
     );
   }

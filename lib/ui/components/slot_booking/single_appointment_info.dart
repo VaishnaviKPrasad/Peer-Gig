@@ -40,7 +40,7 @@ class SingleAppointmentInfo extends StatelessWidget {
             style: GoogleFonts.mallanna(
                 color: AppColors.highlightColor, fontSize: 17)),
       ]),
-      const CustomButton(txt: "Cancel")
+      CustomButton(txt: "Cancel", onPressedFunc: () {  },)
     ]);
   }
 }

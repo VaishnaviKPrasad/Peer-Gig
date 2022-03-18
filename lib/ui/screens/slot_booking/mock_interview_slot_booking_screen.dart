@@ -56,7 +56,7 @@ class MockInterviewSlotBookingScreen extends StatelessWidget {
                   style: GoogleFonts.mallanna(
                       color: AppColors.highlightColor, fontSize: 21)),
               TimeDisplay(startTime: startTime, endTime: endTime),
-              const CustomButton(txt: "Book My Slot")
+              CustomButton(txt: "Book My Slot", onPressedFunc: () {},)
             ])));
   }
 }

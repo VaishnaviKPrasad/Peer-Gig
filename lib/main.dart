@@ -5,6 +5,7 @@ import 'package:peer_gig/ui/config/routes.dart';
 import 'package:peer_gig/ui/screens/authentication/create_account_screen.dart';
 import 'package:peer_gig/ui/screens/authentication/sign_in_screen.dart';
 import 'package:peer_gig/ui/screens/common/home_screen.dart';
+import 'package:peer_gig/ui/screens/common/root_screen.dart';
 import 'package:peer_gig/ui/screens/resource_sharing/home_feed_screen.dart';
 
 void main() async {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(),
+        //appBar: AppBar(),
         body: StreamBuilder<User?>(
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (BuildContext context, snapshot) {
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
                 );
               }
               if (snapshot.hasData) {
-                return const HomeScreen();
+                return const RootScreen();
               } else {
                 return const SignInScreen();
               }
