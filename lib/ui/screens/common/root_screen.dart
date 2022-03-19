@@ -23,7 +23,79 @@ class _RootScreenState extends State<RootScreen> {
     "MY MEETINGS",
     "MY ACCOUNT",
   ];
+
+  int _selectedIndex = 0;
   
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomeScreen(),
+    SearchAPeerScreen(),
+    MyMeetingsScreen(),
+    MyAccountScreen(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(
+        txt: txt[_selectedIndex]
+      ),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: const Icon(
+              PeerGigIcons.home,
+              size: 30.0,
+            ),
+            label: "Home",
+            backgroundColor: AppColors.primaryDark,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              PeerGigIcons.search,
+              size: 30.0,
+            ),
+            label: "Search a Peer",
+            backgroundColor: AppColors.primaryDark,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              PeerGigIcons.calendar,
+              size: 25.0,
+            ),
+            label: "My Meetings",
+            backgroundColor: AppColors.primaryDark,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              PeerGigIcons.myAccount,
+              size: 29.0,  
+            ),
+            label: "My Account",
+            backgroundColor: AppColors.primaryDark,
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: AppColors.secondary,
+        unselectedItemColor: AppColors.primaryLight,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+        onTap: _onItemTapped,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: AppColors.primaryDark,
+      ),
+    );
+  }
+
+  /*
   int activeTab = 0;
 
   @override
@@ -76,7 +148,7 @@ class _RootScreenState extends State<RootScreen> {
         )
       )
     );
-  }
+  }*/
 }
 
 
