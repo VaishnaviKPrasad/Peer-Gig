@@ -23,7 +23,7 @@ class _DurationDisplayDropdownComponentState
     return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
       Expanded(
           child: CustomDropDownButton(
-              txt: 'Start Time', fields: widget.start, isfilter: true)),
+              txt: 'Start Time', fields: widget.start, isfilter: true, onSavedFunc: (String) {  }, validatorFunc: (String) {  },)),
       Icon(
         Icons.horizontal_rule_rounded,
         color: AppColors.primaryLight,
@@ -31,7 +31,7 @@ class _DurationDisplayDropdownComponentState
       ),
       Expanded(
           child: CustomDropDownButton(
-              txt: 'End Time', fields: widget.end, isfilter: true)),
+              txt: 'End Time', fields: widget.end, isfilter: true, onSavedFunc: (String ) {  }, validatorFunc: (String ) {  },)),
     ]);
   }
 }
