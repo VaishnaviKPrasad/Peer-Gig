@@ -34,14 +34,15 @@ class _SearchFilterTags extends State<SearchFilterTags>{
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Wrap(
+      alignment: WrapAlignment.center,
+      spacing: 8.0,
+      runSpacing: 8.0,
       children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly, children:[
             CustomFutureBuilder(
                           obj: obj.getBranchList(),
                           txt: 'Branch',
-                          validatorFunc: ,
+                          validatorFunc: (""){""}
                           onSavedFunc: ,
                         ),
             CustomFutureBuilder(
@@ -56,9 +57,6 @@ class _SearchFilterTags extends State<SearchFilterTags>{
                           validatorFunc: ,
                           onSavedFunc: ,
                         ),
-          ]),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             CustomFutureBuilder(
                           obj: obj.getAchievementsList(),
                           txt: 'Achievements',
@@ -70,9 +68,7 @@ class _SearchFilterTags extends State<SearchFilterTags>{
                           txt: 'Ask Me About',
                           validatorFunc: ,
                           onSavedFunc: ,
-                        ),],),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly, children:[
+                        ),
             CustomFutureBuilder(
                           obj: obj.getCompanyList(),
                           txt: 'Company',
@@ -84,6 +80,6 @@ class _SearchFilterTags extends State<SearchFilterTags>{
                           txt: 'Teck Stack',
                           validatorFunc: ,
                           onSavedFunc: ,
-                        )])]);
+                        )]);
   }
 }
