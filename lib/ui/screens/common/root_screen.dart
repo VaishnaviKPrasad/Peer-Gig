@@ -10,7 +10,7 @@ import 'package:peer_gig/ui/widgets/common/custom_app_bar.dart';
 
 class RootScreen extends StatefulWidget {
   static const routeName = '/rootScreen';
-  const RootScreen({ Key? key }) : super(key: key);
+  const RootScreen({Key? key}) : super(key: key);
 
   @override
   State<RootScreen> createState() => _RootScreenState();
@@ -25,7 +25,7 @@ class _RootScreenState extends State<RootScreen> {
   ];
 
   int _selectedIndex = 0;
-  
+
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     SearchAPeerScreen(),
@@ -42,9 +42,7 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        txt: txt[_selectedIndex]
-      ),
+      appBar: CustomAppBar(txt: txt[_selectedIndex]),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -77,7 +75,7 @@ class _RootScreenState extends State<RootScreen> {
           BottomNavigationBarItem(
             icon: const Icon(
               PeerGigIcons.myAccount,
-              size: 29.0,  
+              size: 29.0,
             ),
             label: "My Account",
             backgroundColor: AppColors.primaryDark,
@@ -94,7 +92,7 @@ class _RootScreenState extends State<RootScreen> {
       ),
     );
   }
-
+}
   /*
   int activeTab = 0;
 
@@ -149,6 +147,6 @@ class _RootScreenState extends State<RootScreen> {
       )
     );
   }*/
-}
+
 
 
