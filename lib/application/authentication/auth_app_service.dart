@@ -3,6 +3,7 @@ import 'package:peer_gig/data/authentication/auth__repository.dart';
 import 'package:peer_gig/domain/entities/authentication/auth_user_details.dart';
 import 'package:peer_gig/ui/screens/authentication/create_account_screen.dart';
 import 'package:peer_gig/ui/screens/common/home_screen.dart';
+import 'package:peer_gig/ui/screens/common/root_screen.dart';
 import 'package:peer_gig/utils/exceptions.dart';
 
 class AuthAppService {
@@ -16,7 +17,7 @@ class AuthAppService {
             CreateAccountScreen.routeName,
             arguments: _authUserDetails.email);
       } else {
-        Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+        Navigator.of(context).pushReplacementNamed(RootScreen.routeName);
       }
     } on InvalidChoiceException catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(
