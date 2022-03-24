@@ -17,10 +17,10 @@ class TimeDisplay extends StatelessWidget {
       children: <Widget>[
         CustomTextDisplay(txt: startTime.toString()),
         Container(
-            color: AppColors.primaryLight,
             height: 3.0,
             width: 6.0,
             decoration: BoxDecoration(
+                color: AppColors.primaryLight,
                 border: Border.all(color: AppColors.primaryDark!, width: 1.0),
                 borderRadius: const BorderRadius.all(Radius.circular(15)))),
         CustomTextDisplay(txt: endTime.toString())

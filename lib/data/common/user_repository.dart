@@ -15,6 +15,7 @@ class UserRepository extends UserRepositoryBase {
   Future<void> deleteUser(String userId) async {}
 
   // getter functions for user details from firestore
+
   @override
   Future<String> getDpUrl(String userId) async {
     return "";

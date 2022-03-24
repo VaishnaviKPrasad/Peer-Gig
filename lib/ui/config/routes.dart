@@ -3,6 +3,7 @@ import 'package:peer_gig/ui/screens/authentication/create_account_screen.dart';
 import 'package:peer_gig/ui/screens/authentication/sign_in_screen.dart';
 import 'package:peer_gig/ui/screens/common/error_screen.dart';
 import 'package:peer_gig/ui/screens/common/home_screen.dart';
+import 'package:peer_gig/ui/screens/common/peer_account_screen.dart';
 import 'package:peer_gig/ui/screens/common/root_screen.dart';
 import 'package:peer_gig/ui/screens/resource_sharing/home_feed_screen.dart';
 
@@ -30,6 +31,10 @@ class GenerateRoutes {
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),
         );
+
+      case PeerAccountScreen.routeName:
+        return MaterialPageRoute(
+            builder: (context) => PeerAccountScreen(peerDetails: args as Map));
 
       default:
         return MaterialPageRoute(
