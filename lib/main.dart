@@ -41,7 +41,6 @@ class MyApp extends StatelessWidget {
               }
             }),
       ),
-      // initialRoute: SignInScreen.routeName,
       onGenerateRoute: GenerateRoutes.generateRoutes,
     );
   }

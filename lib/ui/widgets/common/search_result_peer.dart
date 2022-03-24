@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:peer_gig/ui/screens/common/peer_account_screen.dart';
+import '../../../data/common/user_repository.dart';
 import '../../config/constants/colors.dart';
 
 class SearchResultPeer extends StatelessWidget {
@@ -20,16 +22,23 @@ class SearchResultPeer extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
-          backgroundColor: AppColors.primaryLight,
-          radius: 26,
-          child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                dpUrl!,
-              ),
-              radius: 25)),
+        backgroundColor: AppColors.primaryLight,
+        radius: 26,
+        child: CircleAvatar(
+            backgroundImage: NetworkImage(
+              dpUrl!,
+            ),
+            radius: 25),
+      ),
       tileColor: AppColors.primaryLight,
-      onTap: () {},
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      onTap: () async {
+        String _fullName = await UserRepository().getFullName(userId!);
+        Navigator.pushNamed(context, PeerAccountScreen.routeName,
+            arguments: {'userId': userId, 'fullName': _fullName});
+      },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
       title: Text(
         title!,
         style: GoogleFonts.mallanna(
@@ -37,9 +46,10 @@ class SearchResultPeer extends StatelessWidget {
             fontSize: 20,
             fontWeight: FontWeight.bold),
       ),
-      subtitle: Text(subtitle!,
-          style:
-              GoogleFonts.mallanna(color: AppColors.primaryDark, fontSize: 18)),
+      subtitle: Text(
+        subtitle!,
+        style: GoogleFonts.mallanna(color: AppColors.primaryDark, fontSize: 18),
+      ),
     );
   }
 }

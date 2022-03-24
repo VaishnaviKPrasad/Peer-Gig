@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_gig/data/authentication/auth__repository.dart';
+import 'package:peer_gig/data/authentication/auth_repository.dart';
 import 'package:peer_gig/domain/entities/authentication/auth_user_details.dart';
 import 'package:peer_gig/ui/screens/authentication/create_account_screen.dart';
 import 'package:peer_gig/ui/screens/common/home_screen.dart';
