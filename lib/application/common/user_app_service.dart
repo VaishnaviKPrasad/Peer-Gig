@@ -37,7 +37,7 @@ class UserAppService {
 
     final UserRepository _userRepoObj = UserRepository();
     await _userRepoObj.addUser(inputDetailsByUser);
-    String? userId = AuthAppService().getEmailOfUser();
+    /*String? userId = AuthAppService().getEmailOfUser();
     firestoreUserId = userId;
     fullName = await _userRepoObj.getFullName(userId!);
     headline = await _userRepoObj.getHeadline(userId);
@@ -50,7 +50,7 @@ class UserAppService {
     currentYear = await _userRepoObj.getCurrentYear(userId);
     github = await _userRepoObj.getGithub(userId);
     achievements = await _userRepoObj.getAchievements(userId);
-    linkedin = await _userRepoObj.getLinkedin(userId);
+    linkedin = await _userRepoObj.getLinkedin(userId);*/
 
     Navigator.pushReplacementNamed(context, HomeScreen.routeName);
   }
