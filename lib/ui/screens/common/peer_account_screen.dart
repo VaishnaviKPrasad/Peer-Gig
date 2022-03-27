@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:peer_gig/ui/config/constants/colors.dart';
 import 'package:peer_gig/ui/screens/common/peer_about_tab_screen.dart';
 import 'package:peer_gig/ui/screens/slot_booking/fifteen_mins_slot_booking_screen.dart';
 import 'package:peer_gig/ui/widgets/common/custom_app_bar.dart';
@@ -24,11 +26,37 @@ class _PeerAccountScreenState extends State<PeerAccountScreen> {
       child: Scaffold(
         appBar: CustomAppBar(
           txt: widget.peerDetails['fullName'],
-          tabBar: const CustomTabBar(
+          tabBar: CustomTabBar(
             customTabs: [
-              Text("About"),
-              Text("15mins Slot"),
-              Text("Mock Interview Slot"),
+              Text(
+                "About",
+                style: GoogleFonts.mallanna(
+                  color: AppColors.primaryLight,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.normal,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                "15 Mins Slot",
+                style: GoogleFonts.mallanna(
+                  color: AppColors.primaryLight,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.normal,
+                  //height: 1.0,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                "Mock Interview",
+                style: GoogleFonts.mallanna(
+                  color: AppColors.primaryLight,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.normal,
+                  height: 1.0 
+                ), 
+                textAlign: TextAlign.center,
+              ),
             ],
             length: 3,
           ),
