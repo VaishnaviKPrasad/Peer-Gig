@@ -20,26 +20,54 @@ class SingleAppointmentInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+      children: <Widget>[
       CircleAvatar(
-          backgroundColor: AppColors.primaryLight,
-          radius: 26,
-          child: const CircleAvatar(
-              backgroundImage: NetworkImage(
-                "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
-              ),
-              radius: 25)),
-      Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-        Text(bookedWith!,
+        backgroundColor: AppColors.primaryLight,
+        radius: 26,
+        child: CircleAvatar(
+          backgroundImage: NetworkImage(
+            dpUrl!,
+          ),
+          radius: 25,
+        )
+      ),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        //crossAxisAlignment: CrossAxisAlignment.start, 
+        children: <Widget>[
+          Text(
+            bookedWith!,
             style: GoogleFonts.mallanna(
-                color: AppColors.highlightColor, fontSize: 20)),
-        Text(date!,
+              color: AppColors.highlightColor, 
+              fontSize: 20,
+              height: 1.3,
+              wordSpacing: 3.0,
+            ),
+          ),
+          Text(
+            date!,
             style: GoogleFonts.mallanna(
-                color: AppColors.highlightColor, fontSize: 17)),
-        Text(startTime.toString() + "-" + endTime.toString(),
+                color: AppColors.highlightColor, 
+                fontSize: 17,
+                height: 1.3,
+                wordSpacing: 3.0,
+            ),
+          ),
+          Text(
+            startTime.toString().substring(0, 2) + ":" + startTime.toString().substring(2)
+            + " - " + 
+            endTime.toString().substring(0, 2) + ":" + endTime.toString().substring(2),
             style: GoogleFonts.mallanna(
-                color: AppColors.highlightColor, fontSize: 17)),
-      ]),
+                color: AppColors.highlightColor, 
+                fontSize: 17,
+                height: 1.3,
+                wordSpacing: 3.0,
+            )
+          ),
+        ]
+      ),
       CustomButton(txt: "Cancel", onPressedFunc: () {  },)
     ]);
   }
