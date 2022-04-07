@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:peer_gig/domain/entities/authentication/auth_user_details.dart';
 import 'package:peer_gig/domain/repositories/authentication/auth_repository_base.dart';
+import 'package:peer_gig/utils/app_utils.dart';
 import 'package:peer_gig/utils/exceptions.dart';
+import 'package:peer_gig/utils/secrets.dart';
 
 class AuthRepository extends AuthRepositoryBase {
   @override
@@ -16,6 +18,7 @@ class AuthRepository extends AuthRepositoryBase {
           _userGoogleAccount.email.endsWith('@banasthali.in')) {
         GoogleSignInAuthentication _auth =
             await _userGoogleAccount.authentication;
+        Secret.ANDROID_CLIENT_ID = _auth.idToken ?? '';
         final _credentials = GoogleAuthProvider.credential(
           idToken: _auth.idToken,
           accessToken: _auth.accessToken,

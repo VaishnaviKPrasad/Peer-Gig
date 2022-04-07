@@ -1,16 +1,25 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:googleapis_auth/auth_io.dart';
 import 'package:peer_gig/ui/config/routes.dart';
-import 'package:peer_gig/ui/screens/authentication/create_account_screen.dart';
 import 'package:peer_gig/ui/screens/authentication/sign_in_screen.dart';
-import 'package:peer_gig/ui/screens/common/home_screen.dart';
 import 'package:peer_gig/ui/screens/common/root_screen.dart';
-import 'package:peer_gig/ui/screens/resource_sharing/home_feed_screen.dart';
+import 'package:peer_gig/utils/app_utils.dart';
+import 'package:peer_gig/utils/secrets.dart';
+import 'package:googleapis/calendar/v3.dart' as cal;
+
+import 'application/slot_booking/calendar_app_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  var _clientID = ClientId(Secret.getId(), "");
+  const _scopes = [cal.CalendarApi.calendarScope];
+  await clientViaUserConsent(_clientID, _scopes, AppUtils.prompt)
+      .then((AuthClient client) async {
+    CalendarAppService.calendar = cal.CalendarApi(client);
+  });
   runApp(const MyApp());
 }
 
