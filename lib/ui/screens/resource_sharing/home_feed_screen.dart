@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/data/database_service.dart';
+import 'package:peer_gig/ui/config/constants/gradient.dart';
 
 import '../../../application/resource_sharing/post_app_service.dart';
 import '../../../domain/entities/resource_sharing/post.dart';
@@ -20,24 +21,32 @@ class _HomeFeedState extends State<HomeFeedScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<DocumentSnapshot>(
-      stream: DatabaseService()
-          .getHomeFeedPostsDocumentSnapshotForSingleUser(currentUserId),
-      builder:
-          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshots) {
-        if (snapshots.hasError) {
-          return Text("Something went wrong! ${snapshots.error}");
-        }
-        if (snapshots.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
-        }
-        final List<dynamic> postIds =
-            (snapshots.data?.data()! as Map)['homeFeed'];
-        return ListView.builder(
-          itemCount: postIds.length,
-          itemBuilder: (ctx, index) => HomeFeedPostBuilder(postIds[index]),
-        );
-      },
+    return Scaffold(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          gradient: AppScreenGradient(),
+        ),
+        child: StreamBuilder<DocumentSnapshot>(
+          stream: DatabaseService()
+              .getHomeFeedPostsDocumentSnapshotForSingleUser(currentUserId),
+          builder:
+              (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshots) {
+            if (snapshots.hasError) {
+              return Text("Something went wrong! ${snapshots.error}");
+            }
+            if (snapshots.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            }
+            final List<dynamic> postIds =
+                (snapshots.data?.data()! as Map)['homeFeed'];
+            return ListView.builder(
+              itemCount: postIds.length,
+              itemBuilder: (ctx, index) => HomeFeedPostBuilder(postIds[index]),
+            );
+          },
+        ),
+      ),
     );
   }
 }
