@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_gig/ui/widgets/common/search_tags_drop_down_button.dart';
 
 import '../config/constants/colors.dart';
 import '../widgets/common/custom_drop_down_button.dart';
@@ -22,16 +23,16 @@ class _DurationDisplayDropdownComponentState
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
       Expanded(
-          child: CustomDropDownButton(
-              txt: 'Start Time', fields: widget.start, isfilter: true, onSavedFunc: (String) {  }, validatorFunc: (String) {  },)),
+          child: SearchTagsDropDown(txt: 'Start Time', fields: widget.start, onChangedFunc: null,),
+      ),
       Icon(
         Icons.horizontal_rule_rounded,
         color: AppColors.primaryLight,
         size: 20.0,
       ),
       Expanded(
-          child: CustomDropDownButton(
-              txt: 'End Time', fields: widget.end, isfilter: true, onSavedFunc: (String ) {  }, validatorFunc: (String ) {  },)),
+          child: SearchTagsDropDown(txt: 'End Time', fields: widget.end, onChangedFunc: null,),
+      ),
     ]);
   }
 }

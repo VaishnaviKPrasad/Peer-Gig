@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../config/constants/colors.dart';
 
-class MyAccountTabBar extends StatelessWidget {
+class MyAccountTabBar extends StatelessWidget with PreferredSizeWidget{
   const MyAccountTabBar({ Key? key }) : super(key: key);
 
   @override
@@ -13,7 +13,7 @@ class MyAccountTabBar extends StatelessWidget {
           'About',
           style: GoogleFonts.mallanna(
             color: AppColors.primaryLight,
-            fontSize: 15.0,
+            fontSize: 18.0,
             fontWeight: FontWeight.normal,
           ),
           textAlign: TextAlign.center,
@@ -22,7 +22,7 @@ class MyAccountTabBar extends StatelessWidget {
           'Manage My Slots',
           style: GoogleFonts.mallanna(
             color: AppColors.primaryLight,
-            fontSize: 15.0,
+            fontSize: 18.0,
             fontWeight: FontWeight.normal,
           ),
           textAlign: TextAlign.center,
@@ -30,4 +30,7 @@ class MyAccountTabBar extends StatelessWidget {
       ],      
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight+kTextTabBarHeight);
 }

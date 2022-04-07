@@ -17,33 +17,54 @@ class AccountDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (editable!) {
-      return ListTile(
-          tileColor: AppColors.primaryLight,
-          onTap: () {},
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          title: Text(title!,
-              style: GoogleFonts.mallanna(
-                  color: AppColors.primaryDark,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold)),
-          subtitle: Text(txt!,
-              style: GoogleFonts.mallanna(
-                  color: AppColors.primaryDark, fontSize: 18)),
-          trailing: Icon(PeerGigIcons.edit, color: AppColors.primaryDark));
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.primaryLight,
+            borderRadius: BorderRadius.circular(10.0),
+            border: Border.all(color: AppColors.primaryDark!, width: 1.0),
+          ),
+          child: ListTile(
+            tileColor: AppColors.primaryLight,
+            onTap: () {},
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            title: Text(title!,
+                style: GoogleFonts.mallanna(
+                    color: AppColors.primaryDark,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold)),
+            subtitle: Text(txt!,
+                style: GoogleFonts.mallanna(
+                    color: AppColors.primaryDark, fontSize: 18)),
+            trailing: Icon(PeerGigIcons.edit, color: AppColors.primaryDark)
+          )
+        ),
+      );
     } else {
-      return ListTile(
-          tileColor: AppColors.primaryLight,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          title: Text(title!,
-              style: GoogleFonts.mallanna(
-                  color: AppColors.primaryDark,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold)),
-          subtitle: Text(txt!,
-              style: GoogleFonts.mallanna(
-                  color: AppColors.primaryDark, fontSize: 18)));
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.primaryLight,
+            borderRadius: BorderRadius.circular(10.0),
+            border: Border.all(color: AppColors.primaryDark!, width: 1.0),
+          ),
+          child: ListTile(
+              tileColor: AppColors.primaryLight,
+              shape:
+                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              title: Text(title!,
+                  style: GoogleFonts.mallanna(
+                      color: AppColors.primaryDark,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold)),
+              subtitle: Text(txt!,
+                  style: GoogleFonts.mallanna(
+                      color: AppColors.primaryDark, fontSize: 18))),
+        ),
+      );
     }
   }
 }
