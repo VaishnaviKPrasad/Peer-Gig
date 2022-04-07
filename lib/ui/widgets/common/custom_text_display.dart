@@ -39,6 +39,30 @@ class CustomTextDisplay extends StatelessWidget {
         ),
       );
     }
+    else if(name == false && isSelector == false)
+    {
+      return Container(
+        width: MediaQuery.of(context).size.width,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+          child: Text(
+            txt!,
+            style: GoogleFonts.mallanna(
+              color: AppColors.primaryDark,
+              fontSize: 18,
+            ),
+            textAlign: TextAlign.start,
+          ),
+        ),
+        decoration: BoxDecoration(
+          color: AppColors.primaryLight,
+          border: Border.all(color: AppColors.primaryDark!, width: 2.0),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+      );
+    }
     else
     {
       return Container(

@@ -42,7 +42,7 @@ class MockInterviewSlotBookingScreen extends StatelessWidget {
                 const SearchResultPeer(
                   dpUrl:
                       "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
-                  title: 'Samridhi Sethi',
+                  title: 'Sargam Agarwal',
                   subtitle: 'B.Tech (CS) student at Banasthali Vidyapith...',
                 ),
                 Text("Book a 1hr mock interview slot:",

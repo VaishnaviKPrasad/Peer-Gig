@@ -9,22 +9,25 @@ class HomeFeedPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            DpUsernameDisplay(
-                dpUrl: postDetails!.dpUrl!,
-                username: postDetails!.postedByUsername!),
-            Text(postDetails!.datePosted!),
-          ],
-        ),
-        const SizedBox(height: 10.0),
-        PostWidget(txt: postDetails!.body!),
-        const SizedBox(height: 10.0),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              DpUsernameDisplay(
+                  dpUrl: postDetails!.dpUrl!,
+                  username: postDetails!.postedByUsername!),
+              Text(postDetails!.datePosted!),
+            ],
+          ),
+          const SizedBox(height: 10.0),
+          PostWidget(txt: postDetails!.body!),
+          const SizedBox(height: 20.0),
+        ],
+      ),
     );
   }
 }

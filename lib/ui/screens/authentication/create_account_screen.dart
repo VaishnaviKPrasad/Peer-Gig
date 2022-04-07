@@ -194,6 +194,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         CustomTextDisplay(
                           txt: AuthAppService().getEmailOfUser(),
                           isSelector: false,
+                          name: false
                         ),
                         const SizedBox(height: 20.0),
                         CustomTextField(

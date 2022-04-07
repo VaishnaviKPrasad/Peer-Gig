@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/data/database_service.dart';
 import 'package:peer_gig/ui/config/constants/gradient.dart';
@@ -16,8 +17,8 @@ class HomeFeedScreen extends StatefulWidget {
 }
 
 class _HomeFeedState extends State<HomeFeedScreen> {
-  // final String? currentUserId = FirebaseAuth.instance.currentUser?.uid;
-  final String currentUserId = 'sargam123india@gmail.com';
+  //final String? currentUserId = FirebaseAuth.instance.currentUser?.uid;
+  final String currentUserId = 'btbtc19297_samridhi@banasthali.in';
 
   @override
   Widget build(BuildContext context) {
