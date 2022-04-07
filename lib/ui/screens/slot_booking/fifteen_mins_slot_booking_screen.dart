@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:peer_gig/ui/components/duration_display_component.dart';
+import 'package:peer_gig/ui/components/slot_booking/duration_display_component.dart';
 import 'package:peer_gig/ui/components/slot_booking/days_available.dart';
 import 'package:peer_gig/ui/components/slot_booking/time_display.dart';
 import 'package:peer_gig/ui/widgets/common/custom_button.dart';
@@ -39,31 +39,38 @@ class FifteenMinsSlotBookingScreen extends StatelessWidget {
               stops: const [0.60, 1.0],
             )),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-              const SearchResultPeer(
-                dpUrl:
-                    "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
-                title: 'Vanshika Garg', //username
-                subtitle:
-                    'B.Tech (CS) student at Banasthali Vidyapith...', //headline
-              ),
-              Text("Book a 15 mins slot:",
-                  style: GoogleFonts.mallanna(
-                      color: AppColors.highlightColor,
-                      fontSize: 21,
-                      fontWeight: FontWeight.bold)),
-              Text("Days Available: Weekdays",
-                  style: GoogleFonts.mallanna(
-                      color: AppColors.highlightColor, fontSize: 21)),
-              const DaysAvailable(isWeekends: false),
-              Text("Time Duration Available:",
-                  style: GoogleFonts.mallanna(
-                      color: AppColors.highlightColor, fontSize: 21)),
-              //TimeDisplay(startTime: startTime, endTime: endTime),
-              DurationDisplayComponent(startTime: startTime!, endTime: endTime!,),
-              Center(child: CustomButton(txt: "Book My Slot", onPressedFunc: () {  },))
-            ])));
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const SearchResultPeer(
+                    dpUrl:
+                        "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
+                    title: 'Vanshika Garg', //username
+                    subtitle:
+                        'B.Tech (CS) student at Banasthali Vidyapith...', //headline
+                  ),
+                  Text("Book a 15 mins slot:",
+                      style: GoogleFonts.mallanna(
+                          color: AppColors.highlightColor,
+                          fontSize: 21,
+                          fontWeight: FontWeight.bold)),
+                  Text("Days Available: Weekdays",
+                      style: GoogleFonts.mallanna(
+                          color: AppColors.highlightColor, fontSize: 21)),
+                  const DaysAvailable(isWeekends: false),
+                  Text("Time Duration Available:",
+                      style: GoogleFonts.mallanna(
+                          color: AppColors.highlightColor, fontSize: 21)),
+                  //TimeDisplay(startTime: startTime, endTime: endTime),
+                  DurationDisplayComponent(
+                    startTime: startTime!,
+                    endTime: endTime!,
+                  ),
+                  Center(
+                      child: CustomButton(
+                    txt: "Book My Slot",
+                    onPressedFunc: () {},
+                  ))
+                ])));
   }
 }
