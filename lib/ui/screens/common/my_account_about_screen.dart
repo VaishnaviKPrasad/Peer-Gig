@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:peer_gig/ui/components/common/account_profile.dart';
 import 'package:peer_gig/ui/config/constants/gradient.dart';
 import 'package:peer_gig/ui/widgets/common/account_details.dart';
+import 'package:peer_gig/ui/widgets/common/custom_button.dart';
 
-class PeerAboutTabScreen extends StatefulWidget {
-  const PeerAboutTabScreen({Key? key}) : super(key: key);
+class MyAccountAboutScreen extends StatefulWidget {
+  const MyAccountAboutScreen({ Key? key }) : super(key: key);
 
   @override
-  State<PeerAboutTabScreen> createState() => _PeerAboutTabScreenState();
+  State<MyAccountAboutScreen> createState() => _MyAccountAboutScreenState();
 }
 
-class _PeerAboutTabScreenState extends State<PeerAboutTabScreen> {
+class _MyAccountAboutScreenState extends State<MyAccountAboutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +29,7 @@ class _PeerAboutTabScreenState extends State<PeerAboutTabScreen> {
                   username: "Samridhi Sethi", 
                   followerCount: 50, 
                   followingCount: 80, 
-                  isMyAccount: false, 
+                  isMyAccount: true, 
                   isFollowing: false
                 ),  
                 const SizedBox(height: 30.0),
@@ -41,7 +42,7 @@ class _PeerAboutTabScreenState extends State<PeerAboutTabScreen> {
                         children: const [
                           AccountDetails(
                             txt: "Lorem ipsum dolor sit amet, consectetur", 
-                            editable: false, 
+                            editable: true, 
                             title: "Achievements"
                           ),
                           SizedBox(height: 20.0,)
@@ -49,7 +50,9 @@ class _PeerAboutTabScreenState extends State<PeerAboutTabScreen> {
                       );
                     },            
                   ),
-                )                
+                ),
+                Center(child: CustomButton(txt: 'Log Out', onPressedFunc: () {  },)),  
+                const SizedBox(height: 5),              
               ],
             ),
         ),

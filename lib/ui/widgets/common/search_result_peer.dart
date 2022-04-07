@@ -20,35 +20,41 @@ class SearchResultPeer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundColor: AppColors.primaryLight,
-        radius: 26,
-        child: CircleAvatar(
-            backgroundImage: NetworkImage(
-              dpUrl!,
-            ),
-            radius: 25),
-      ),
-      tileColor: AppColors.primaryLight,
-      onTap: () async {
-        String _fullName = await UserRepository().getFullName(userId!);
-        Navigator.pushNamed(context, PeerAccountScreen.routeName,
-            arguments: {'userId': userId, 'fullName': _fullName});
-      },
-      shape: RoundedRectangleBorder(
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.primaryLight,
         borderRadius: BorderRadius.circular(15),
       ),
-      title: Text(
-        title!,
-        style: GoogleFonts.mallanna(
-            color: AppColors.primaryDark,
-            fontSize: 20,
-            fontWeight: FontWeight.bold),
-      ),
-      subtitle: Text(
-        subtitle!,
-        style: GoogleFonts.mallanna(color: AppColors.primaryDark, fontSize: 18),
+      child: ListTile(
+        leading: CircleAvatar(
+          backgroundColor: AppColors.primaryLight,
+          radius: 26,
+          child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                dpUrl!,
+              ),
+              radius: 25),
+        ),
+        tileColor: AppColors.primaryLight,
+        onTap: () async {
+          String _fullName = await UserRepository().getFullName(userId!);
+          Navigator.pushNamed(context, PeerAccountScreen.routeName,
+              arguments: {'userId': userId, 'fullName': _fullName});
+        },
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        title: Text(
+          title!,
+          style: GoogleFonts.mallanna(
+              color: AppColors.primaryDark,
+              fontSize: 17,
+              fontWeight: FontWeight.bold),
+        ),
+        subtitle: Text(
+          subtitle!,
+          style: GoogleFonts.mallanna(color: AppColors.primaryDark, fontSize: 15),
+        ),
       ),
     );
   }

@@ -5,6 +5,8 @@ import 'package:peer_gig/ui/screens/common/home_screen.dart';
 import 'package:peer_gig/ui/screens/common/my_account.dart';
 import 'package:peer_gig/ui/screens/common/my_meetings.dart';
 import 'package:peer_gig/ui/screens/common/search_a_peer_screen.dart';
+import 'package:peer_gig/ui/screens/resource_sharing/home_feed_screen.dart';
+import 'package:peer_gig/ui/widgets/common/bottom_nav_bar.dart';
 import 'package:peer_gig/ui/widgets/common/custom_app_bar.dart';
 
 class RootScreen extends StatefulWidget {
@@ -26,7 +28,7 @@ class _RootScreenState extends State<RootScreen> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(),
+    HomeFeedScreen(),
     SearchAPeerScreen(),
     MyMeetingsScreen(),
     MyAccountScreen(),
@@ -41,8 +43,9 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          (_selectedIndex != 2) ? CustomAppBar(txt: txt[_selectedIndex]) : null,
+      appBar: (_selectedIndex != 2 && _selectedIndex != 3)
+          ? CustomAppBar(txt: txt[_selectedIndex])
+          : null,
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

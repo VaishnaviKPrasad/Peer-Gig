@@ -32,74 +32,51 @@ class FifteenMinsSlotBookingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [AppColors.primary!, AppColors.secondary!],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            stops: const [0.60, 1.0],
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            const SearchResultPeer(
-              dpUrl:
-                  "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
-              title: 'Sargam Agarwal',
-              subtitle: 'Summer Analyst @Goldman Sachs\'22...',
-            ),
-            Text(
-              "Book a 15 mins slot:",
-              style: GoogleFonts.mallanna(
-                  color: AppColors.highlightColor,
-                  fontSize: 21,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "Days Available: Weekdays",
-              style: GoogleFonts.mallanna(
-                  color: AppColors.highlightColor, fontSize: 21),
-            ),
-            const DaysAvailable(isWeekends: false),
-            Text(
-              "Time Duration Available:",
-              style: GoogleFonts.mallanna(
-                  color: AppColors.highlightColor, fontSize: 21),
-            ),
-            //TimeDisplay(startTime: startTime, endTime: endTime),
-            DurationDisplayComponent(
-              startTime: startTime!,
-              endTime: endTime!,
-            ),
-            Center(
-              child: CustomButton(
-                txt: "Book My Slot",
-                onPressedFunc: () => CalendarAppService().insert(
-                  title: "Peer-Gig Meet",
-                  description: "Meet regarding internships/placements",
-                  location: "India",
-                  attendeeEmailList: [
-                    EventAttendee(
-                        email: "btbtc19186_sargam@banasthali.in",
-                        displayName: "Sargam Agarwal"),
-                    EventAttendee(
-                        email: "btbtc19297_samridhi@banasthali.in",
-                        displayName: "Samridhi Sethi")
-                  ],
-                  shouldNotifyAttendees: true,
-                  hasConferenceSupport: true,
-                  startTime: DateTime(2022, 5, 21, 17, 30),
-                  endTime: DateTime(2022, 5, 21, 17, 45),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+        body: Container(
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+              colors: [AppColors.primary!, AppColors.secondary!],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: const [0.60, 1.0],
+            )),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    const SearchResultPeer(
+                      dpUrl:
+                          "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
+                      title: 'Samridhi Sethi', //username
+                      subtitle:
+                          'B.Tech (CS) student at Banasthali Vidyapith...', //headline
+                    ),
+                    Text("Book a 15 mins slot:",
+                        style: GoogleFonts.mallanna(
+                            color: AppColors.highlightColor,
+                            fontSize: 21,
+                            fontWeight: FontWeight.bold)),
+                    Text("Days Available: Weekdays",
+                        style: GoogleFonts.mallanna(
+                            color: AppColors.highlightColor, fontSize: 21)),
+                    const DaysAvailable(isWeekends: false),
+                    Text("Time Duration Available:",
+                        style: GoogleFonts.mallanna(
+                            color: AppColors.highlightColor, fontSize: 21)),
+                    //TimeDisplay(startTime: startTime, endTime: endTime),
+                    DurationDisplayComponent(
+                      startTime: startTime!,
+                      endTime: endTime!,
+                    ),
+                    Center(
+                        child: CustomButton(
+                      txt: "Book My Slot",
+                      onPressedFunc: () {},
+                    ))
+                  ]),
+            )));
   }
 }

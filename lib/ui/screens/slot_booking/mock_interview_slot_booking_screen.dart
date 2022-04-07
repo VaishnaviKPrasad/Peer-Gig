@@ -31,38 +31,42 @@ class MockInterviewSlotBookingScreen extends StatelessWidget {
         body: Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(gradient: AppScreenGradient()),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  const SearchResultPeer(
-                    dpUrl:
-                        "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
-                    title: 'Vanshika Garg',
-                    subtitle: 'B.Tech (CS) student at Banasthali Vidyapith...',
-                  ),
-                  Text("Book a 1hr mock interview slot:",
-                      style: GoogleFonts.mallanna(
-                          color: AppColors.highlightColor,
-                          fontSize: 21,
-                          fontWeight: FontWeight.bold)),
-                  Text("Days Available: Weekdays",
-                      style: GoogleFonts.mallanna(
-                          color: AppColors.highlightColor, fontSize: 21)),
-                  const DaysAvailable(isWeekends: true),
-                  Text("Time Duration Available:",
-                      style: GoogleFonts.mallanna(
-                          color: AppColors.highlightColor, fontSize: 21)),
-                  //TimeDisplay(startTime: startTime, endTime: endTime),
-                  DurationDisplayComponent(
-                    startTime: startTime!,
-                    endTime: endTime!,
-                  ),
-                  Center(
-                      child: CustomButton(
-                    txt: "Book My Slot",
-                    onPressedFunc: () {},
-                  ))
-                ])));
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    const SearchResultPeer(
+                      dpUrl:
+                          "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
+                      title: 'Samridhi Sethi',
+                      subtitle:
+                          'B.Tech (CS) student at Banasthali Vidyapith...',
+                    ),
+                    Text("Book a 1hr mock interview slot:",
+                        style: GoogleFonts.mallanna(
+                            color: AppColors.highlightColor,
+                            fontSize: 21,
+                            fontWeight: FontWeight.bold)),
+                    Text("Days Available: Weekdays",
+                        style: GoogleFonts.mallanna(
+                            color: AppColors.highlightColor, fontSize: 21)),
+                    const DaysAvailable(isWeekends: true),
+                    Text("Time Duration Available:",
+                        style: GoogleFonts.mallanna(
+                            color: AppColors.highlightColor, fontSize: 21)),
+                    //TimeDisplay(startTime: startTime, endTime: endTime),
+                    DurationDisplayComponent(
+                      startTime: startTime!,
+                      endTime: endTime!,
+                    ),
+                    Center(
+                        child: CustomButton(
+                      txt: "Book My Slot",
+                      onPressedFunc: () {},
+                    ))
+                  ]),
+            )));
   }
 }
