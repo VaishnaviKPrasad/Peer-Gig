@@ -47,6 +47,7 @@ class AuthRepository extends AuthRepositoryBase {
   @override
   Future<void> signOut() async {
     GoogleSignIn().disconnect();
+    await FirebaseAuth.instance.signOut();
   }
 
   @override
