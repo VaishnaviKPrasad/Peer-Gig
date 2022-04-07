@@ -42,7 +42,7 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(txt: txt[_selectedIndex]),
+      appBar: (_selectedIndex != 2) ? CustomAppBar(txt: txt[_selectedIndex]) : null,
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
