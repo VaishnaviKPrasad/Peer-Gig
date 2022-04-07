@@ -14,12 +14,12 @@ import 'application/slot_booking/calendar_app_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  var _clientID = ClientId(Secret.getId(), "");
-  const _scopes = [cal.CalendarApi.calendarScope];
-  await clientViaUserConsent(_clientID, _scopes, AppUtils.prompt)
-      .then((AuthClient client) async {
-    CalendarAppService.calendar = cal.CalendarApi(client);
-  });
+  // var _clientID = ClientId(Secret.getId(), "");
+  // const _scopes = [cal.CalendarApi.calendarScope];
+  // await clientViaUserConsent(_clientID, _scopes, AppUtils.prompt)
+  //     .then((AuthClient client) async {
+  //   CalendarAppService.calendar = cal.CalendarApi(client);
+  // });
   runApp(const MyApp());
 }
 

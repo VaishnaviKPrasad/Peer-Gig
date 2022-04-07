@@ -9,6 +9,7 @@ class HomeFeedPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("######### PostDetails: ${postDetails}");
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
