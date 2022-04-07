@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:peer_gig/application/authentication/auth_app_service.dart';
 import 'package:peer_gig/data/authentication/auth_repository.dart';
 import 'package:peer_gig/data/common/filter_repository.dart';
 import 'package:peer_gig/data/common/user_repository.dart';
 import 'package:peer_gig/ui/screens/common/home_screen.dart';
-
-import '../../ui/config/my_globals.dart';
 
 class UserAppService {
   static Future<void> addUser({

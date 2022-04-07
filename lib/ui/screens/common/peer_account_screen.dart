@@ -5,7 +5,6 @@ import 'package:peer_gig/ui/screens/common/peer_about_tab_screen.dart';
 import 'package:peer_gig/ui/screens/slot_booking/fifteen_mins_slot_booking_screen.dart';
 import 'package:peer_gig/ui/widgets/common/custom_app_bar.dart';
 import 'package:peer_gig/ui/widgets/common/custom_tab_bar.dart';
-
 import '../slot_booking/mock_interview_slot_booking_screen.dart';
 
 class PeerAccountScreen extends StatefulWidget {
@@ -50,11 +49,10 @@ class _PeerAccountScreenState extends State<PeerAccountScreen> {
               Text(
                 "Mock Interview",
                 style: GoogleFonts.mallanna(
-                  color: AppColors.primaryLight,
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.normal,
-                  height: 1.0 
-                ), 
+                    color: AppColors.primaryLight,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.normal,
+                    height: 1.0),
                 textAlign: TextAlign.center,
               ),
             ],

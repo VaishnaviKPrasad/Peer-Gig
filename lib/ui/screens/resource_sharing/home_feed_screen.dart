@@ -31,16 +31,18 @@ class _HomeFeedState extends State<HomeFeedScreen> {
         child: StreamBuilder<DocumentSnapshot>(
           stream: DatabaseService()
               .getHomeFeedPostsDocumentSnapshotForSingleUser(currentUserId),
-          builder:
-              (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshots) {
+          builder: (BuildContext context,
+              AsyncSnapshot<DocumentSnapshot> snapshots) {
             if (snapshots.hasError) {
               return Text("Something went wrong! ${snapshots.error}");
             }
             if (snapshots.connectionState == ConnectionState.waiting) {
               return const CircularProgressIndicator();
             }
+
             final List<dynamic> postIds =
                 (snapshots.data?.data()! as Map)['homeFeed'];
+
             return ListView.builder(
               itemCount: postIds.length,
               itemBuilder: (ctx, index) => HomeFeedPostBuilder(postIds[index]),
@@ -70,11 +72,13 @@ class HomeFeedPostBuilder extends StatelessWidget {
         }
 
         if (snapshot.hasData) {
+          print("######## has data !");
           return HomeFeedPost(
             postDetails: snapshot.data as Post,
           );
         }
 
+        if (snapshot.hasError) return Text("Error: ${snapshot.error}");
         return const Text("No data");
       },
     );

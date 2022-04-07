@@ -1,7 +1,5 @@
 library peer_gig_globals;
 
-import 'package:flutter/foundation.dart';
-
 String? firestoreUserId;
 String? fullName;
 String? headline;

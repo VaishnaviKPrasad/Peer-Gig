@@ -1,11 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/application/common/filter_app_service.dart';
 import 'package:peer_gig/data/common/filter_repository.dart';
 import 'package:peer_gig/ui/config/constants/gradient.dart';
 import 'package:peer_gig/ui/widgets/common/custom_button.dart';
 import 'package:peer_gig/ui/widgets/common/search_result_peer.dart';
-import 'package:peer_gig/ui/widgets/common/search_tags_drop_down_button.dart';
 import 'package:peer_gig/ui/widgets/common/search_tags_future_builder_component.dart';
 
 class SearchAPeerScreen extends StatefulWidget {

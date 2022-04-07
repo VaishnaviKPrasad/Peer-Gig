@@ -77,10 +77,12 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<String> getFullName(String userId) async {
+    print("####### checxking");
     String res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['fullName']);
+    print("####### res: $res");
     return res;
   }
 
