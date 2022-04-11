@@ -29,6 +29,7 @@ class MockInterviewSlotBookingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 <<<<<<< HEAD
+<<<<<<< HEAD
         body: Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(gradient: AppScreenGradient()),
@@ -66,6 +67,8 @@ class MockInterviewSlotBookingScreen extends StatelessWidget {
                   ))
                 ])));
 =======
+=======
+>>>>>>> bdb41a362755f4ff8588b27e6cc8e3a9d27c9f8b
       body: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(gradient: AppScreenGradient()),
@@ -109,6 +112,9 @@ class MockInterviewSlotBookingScreen extends StatelessWidget {
         ),
       ),
     );
+<<<<<<< HEAD
+>>>>>>> bdb41a362755f4ff8588b27e6cc8e3a9d27c9f8b
+=======
 >>>>>>> bdb41a362755f4ff8588b27e6cc8e3a9d27c9f8b
   }
 }

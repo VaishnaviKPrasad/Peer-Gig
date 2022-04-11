@@ -24,6 +24,7 @@ class _DurationDisplayDropdownComponentState
     return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
       Expanded(
 <<<<<<< HEAD
+<<<<<<< HEAD
           child: CustomDropDownButton(
         txt: 'Start Time',
         fields: widget.start,
@@ -35,12 +36,17 @@ class _DurationDisplayDropdownComponentState
           child: SearchTagsDropDown(txt: 'Start Time', fields: widget.start, onChangedFunc: null,),
       ),
 >>>>>>> bdb41a362755f4ff8588b27e6cc8e3a9d27c9f8b
+=======
+          child: SearchTagsDropDown(txt: 'Start Time', fields: widget.start, onChangedFunc: null,),
+      ),
+>>>>>>> bdb41a362755f4ff8588b27e6cc8e3a9d27c9f8b
       Icon(
         Icons.horizontal_rule_rounded,
         color: AppColors.primaryLight,
         size: 20.0,
       ),
       Expanded(
+<<<<<<< HEAD
 <<<<<<< HEAD
           child: CustomDropDownButton(
         txt: 'End Time',
@@ -49,6 +55,10 @@ class _DurationDisplayDropdownComponentState
         onSavedFunc: (String) {},
         validatorFunc: (String) {},
       )),
+=======
+          child: SearchTagsDropDown(txt: 'End Time', fields: widget.end, onChangedFunc: null,),
+      ),
+>>>>>>> bdb41a362755f4ff8588b27e6cc8e3a9d27c9f8b
 =======
           child: SearchTagsDropDown(txt: 'End Time', fields: widget.end, onChangedFunc: null,),
       ),

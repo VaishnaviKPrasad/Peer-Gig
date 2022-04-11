@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import 'package:peer_gig/ui/components/slot_booking/duration_display_component.dart';
 =======
+=======
+>>>>>>> bdb41a362755f4ff8588b27e6cc8e3a9d27c9f8b
 import 'package:googleapis/calendar/v3.dart';
 import 'package:peer_gig/application/slot_booking/calendar_app_service.dart';
 import 'package:peer_gig/ui/components/duration_display_component.dart';
@@ -36,6 +39,7 @@ class FifteenMinsSlotBookingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< HEAD
 <<<<<<< HEAD
         body: Container(
             width: MediaQuery.of(context).size.width,
@@ -81,6 +85,8 @@ class FifteenMinsSlotBookingScreen extends StatelessWidget {
                   ))
                 ])));
 =======
+=======
+>>>>>>> bdb41a362755f4ff8588b27e6cc8e3a9d27c9f8b
       body: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
@@ -132,6 +138,9 @@ class FifteenMinsSlotBookingScreen extends StatelessWidget {
         ),
       ),
     );
+<<<<<<< HEAD
+>>>>>>> bdb41a362755f4ff8588b27e6cc8e3a9d27c9f8b
+=======
 >>>>>>> bdb41a362755f4ff8588b27e6cc8e3a9d27c9f8b
   }
 }
