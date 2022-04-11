@@ -1,11 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/application/common/filter_app_service.dart';
 import 'package:peer_gig/data/common/filter_repository.dart';
 import 'package:peer_gig/ui/config/constants/gradient.dart';
 import 'package:peer_gig/ui/widgets/common/custom_button.dart';
 import 'package:peer_gig/ui/widgets/common/search_result_peer.dart';
-import 'package:peer_gig/ui/widgets/common/search_tags_drop_down_button.dart';
 import 'package:peer_gig/ui/widgets/common/search_tags_future_builder_component.dart';
 
 class SearchAPeerScreen extends StatefulWidget {
@@ -80,76 +78,84 @@ class _SearchAPeerScreenState extends State<SearchAPeerScreen> {
         decoration: BoxDecoration(
           gradient: AppScreenGradient(),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Wrap(
-              direction: Axis.horizontal,
-              spacing: 20,
-              runSpacing: 20,
-              children: [
-                SearchTagsFutureBuilder(
-                  list: obj.getAchievementsList(),
-                  txt: "Achievements",
-                  onChangedFunc: _getSelectedAchievement,
-                ),
-                SearchTagsFutureBuilder(
-                  list: obj.getAskMeAboutList(),
-                  txt: "Ask Me About",
-                  onChangedFunc: _getSelectedAskMeAbout,
-                ),
-                SearchTagsFutureBuilder(
-                  list: obj.getBranchList(),
-                  txt: "Branch",
-                  onChangedFunc: _getSelectedBranch,
-                ),
-                SearchTagsFutureBuilder(
-                  list: obj.getCompanyList(),
-                  txt: "Company",
-                  onChangedFunc: _getSelectedCompany,
-                ),
-                SearchTagsFutureBuilder(
-                  list: obj.getCourseList(),
-                  txt: "Course",
-                  onChangedFunc: _getSelectedCourse,
-                ),
-                SearchTagsFutureBuilder(
-                  list: obj.getTechStackList(),
-                  txt: "Tech Stack",
-                  onChangedFunc: _getSelectedTechStack,
-                ),
-                SearchTagsFutureBuilder(
-                  list: obj.getYearList(),
-                  txt: "Year",
-                  onChangedFunc: _getSelectedYear,
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            CustomButton(
-              txt: "Apply Filters",
-              onPressedFunc: _searchUsers,
-            ),
-            const SizedBox(height: 20),
-            const Text("Your Search Results"),
-            const SizedBox(height: 20),
-            (userData.isEmpty)
-                ? Text("Empty")
-                : Expanded(
-                    child: ListView.builder(
-                      itemCount: userData.length,
-                      itemBuilder: (_, index) {
-                        return SearchResultPeer(
-                          dpUrl: userData[index]['dpUrl']! as String,
-                          title: userData[index]['title']! as String,
-                          subtitle: userData[index]['subtitle']! as String,
-                          userId: userData[index]['userId']! as String,
-                        );
-                      },
-                    ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Wrap(
+                direction: Axis.horizontal,
+                spacing: 20,
+                runSpacing: 20,
+                children: [
+                  SearchTagsFutureBuilder(
+                    list: obj.getAchievementsList(),
+                    txt: "Achievements",
+                    onChangedFunc: _getSelectedAchievement,
                   ),
-          ],
+                  SearchTagsFutureBuilder(
+                    list: obj.getAskMeAboutList(),
+                    txt: "Ask Me About",
+                    onChangedFunc: _getSelectedAskMeAbout,
+                  ),
+                  SearchTagsFutureBuilder(
+                    list: obj.getBranchList(),
+                    txt: "Branch",
+                    onChangedFunc: _getSelectedBranch,
+                  ),
+                  SearchTagsFutureBuilder(
+                    list: obj.getCompanyList(),
+                    txt: "Company",
+                    onChangedFunc: _getSelectedCompany,
+                  ),
+                  SearchTagsFutureBuilder(
+                    list: obj.getCourseList(),
+                    txt: "Course",
+                    onChangedFunc: _getSelectedCourse,
+                  ),
+                  SearchTagsFutureBuilder(
+                    list: obj.getTechStackList(),
+                    txt: "Tech Stack",
+                    onChangedFunc: _getSelectedTechStack,
+                  ),
+                  SearchTagsFutureBuilder(
+                    list: obj.getYearList(),
+                    txt: "Year",
+                    onChangedFunc: _getSelectedYear,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              CustomButton(
+                txt: "Apply Filters",
+                onPressedFunc: _searchUsers,
+              ),
+              const SizedBox(height: 20),
+              const Text("Your Search Results"),
+              const SizedBox(height: 20),
+              (userData.isEmpty)
+                  ? Text("Empty")
+                  : Expanded(
+                      child: ListView.builder(
+                        itemCount: userData.length,
+                        itemBuilder: (_, index) {
+                          return Column(
+                            children: [
+                              SearchResultPeer(
+                                dpUrl: userData[index]['dpUrl']! as String,
+                                title: userData[index]['title']! as String,
+                                subtitle: userData[index]['subtitle']! as String,
+                                userId: userData[index]['userId']! as String,
+                              ),
+                              const SizedBox(height:10),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
+            ],
+          ),
         ),
       ),
     );

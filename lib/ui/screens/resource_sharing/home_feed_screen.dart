@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/data/database_service.dart';
+import 'package:peer_gig/ui/config/constants/gradient.dart';
 
 import '../../../application/resource_sharing/post_app_service.dart';
 import '../../../domain/entities/resource_sharing/post.dart';
@@ -16,28 +17,38 @@ class HomeFeedScreen extends StatefulWidget {
 
 class _HomeFeedState extends State<HomeFeedScreen> {
   // final String? currentUserId = FirebaseAuth.instance.currentUser?.uid;
-  final String currentUserId = 'sargam123india@gmail.com';
+  final String currentUserId = 'btbtc19297_samridhi@banasthali.in';
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<DocumentSnapshot>(
-      stream: DatabaseService()
-          .getHomeFeedPostsDocumentSnapshotForSingleUser(currentUserId),
-      builder:
-          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshots) {
-        if (snapshots.hasError) {
-          return Text("Something went wrong! ${snapshots.error}");
-        }
-        if (snapshots.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
-        }
-        final List<dynamic> postIds =
-            (snapshots.data?.data()! as Map)['homeFeed'];
-        return ListView.builder(
-          itemCount: postIds.length,
-          itemBuilder: (ctx, index) => HomeFeedPostBuilder(postIds[index]),
-        );
-      },
+    return Scaffold(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          gradient: AppScreenGradient(),
+        ),
+        child: StreamBuilder<DocumentSnapshot>(
+          stream: DatabaseService()
+              .getHomeFeedPostsDocumentSnapshotForSingleUser(currentUserId),
+          builder: (BuildContext context,
+              AsyncSnapshot<DocumentSnapshot> snapshots) {
+            if (snapshots.hasError) {
+              return Text("Something went wrong! ${snapshots.error}");
+            }
+            if (snapshots.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            }
+
+            final List<dynamic> postIds =
+                (snapshots.data?.data()! as Map)['homeFeed'];
+
+            return ListView.builder(
+              itemCount: postIds.length,
+              itemBuilder: (ctx, index) => HomeFeedPostBuilder(postIds[index]),
+            );
+          },
+        ),
+      ),
     );
   }
 }
@@ -60,11 +71,13 @@ class HomeFeedPostBuilder extends StatelessWidget {
         }
 
         if (snapshot.hasData) {
+          print("######## has data !");
           return HomeFeedPost(
             postDetails: snapshot.data as Post,
           );
         }
 
+        if (snapshot.hasError) return Text("Error: ${snapshot.error}");
         return const Text("No data");
       },
     );

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:peer_gig/ui/config/constants/peer_gig_icons.dart';
-import 'package:peer_gig/ui/screens/authentication/sign_in_screen.dart';
-import 'package:peer_gig/ui/screens/common/home_screen.dart';
 import 'package:peer_gig/ui/screens/common/root_screen.dart';
 import '../../config/constants/colors.dart';
 

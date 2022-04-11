@@ -4,11 +4,10 @@ import '../../config/constants/colors.dart';
 import '../../config/constants/peer_gig_icons.dart';
 import '../../widgets/common/custom_text_display.dart';
 
-// ignore: must_be_immutable
 class DurationDisplayComponent extends StatelessWidget {
-  int startTime;
-  int endTime;
-  DurationDisplayComponent(
+  final int startTime;
+  final int endTime;
+  const DurationDisplayComponent(
       {Key? key, required this.startTime, required this.endTime})
       : super(key: key);
 
@@ -39,40 +38,49 @@ class DurationDisplayComponent extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20.0),
-        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          Stack(children: [
-            const CustomTextDisplay(
-              txt: '-Select Date-',
-              isSelector: true,
-            ),
-            Positioned(
-                right: 8.0,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(
-                    PeerGigIcons.calendar,
-                    size: 18.0,
-                    color: AppColors.primaryDark,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Stack(
+              children: [
+                const CustomTextDisplay(
+                  txt: '-Select Date-',
+                  isSelector: true,
+                ),
+                Positioned(
+                  right: 8.0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(
+                      PeerGigIcons.calendar,
+                      size: 18.0,
+                      color: AppColors.primaryDark,
+                    ),
                   ),
-                ))
-          ]),
-          Stack(children: [
-            const CustomTextDisplay(
-              txt: '-Select Time-',
-              isSelector: true,
+                )
+              ],
             ),
-            Positioned(
-                right: 8.0,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(
-                    PeerGigIcons.clock,
-                    size: 21.0,
-                    color: AppColors.primaryDark,
+            Stack(
+              children: [
+                const CustomTextDisplay(
+                  txt: '-Select Time-',
+                  isSelector: true,
+                ),
+                Positioned(
+                  right: 8.0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(
+                      PeerGigIcons.clock,
+                      size: 21.0,
+                      color: AppColors.primaryDark,
+                    ),
                   ),
-                ))
-          ])
-        ])
+                )
+              ],
+            )
+          ],
+        )
       ],
     );
   }

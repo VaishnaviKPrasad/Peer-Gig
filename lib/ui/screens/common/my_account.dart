@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:peer_gig/ui/config/constants/gradient.dart';
+import 'package:peer_gig/ui/screens/common/manage_my_slots_screen.dart';
+import 'package:peer_gig/ui/screens/common/my_account_about_screen.dart';
+import 'package:peer_gig/ui/widgets/common/custom_app_bar.dart';
+import 'package:peer_gig/ui/widgets/common/my_accounts_tab_bar.dart';
 
 class MyAccountScreen extends StatefulWidget {
   const MyAccountScreen({ Key? key }) : super(key: key);
@@ -11,20 +14,20 @@ class MyAccountScreen extends StatefulWidget {
 class _MyAccountScreenState extends State<MyAccountScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          gradient: AppScreenGradient(),
+    return const DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: CustomAppBar(
+          txt: "MY ACCOUNT",
+          tabBar: MyAccountTabBar(),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Text("My Account Screen"),
+        body: TabBarView(
+          children: [
+            MyAccountAboutScreen(),
+            ManageMySlotsScreen(),
           ],
-        ),
-      ),
+        )
+      ),      
     );
   }
 }

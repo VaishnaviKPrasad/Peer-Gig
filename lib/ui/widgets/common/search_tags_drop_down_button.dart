@@ -23,43 +23,52 @@ class _SearchTagsDropDownState extends State<SearchTagsDropDown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonHideUnderline(
-      child: DropdownButton<String>(
-        itemHeight: null,
-        isDense: true,
-        hint: Text(
-          'Select ${widget.txt}',
-          style: GoogleFonts.mallanna(
-            color: AppColors.primaryDark,
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
-          ),
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.primaryLight,
+          borderRadius: BorderRadius.circular(15),
         ),
-        items: widget.fields.map((String dropdownStringItem) {
-          return DropdownMenuItem<String>(
-            value: dropdownStringItem,
-            child: Text(
-              dropdownStringItem,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
+          child: DropdownButton<String>(
+            itemHeight: null,
+            isDense: true,
+            hint: Text(
+              'Select ${widget.txt}',
               style: GoogleFonts.mallanna(
                 color: AppColors.primaryDark,
                 fontSize: 15,
-                fontWeight: FontWeight.normal,
+                fontWeight: FontWeight.bold,
               ),
             ),
-          );
-        }).toList(),
-        onChanged: (String? newValue) {
-          setState(() {
-            dropDownValue = newValue;
-          });
-          widget.onChangedFunc!(newValue);
-        },
-        value: dropDownValue,
-        icon: const Icon(Icons.arrow_drop_down),
-        iconSize: 20,
-        iconEnabledColor: AppColors.primaryLight,
-        iconDisabledColor: AppColors.primaryDark,
-        dropdownColor: AppColors.primaryLight,
-        borderRadius: BorderRadius.circular(10),
+            items: widget.fields.map((String dropdownStringItem) {
+              return DropdownMenuItem<String>(
+                value: dropdownStringItem,
+                child: Text(
+                  dropdownStringItem,
+                  style: GoogleFonts.mallanna(
+                    color: AppColors.primaryDark,
+                    fontSize: 15,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              );
+            }).toList(),
+            onChanged: (String? newValue) {
+              setState(() {
+                dropDownValue = newValue;
+              });
+              widget.onChangedFunc!(newValue);
+            },
+            value: dropDownValue,
+            icon: const Icon(Icons.arrow_drop_down),
+            iconSize: 20,
+            iconEnabledColor: AppColors.primaryDark,
+            iconDisabledColor: AppColors.primaryDark,
+            dropdownColor: AppColors.primaryLight,
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
       ),
     );
   }
