@@ -26,6 +26,7 @@ class DpUsernameDisplay extends StatelessWidget {
           CustomTextDisplay(
             txt: username,
             isSelector: null,
+            name: true,
           )
         ]);
   }

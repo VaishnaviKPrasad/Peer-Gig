@@ -25,7 +25,7 @@ class _PeerAboutTabScreenState extends State<PeerAboutTabScreen> {
                 const SizedBox(height: 20.0),
                 const AccountProfile(
                   dpUrl: "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",  
-                  username: "Samridhi Sethi", 
+                  username: "Sargam Agarwal", 
                   followerCount: 50, 
                   followingCount: 80, 
                   isMyAccount: false, 
