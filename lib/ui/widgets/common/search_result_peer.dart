@@ -53,7 +53,8 @@ class SearchResultPeer extends StatelessWidget {
         ),
         subtitle: Text(
           subtitle!,
-          style: GoogleFonts.mallanna(color: AppColors.primaryDark, fontSize: 15),
+          style:
+              GoogleFonts.mallanna(color: AppColors.primaryDark, fontSize: 15),
         ),
       ),
     );

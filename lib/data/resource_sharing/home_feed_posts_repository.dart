@@ -22,7 +22,8 @@ class HomeFeedPostsRepository extends HomeFeedPostsRepositoryBase {
   Future<void> addNewHomeFeedPost(
       {@required String? userId, @required Map<String, Object>? map}) async {
     String postId = await SinglePostInfoRepository().addNewPost(map);
-    await _homeFeedPostsCollection.doc(userId).get().then(
-        (docSnap) => (docSnap.data()! as Map)['homeFeedPosts'].add(postId));
+    await _homeFeedPostsCollection.doc(userId).update({
+      'homeFeedPosts': FieldValue.arrayUnion([postId])
+    });
   }
 }

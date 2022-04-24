@@ -17,16 +17,15 @@ class DpUsernameDisplay extends StatelessWidget {
           CircleAvatar(
               backgroundColor: AppColors.primaryLight,
               radius: 20,
-              child: const CircleAvatar(
+              child: CircleAvatar(
                   backgroundImage: NetworkImage(
-                    "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
+                    dpUrl!,
                   ),
                   radius: 19)),
           const SizedBox(width: 10),
           CustomTextDisplay(
             txt: username,
             isSelector: null,
-            name: true,
           )
         ]);
   }

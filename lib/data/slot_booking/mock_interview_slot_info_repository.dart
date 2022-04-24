@@ -28,12 +28,10 @@ class MockInterviewSlotInfoRepository {
   }
 
   // add appointment details for a new/existing user
-  Future<void> addAppointmentDetails(
+  Future<void> addSlotDetails(
       {@required String? userId,
       @required Map<String, Object>? appointmentDetails}) async {
-    await _mockInterviewSlotInfoCollection
-        .add(userId)
-        .then((docRef) => docRef.set(appointmentDetails));
+    await _mockInterviewSlotInfoCollection.doc(userId).set(appointmentDetails);
   }
 
   // update the appointment details of a user

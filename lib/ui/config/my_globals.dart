@@ -28,7 +28,6 @@ class User {
   final List<String>? askMeAbout;
   final List<String>? company;
   final List<String>? techStack;
-
   User({
     @required this.firestoreUserId,
     @required this.fullName,

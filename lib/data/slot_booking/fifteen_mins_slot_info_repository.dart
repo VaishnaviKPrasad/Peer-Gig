@@ -28,12 +28,13 @@ class FifteenMinsSlotInfoRepository {
   }
 
   // add appointment details for a new/existing user
-  Future<void> addAppointmentDetails(
+  Future<void> addSlotDetails(
       {@required String? userId,
       @required Map<String, Object>? appointmentDetails}) async {
-    await _fifteenMinsSlotInfoCollection
-        .add(userId)
-        .then((docRef) => docRef.set(appointmentDetails));
+    await _fifteenMinsSlotInfoCollection.doc(userId).set(appointmentDetails);
+    //   await _fifteenMinsSlotInfoCollection
+    //       .add(userId)
+    //       .then((docRef) => docRef.set(appointmentDetails));
   }
 
   // update the appointment details of a user

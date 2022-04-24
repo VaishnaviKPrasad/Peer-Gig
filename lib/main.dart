@@ -8,18 +8,22 @@ import 'package:peer_gig/ui/screens/common/root_screen.dart';
 import 'package:peer_gig/utils/app_utils.dart';
 import 'package:peer_gig/utils/secrets.dart';
 import 'package:googleapis/calendar/v3.dart' as cal;
-
 import 'application/slot_booking/calendar_app_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  // var _clientID = ClientId(Secret.getId(), "");
-  // const _scopes = [cal.CalendarApi.calendarScope];
-  // await clientViaUserConsent(_clientID, _scopes, AppUtils.prompt)
-  //     .then((AuthClient client) async {
-  //   CalendarAppService.calendar = cal.CalendarApi(client);
-  // });
+  try {
+    var _clientID = ClientId(Secret.getId(), Secret.getClientSecret());
+    const _scopes = [cal.CalendarApi.calendarScope];
+    await clientViaUserConsent(_clientID, _scopes, AppUtils.prompt)
+        .then((AuthClient client) async {
+      CalendarAppService.calendar = cal.CalendarApi(client);
+      print("######## Calendar Checking ${CalendarAppService.calendar}");
+    });
+  } catch (e) {
+    print("######### Google Calendar API Error: ${e.toString()}");
+  }
   runApp(const MyApp());
 }
 
@@ -31,7 +35,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        //appBar: AppBar(),
         body: StreamBuilder<User?>(
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (BuildContext context, snapshot) {

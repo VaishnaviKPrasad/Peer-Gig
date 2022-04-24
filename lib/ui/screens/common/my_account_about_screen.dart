@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:peer_gig/data/authentication/auth_repository.dart';
+import 'package:peer_gig/application/common/user_app_service.dart';
 import 'package:peer_gig/ui/components/common/account_profile.dart';
 import 'package:peer_gig/ui/config/constants/gradient.dart';
 import 'package:peer_gig/ui/widgets/common/account_details.dart';
-import 'package:peer_gig/ui/widgets/common/custom_button.dart';
 
-class MyAccountAboutScreen extends StatefulWidget {
-  const MyAccountAboutScreen({Key? key}) : super(key: key);
+class PeerAboutTabScreen extends StatefulWidget {
+  final String? userId;
+  const PeerAboutTabScreen({Key? key, this.userId}) : super(key: key);
 
   @override
-  State<MyAccountAboutScreen> createState() => _MyAccountAboutScreenState();
+  State<PeerAboutTabScreen> createState() => _PeerAboutTabScreenState();
 }
 
-class _MyAccountAboutScreenState extends State<MyAccountAboutScreen> {
+class _PeerAboutTabScreenState extends State<PeerAboutTabScreen> {
+  final List<String> _attributes = [
+    'Headline',
+    'Course',
+    'Branch',
+    'Year',
+    'Company',
+    'Experiene',
+    'Tech Stack',
+    'Achievements',
+    'Ask Me About'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,44 +37,87 @@ class _MyAccountAboutScreenState extends State<MyAccountAboutScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20.0),
-            const AccountProfile(
-                dpUrl:
-                    "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
-                username: "Samridhi Sethi",
-                followerCount: 50,
-                followingCount: 80,
-                isMyAccount: true,
-                isFollowing: false),
+            FutureBuilder(
+              future: UserAppService.getUserDetails(widget.userId!),
+              builder: (BuildContext ctx,
+                  AsyncSnapshot<Map<String, String>> snapshot) {
+                if (snapshot.hasData) {
+                  return AccountProfile(
+                    peerId: widget.userId,
+                    dpUrl: snapshot.data!['dpUrl'],
+                    username: snapshot.data!['fullName'],
+                    followerCount: snapshot.data!['followersCount'],
+                    followingCount: snapshot.data!['followingsCount'],
+                    isMyAccount: false,
+                    isFollowing: (snapshot.data!['isFollowing'] == "True")
+                        ? true
+                        : false,
+                  );
+                }
+
+                if (snapshot.hasError) {
+                  return Text("###### Error: ${snapshot.error}");
+                }
+                return const CircularProgressIndicator();
+              },
+            ),
             const SizedBox(height: 30.0),
             Expanded(
-              child: ListView.builder(
-                //shrinkWrap: true,
-                itemCount: 7,
-                itemBuilder: (BuildContext context, int index) {
-                  return Column(
-                    children: const [
-                      AccountDetails(
-                          txt: "Lorem ipsum dolor sit amet, consectetur",
-                          editable: true,
-                          title: "Achievements"),
-                      SizedBox(
-                        height: 20.0,
-                      )
-                    ],
-                  );
+              child: FutureBuilder(
+                future: UserAppService.getUserAttributesInfo(widget.userId!),
+                builder: (BuildContext ctx,
+                    AsyncSnapshot<Map<String, String>> snapshot) {
+                  if (snapshot.hasData) {
+                    final data = snapshot.data!;
+                    return ListView.builder(
+                      itemCount: 9,
+                      itemBuilder: (BuildContext cntx, int index) {
+                        String title = _attributes[index];
+                        String txt = data[title] ?? "None";
+                        return Column(
+                          children: [
+                            AccountDetails(
+                                txt: txt, editable: false, title: title),
+                            const SizedBox(
+                              height: 20.0,
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+
+                  if (snapshot.hasError) {
+                    return Text("Error ${snapshot.error}");
+                  }
+
+                  return const CircularProgressIndicator();
                 },
               ),
             ),
-            Center(
-              child: CustomButton(
-                txt: 'Log Out',
-                onPressedFunc: () => AuthRepository().signOut(),
-              ),
-            ),
-            const SizedBox(height: 5),
           ],
         ),
       ),
     );
   }
 }
+
+/*
+ListView.builder(
+                    //shrinkWrap: true,
+                    itemCount: 7,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: const [
+                          AccountDetails(
+                              txt: "Lorem ipsum dolor sit amet, consectetur",
+                              editable: false,
+                              title: "Achievements"),
+                          SizedBox(
+                            height: 20.0,
+                          )
+                        ],
+                      );
+                    },
+                  ),
+                  */

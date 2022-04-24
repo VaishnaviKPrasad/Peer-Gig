@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../config/constants/colors.dart';
 
-class MyAccountTabBar extends StatelessWidget with PreferredSizeWidget{
-  const MyAccountTabBar({ Key? key }) : super(key: key);
+class MyAccountTabBar extends StatelessWidget with PreferredSizeWidget {
+  const MyAccountTabBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +27,11 @@ class MyAccountTabBar extends StatelessWidget with PreferredSizeWidget{
           ),
           textAlign: TextAlign.center,
         )
-      ],      
+      ],
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight+kTextTabBarHeight);
+  Size get preferredSize =>
+      const Size.fromHeight(kToolbarHeight + kTextTabBarHeight);
 }

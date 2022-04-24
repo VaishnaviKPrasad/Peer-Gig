@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:peer_gig/ui/screens/common/manage_my_slots_screen.dart';
+import 'package:peer_gig/ui/screens/slot_booking/manage_my_slots_screen.dart';
 import 'package:peer_gig/ui/screens/common/my_account_about_screen.dart';
 import 'package:peer_gig/ui/widgets/common/custom_app_bar.dart';
 import 'package:peer_gig/ui/widgets/common/my_accounts_tab_bar.dart';
 
 class MyAccountScreen extends StatefulWidget {
-  const MyAccountScreen({ Key? key }) : super(key: key);
+  const MyAccountScreen({Key? key}) : super(key: key);
 
   @override
   State<MyAccountScreen> createState() => _MyAccountScreenState();
@@ -26,8 +26,8 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
             MyAccountAboutScreen(),
             ManageMySlotsScreen(),
           ],
-        )
-      ),      
+        ),
+      ),
     );
   }
 }

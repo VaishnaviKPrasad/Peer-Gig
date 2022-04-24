@@ -63,7 +63,7 @@ class _SearchAPeerScreenState extends State<SearchAPeerScreen> {
       'companies': _selectedCompany,
       'course': _selectedCourse,
       'techStacks': _selectedTechStack,
-      'year': _selectedYear,
+      'currentYear': _selectedYear,
     };
     userData = await FilterAppService.searchUsers(map);
     print("#################### $userData");
@@ -145,10 +145,11 @@ class _SearchAPeerScreenState extends State<SearchAPeerScreen> {
                               SearchResultPeer(
                                 dpUrl: userData[index]['dpUrl']! as String,
                                 title: userData[index]['title']! as String,
-                                subtitle: userData[index]['subtitle']! as String,
+                                subtitle:
+                                    userData[index]['subtitle']! as String,
                                 userId: userData[index]['userId']! as String,
                               ),
-                              const SizedBox(height:10),
+                              const SizedBox(height: 10),
                             ],
                           );
                         },

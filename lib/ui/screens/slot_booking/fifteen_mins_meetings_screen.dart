@@ -5,10 +5,11 @@ import 'package:peer_gig/ui/config/constants/colors.dart';
 import 'package:peer_gig/ui/config/constants/gradient.dart';
 
 class FifteenMinsMeetingsScreen extends StatefulWidget {
-  const FifteenMinsMeetingsScreen({ Key? key }) : super(key: key);
+  const FifteenMinsMeetingsScreen({Key? key}) : super(key: key);
 
   @override
-  State<FifteenMinsMeetingsScreen> createState() => _FifteenMinsMeetingsScreenState();
+  State<FifteenMinsMeetingsScreen> createState() =>
+      _FifteenMinsMeetingsScreenState();
 }
 
 class _FifteenMinsMeetingsScreenState extends State<FifteenMinsMeetingsScreen> {
@@ -30,27 +31,31 @@ class _FifteenMinsMeetingsScreenState extends State<FifteenMinsMeetingsScreen> {
               style: GoogleFonts.mallanna(
                   color: AppColors.highlightColor,
                   fontSize: 21,
-                  fontWeight: FontWeight.bold
-              ),
+                  fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 15.0,),
+            const SizedBox(
+              height: 15.0,
+            ),
             Expanded(
               child: ListView.builder(
                 itemCount: 2,
-                itemBuilder: (BuildContext context, int index) { 
+                itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: const [
                       SingleAppointmentInfo(
-                        date: '27 Mar 2022', 
-                        startTime: 1700, 
-                        endTime: 1800, 
-                        dpUrl: "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg", 
+                        date: '27 Mar 2022',
+                        startTime: 1700,
+                        endTime: 1800,
+                        dpUrl:
+                            "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
                         bookedWith: 'Samridhi Sethi',
                       ),
-                      SizedBox(height: 15.0,)
+                      SizedBox(
+                        height: 15.0,
+                      )
                     ],
                   );
-                },            
+                },
               ),
             ),
             Text(
@@ -58,27 +63,31 @@ class _FifteenMinsMeetingsScreenState extends State<FifteenMinsMeetingsScreen> {
               style: GoogleFonts.mallanna(
                   color: AppColors.highlightColor,
                   fontSize: 21,
-                  fontWeight: FontWeight.bold
-              ),
+                  fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 15.0,),
+            const SizedBox(
+              height: 15.0,
+            ),
             Expanded(
               child: ListView.builder(
                 itemCount: 1,
-                itemBuilder: (BuildContext context, int index) { 
+                itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: const [
                       SingleAppointmentInfo(
-                        date: '27 Mar 2022', 
-                        startTime: 1700, 
-                        endTime: 1800, 
-                        dpUrl: "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg", 
+                        date: '27 Mar 2022',
+                        startTime: 1700,
+                        endTime: 1800,
+                        dpUrl:
+                            "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
                         bookedWith: 'Samridhi Sethi',
                       ),
-                      SizedBox(height: 15.0,)
+                      SizedBox(
+                        height: 15.0,
+                      )
                     ],
                   );
-                },            
+                },
               ),
             )
           ],

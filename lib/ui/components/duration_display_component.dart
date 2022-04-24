@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:peer_gig/ui/widgets/common/custom_text_display.dart';
-import '../../config/constants/colors.dart';
-import '../../config/constants/peer_gig_icons.dart';
-import '../../widgets/common/custom_text_display.dart';
+import '../config/constants/colors.dart';
+import '../config/constants/peer_gig_icons.dart';
+import '../widgets/common/custom_text_display.dart';
 
 class DurationDisplayComponent extends StatelessWidget {
-  final int startTime;
-  final int endTime;
+  final String startTime;
+  final String endTime;
   const DurationDisplayComponent(
       {Key? key, required this.startTime, required this.endTime})
       : super(key: key);
@@ -19,9 +19,7 @@ class DurationDisplayComponent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CustomTextDisplay(
-              txt: startTime.toString().substring(0, 2) +
-                  ":" +
-                  startTime.toString().substring(2),
+              txt: startTime,
               isSelector: false,
             ),
             Icon(
@@ -30,9 +28,7 @@ class DurationDisplayComponent extends StatelessWidget {
               size: 20.0,
             ),
             CustomTextDisplay(
-              txt: endTime.toString().substring(0, 2) +
-                  ":" +
-                  endTime.toString().substring(2),
+              txt: endTime,
               isSelector: false,
             ),
           ],

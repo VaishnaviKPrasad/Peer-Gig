@@ -1,19 +1,26 @@
-import 'package:googleapis/calendar/v3.dart';
+import 'package:mailer/mailer.dart';
+import 'package:mailer/smtp_server/gmail.dart';
+import 'package:peer_gig/utils/secrets.dart';
 
 class FifteenMinsSlotBookingAppService {
-  void bookAFifteenMinsSlot() {
-    Event event = Event(); // Create object of event
-    event.summary =
-        "Meet regarding internships/placements"; //Setting summary of object
+  Future<void> bookAFifteenMinsSlot() async {
+    print("###### Secret ACCESS TOKEN : ${Secret.ACCESS_TOKEN}");
+    final smptServer = gmailSaslXoauth2(
+        "btbtc19186_sargam@banasthali.in", Secret.ACCESS_TOKEN);
+    final message = Message()
+      ..subject = "Peer Gig"
+      ..text = "15 mins slot booking"
+      ..recipients = [
+        'btbtc19297_samridhi@banasthali.in',
+        'vaishnavikprasad@gmail.com'
+      ]
+      ..from = Address("btbtc19186_sargam@banasthali.in");
 
-    EventDateTime start = EventDateTime(); //Setting start time
-    start.dateTime = DateTime(2022, 5, 21, 17, 30);
-    start.timeZone = "GMT+05:00";
-    event.start = start;
-
-    EventDateTime end = EventDateTime(); //setting end time
-    end.timeZone = "GMT+05:00";
-    end.dateTime = DateTime(2022, 5, 21, 17, 45);
-    event.end = end;
+    try {
+      await send(message, smptServer);
+      print("###### Sent successfully!!!");
+    } catch (e) {
+      print("########## Mailer Error: ${e.toString()}");
+    }
   }
 }

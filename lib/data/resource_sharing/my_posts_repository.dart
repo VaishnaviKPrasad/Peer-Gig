@@ -22,9 +22,8 @@ class MyPostsRepository extends MyPostsRepositoryBase {
   Future<void> addNewPost(
       {@required String? userId, @required Map<String, Object>? map}) async {
     String postId = await SinglePostInfoRepository().addNewPost(map);
-    await _myPostsCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['myPosts'].add(postId));
+    await _myPostsCollection.doc(userId).update({
+      'myPosts': FieldValue.arrayUnion([postId])
+    });
   }
 }

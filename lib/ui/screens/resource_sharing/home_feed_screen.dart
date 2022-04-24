@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_gig/data/database_service.dart';
 import 'package:peer_gig/ui/config/constants/gradient.dart';
-
 import '../../../application/resource_sharing/post_app_service.dart';
 import '../../../domain/entities/resource_sharing/post.dart';
 import '../../components/common/home_feed_post.dart';
@@ -17,7 +15,7 @@ class HomeFeedScreen extends StatefulWidget {
 }
 
 class _HomeFeedState extends State<HomeFeedScreen> {
-  //final String? currentUserId = FirebaseAuth.instance.currentUser?.uid;
+  // final String? currentUserId = FirebaseAuth.instance.currentUser?.uid;
   final String currentUserId = 'btbtc19297_samridhi@banasthali.in';
 
   @override
@@ -40,8 +38,10 @@ class _HomeFeedState extends State<HomeFeedScreen> {
               return const CircularProgressIndicator();
             }
 
-            final List<dynamic> postIds =
-                (snapshots.data?.data()! as Map)['homeFeed'];
+            List<dynamic> postIds =
+                (snapshots.data?.data()! as Map)['homeFeedPosts'];
+
+            postIds = postIds.reversed.toList();
 
             return ListView.builder(
               itemCount: postIds.length,

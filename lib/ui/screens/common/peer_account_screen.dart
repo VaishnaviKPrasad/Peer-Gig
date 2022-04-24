@@ -59,27 +59,31 @@ class _PeerAccountScreenState extends State<PeerAccountScreen> {
             length: 3,
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
-            PeerAboutTabScreen(),
+            PeerAboutTabScreen(userId: widget.peerDetails['userId']),
             FifteenMinsSlotBookingScreen(
-                dpUrl:
-                    "https://1.bp.blogspot.com/-gz3ECbOByh0/YSyMST7rT_I/AAAAAAAAWYs/stFJ90JJpx0v3ewmmK6HMYiUmIvpNMriACLcBGAsYHQ/s1041/girl-cartoon-cute-dp-images%2B%25281%2529.jpg",
-                username: "Sargam Agarwal",
-                headline:
-                    "Summer Analyst @Goldman Sachs'22 | MLH Prep Fellow'21 | WeTech Goldman Sachs Scholar'21 | vGHC'21| Flutter App Developer",
-                isWeekends: "blah blah",
-                startTime: 1700,
-                endTime: 1800),
+              peerDetails: widget.peerDetails,
+              // dpUrl:
+              //     "https://1.bp.blogspot.com/-gz3ECbOByh0/YSyMST7rT_I/AAAAAAAAWYs/stFJ90JJpx0v3ewmmK6HMYiUmIvpNMriACLcBGAsYHQ/s1041/girl-cartoon-cute-dp-images%2B%25281%2529.jpg",
+              // username: "Sargam Agarwal",
+              // headline:
+              //     "Summer Analyst @Goldman Sachs'22 | MLH Prep Fellow'21 | WeTech Goldman Sachs Scholar'21 | vGHC'21| Flutter App Developer",
+              // isWeekends: "blah blah",
+              // startTime: 1700,
+              // endTime: 1800,
+            ),
             MockInterviewSlotBookingScreen(
-                dpUrl:
-                    "https://1.bp.blogspot.com/-gz3ECbOByh0/YSyMST7rT_I/AAAAAAAAWYs/stFJ90JJpx0v3ewmmK6HMYiUmIvpNMriACLcBGAsYHQ/s1041/girl-cartoon-cute-dp-images%2B%25281%2529.jpg",
-                title: "Sargam Agarwal",
-                subtitle:
-                    "Summer Analyst @Goldman Sachs'22 | MLH Prep Fellow'21 | WeTech Goldman Sachs Scholar'21 | vGHC'21| Flutter App Developer",
-                isWeekends: "blah blah",
-                startTime: 1700,
-                endTime: 1800),
+              // dpUrl:
+              //     "https://1.bp.blogspot.com/-gz3ECbOByh0/YSyMST7rT_I/AAAAAAAAWYs/stFJ90JJpx0v3ewmmK6HMYiUmIvpNMriACLcBGAsYHQ/s1041/girl-cartoon-cute-dp-images%2B%25281%2529.jpg",
+              // title: "Sargam Agarwal",
+              // subtitle:
+              //     "Summer Analyst @Goldman Sachs'22 | MLH Prep Fellow'21 | WeTech Goldman Sachs Scholar'21 | vGHC'21| Flutter App Developer",
+              // isWeekends: "blah blah",
+              // startTime: 1700,
+              // endTime: 1800,
+              peerDetails: widget.peerDetails,
+            ),
           ],
         ),
       ),

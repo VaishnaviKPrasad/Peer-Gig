@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../config/constants/colors.dart';
-import '../../widgets/common/custom_button.dart';
+import '../config/constants/colors.dart';
+import '../widgets/common/custom_button.dart';
 
 class MyAppointmentsComponent extends StatefulWidget {
   final String username;

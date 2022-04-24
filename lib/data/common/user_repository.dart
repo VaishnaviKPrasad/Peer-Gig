@@ -18,12 +18,15 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<String> getDpUrl(String userId) async {
-    return "";
+    return await _usersCollection
+        .doc(userId)
+        .get()
+        .then((docSnap) => (docSnap.data()! as Map)['dpUrl']);
   }
 
   @override
-  Future<List<String>> getAchievements(String userId) async {
-    List<String> res = await _usersCollection
+  Future<List<dynamic>> getAchievements(String userId) async {
+    List<dynamic> res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['achievements']);
@@ -31,8 +34,8 @@ class UserRepository extends UserRepositoryBase {
   }
 
   @override
-  Future<List<String>> getAskMeAbout(String userId) async {
-    List<String> res = await _usersCollection
+  Future<List<dynamic>> getAskMeAbout(String userId) async {
+    List<dynamic> res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['askMeAbout']);
@@ -49,11 +52,11 @@ class UserRepository extends UserRepositoryBase {
   }
 
   @override
-  Future<List<String>> getCompany(String userId) async {
-    List<String> res = await _usersCollection
+  Future<List<dynamic>> getCompany(String userId) async {
+    List<dynamic> res = await _usersCollection
         .doc(userId)
         .get()
-        .then((docSnap) => (docSnap.data()! as Map)['company']);
+        .then((docSnap) => (docSnap.data()! as Map)['companies']);
     return res;
   }
 
@@ -114,17 +117,17 @@ class UserRepository extends UserRepositoryBase {
   }
 
   @override
-  Future<List<String>> getTechStack(String userId) async {
-    List<String> res = await _usersCollection
+  Future<List<dynamic>> getTechStack(String userId) async {
+    List<dynamic> res = await _usersCollection
         .doc(userId)
         .get()
-        .then((docSnap) => (docSnap.data()! as Map)['techStack']);
+        .then((docSnap) => (docSnap.data()! as Map)['techStacks']);
     return res;
   }
 
   @override
-  Future<int> getCurrentYear(String userId) async {
-    int res = await _usersCollection
+  Future<String> getCurrentYear(String userId) async {
+    String res = await _usersCollection
         .doc(userId)
         .get()
         .then((docSnap) => (docSnap.data()! as Map)['currentYear']);
@@ -143,48 +146,44 @@ class UserRepository extends UserRepositoryBase {
   // functions to ADD new values in the array of values for eligible user details
   @override
   Future<void> addAchievement(
-      {@required String? userId, @required String? achievement}) async {
-    await _usersCollection.doc(userId).get().then(
-        (docSnap) => (docSnap.data()! as Map)['achievements'].add(achievement));
+      {@required String? userId, @required String? newVal}) async {
+    await _usersCollection.doc(userId).update({
+      'achievements': FieldValue.arrayUnion([newVal])
+    });
   }
 
   @override
   Future<void> addAskMeAbout(
-      {@required String? userId, @required String? askMeAbout}) async {
-    await _usersCollection.doc(userId).get().then(
-        (docSnap) => (docSnap.data()! as Map)['askMeAbout'].add(askMeAbout));
+      {@required String? userId, @required String? newVal}) async {
+    await _usersCollection.doc(userId).update({
+      'askMeAbout': FieldValue.arrayUnion([newVal])
+    });
   }
 
   @override
-  Future<void> addCompany({String? userId, String? company}) async {
-    await _usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['company'].add(company));
+  Future<void> addCompany({String? userId, String? newVal}) async {
+    await _usersCollection.doc(userId).update({
+      'companies': FieldValue.arrayUnion([newVal])
+    });
   }
 
   @override
   Future<void> addTechStack(
-      {@required String? userId, @required String? techStack}) async {
-    await _usersCollection.doc(userId).get().then(
-        (docSnap) => (docSnap.data()! as Map)['techStack'].add(techStack));
+      {@required String? userId, @required String? newVal}) async {
+    await _usersCollection.doc(userId).update({
+      'techStacks': FieldValue.arrayUnion([newVal])
+    });
   }
 
   // functions to update a user detail (replace the existing value with a new value)
   @override
   Future<void> updateBranch({String? userId, String? newVal}) async {
-    await _usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['branch'] = newVal);
+    await _usersCollection.doc(userId).update({'branch': newVal});
   }
 
   @override
   Future<void> updateExperience({String? userId, String? newVal}) async {
-    await _usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['experience'] = newVal);
+    await _usersCollection.doc(userId).update({'experience': newVal});
   }
 
   @override
@@ -205,10 +204,8 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<void> updateHeadline({String? userId, String? newVal}) async {
-    await _usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['headline'] = newVal);
+    await _usersCollection.doc(userId).update({'headline': newVal});
+    ;
   }
 
   @override
@@ -222,19 +219,13 @@ class UserRepository extends UserRepositoryBase {
 
   @override
   Future<void> updateYear(
-      {@required String? userId, @required int? newVal}) async {
-    await _usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['currentYear'] = newVal);
+      {@required String? userId, @required String? newVal}) async {
+    await _usersCollection.doc(userId).update({'currentYear': newVal});
   }
 
   @override
   Future<void> updateCourse({String? userId, String? newVal}) async {
-    await _usersCollection
-        .doc(userId)
-        .get()
-        .then((docSnap) => (docSnap.data()! as Map)['course'] = newVal);
+    await _usersCollection.doc(userId).update({'course': newVal});
   }
 
   // search query on users

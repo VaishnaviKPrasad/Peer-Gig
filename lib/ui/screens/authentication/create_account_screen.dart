@@ -124,7 +124,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
       inputDetailsByUser['headline'] = _headline;
       inputDetailsByUser['course'] = _course;
       inputDetailsByUser['branch'] = _branch;
-      inputDetailsByUser['year'] = _year;
+      inputDetailsByUser['currentYear'] = _year;
       inputDetailsByUser['experience'] = _experience;
       inputDetailsByUser['companies'] = _companyList;
       inputDetailsByUser['achievements'] = _achievementsList;
@@ -192,7 +192,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         CustomTextDisplay(
                           txt: AuthAppService().getEmailOfUser(),
                           isSelector: false,
-                          name: false
                         ),
                         const SizedBox(height: 20.0),
                         CustomTextField(

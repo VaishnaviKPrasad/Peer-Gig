@@ -5,6 +5,7 @@ import 'package:peer_gig/ui/screens/common/error_screen.dart';
 import 'package:peer_gig/ui/screens/common/home_screen.dart';
 import 'package:peer_gig/ui/screens/common/peer_account_screen.dart';
 import 'package:peer_gig/ui/screens/common/root_screen.dart';
+import 'package:peer_gig/ui/screens/resource_sharing/add_a_post_screen.dart';
 
 class GenerateRoutes {
   static Route<dynamic>? generateRoutes(RouteSettings settings) {
@@ -34,6 +35,9 @@ class GenerateRoutes {
       case PeerAccountScreen.routeName:
         return MaterialPageRoute(
             builder: (context) => PeerAccountScreen(peerDetails: args as Map));
+
+      case AddAPostScreen.routeName:
+        return MaterialPageRoute(builder: (context) => const AddAPostScreen());
 
       default:
         return MaterialPageRoute(

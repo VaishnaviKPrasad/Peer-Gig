@@ -3,7 +3,7 @@ import 'package:peer_gig/ui/config/constants/colors.dart';
 import 'package:peer_gig/ui/config/constants/peer_gig_icons.dart';
 import 'package:peer_gig/ui/screens/common/home_screen.dart';
 import 'package:peer_gig/ui/screens/common/my_account.dart';
-import 'package:peer_gig/ui/screens/common/my_meetings.dart';
+import 'package:peer_gig/ui/screens/slot_booking/my_meetings.dart';
 import 'package:peer_gig/ui/screens/common/search_a_peer_screen.dart';
 import 'package:peer_gig/ui/screens/resource_sharing/home_feed_screen.dart';
 import 'package:peer_gig/ui/widgets/common/bottom_nav_bar.dart';
@@ -98,7 +98,6 @@ class _RootScreenState extends State<RootScreen> {
 }
   /*
   int activeTab = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,7 +113,6 @@ class _RootScreenState extends State<RootScreen> {
       bottomNavigationBar: getBottomNavbar(),
     );
   }
-
   Widget getBottomNavbar() {
     List itemsTab = [
       {"icon": PeerGigIcons.home, "size": 30.0},
@@ -150,6 +148,3 @@ class _RootScreenState extends State<RootScreen> {
       )
     );
   }*/
-
-
-

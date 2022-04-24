@@ -12,13 +12,22 @@ class AuthRepository extends AuthRepositoryBase {
   Future<AuthUserDetails> authenticateWithGoogle() async {
     try {
       final GoogleSignInAccount? _userGoogleAccount =
-          await GoogleSignIn().signIn();
+          await GoogleSignIn(scopes: ['https://mail.google.com/']).signIn();
 
       if (_userGoogleAccount != null &&
           _userGoogleAccount.email.endsWith('@banasthali.in')) {
         GoogleSignInAuthentication _auth =
             await _userGoogleAccount.authentication;
-        Secret.ANDROID_CLIENT_ID = _auth.idToken ?? '';
+
+        print("######## AUTH ID TOKEN: ${_auth.idToken}");
+        print("######## AUTH access TOKEN: ${_auth.accessToken}");
+
+        Secret.ACCESS_TOKEN = _auth.accessToken;
+        Secret.ANDROID_CLIENT_ID = _auth.idToken ?? "";
+
+        print("###### Secret ACCESS TOKEN : ${Secret.ACCESS_TOKEN}");
+        print("###### Secret Client ID TOKEN : ${Secret.ANDROID_CLIENT_ID}");
+
         final _credentials = GoogleAuthProvider.credential(
           idToken: _auth.idToken,
           accessToken: _auth.accessToken,
@@ -29,6 +38,7 @@ class AuthRepository extends AuthRepositoryBase {
 
         AdditionalUserInfo? _additionalUserInfo =
             _userCredentials.additionalUserInfo;
+
         return AuthUserDetails(
             email: _userCredentials.user!.email,
             isNewUser: _additionalUserInfo!.isNewUser);

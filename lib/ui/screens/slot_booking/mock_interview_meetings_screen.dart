@@ -5,13 +5,15 @@ import 'package:peer_gig/ui/config/constants/colors.dart';
 import 'package:peer_gig/ui/config/constants/gradient.dart';
 
 class MockInterviewMeetingsScreen extends StatefulWidget {
-  const MockInterviewMeetingsScreen({ Key? key }) : super(key: key);
+  const MockInterviewMeetingsScreen({Key? key}) : super(key: key);
 
   @override
-  State<MockInterviewMeetingsScreen> createState() => _MockInterviewMeetingsScreenState();
+  State<MockInterviewMeetingsScreen> createState() =>
+      _MockInterviewMeetingsScreenState();
 }
 
-class _MockInterviewMeetingsScreenState extends State<MockInterviewMeetingsScreen> {
+class _MockInterviewMeetingsScreenState
+    extends State<MockInterviewMeetingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +22,9 @@ class _MockInterviewMeetingsScreenState extends State<MockInterviewMeetingsScree
         gradient: AppScreenGradient(),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0,),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10.0,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,27 +34,31 @@ class _MockInterviewMeetingsScreenState extends State<MockInterviewMeetingsScree
               style: GoogleFonts.mallanna(
                   color: AppColors.highlightColor,
                   fontSize: 21,
-                  fontWeight: FontWeight.bold
-              ),
+                  fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 15.0,),
+            const SizedBox(
+              height: 15.0,
+            ),
             Expanded(
               child: ListView.builder(
                 itemCount: 4,
-                itemBuilder: (BuildContext context, int index) { 
+                itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: const [
                       SingleAppointmentInfo(
-                        date: '27 Mar 2022', 
-                        startTime: 1700, 
-                        endTime: 1800, 
-                        dpUrl: "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg", 
+                        date: '27 Mar 2022',
+                        startTime: 1700,
+                        endTime: 1800,
+                        dpUrl:
+                            "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
                         bookedWith: 'Samridhi Sethi',
                       ),
-                      SizedBox(height: 15.0,)
+                      SizedBox(
+                        height: 15.0,
+                      )
                     ],
                   );
-                },            
+                },
               ),
             ),
             Text(
@@ -58,27 +66,31 @@ class _MockInterviewMeetingsScreenState extends State<MockInterviewMeetingsScree
               style: GoogleFonts.mallanna(
                   color: AppColors.highlightColor,
                   fontSize: 21,
-                  fontWeight: FontWeight.bold
-              ),
+                  fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 15.0,),
+            const SizedBox(
+              height: 15.0,
+            ),
             Expanded(
               child: ListView.builder(
                 itemCount: 2,
-                itemBuilder: (BuildContext context, int index) { 
+                itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: const [
                       SingleAppointmentInfo(
-                        date: '27 Mar 2022', 
-                        startTime: 1700, 
-                        endTime: 1800, 
-                        dpUrl: "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg", 
+                        date: '27 Mar 2022',
+                        startTime: 1700,
+                        endTime: 1800,
+                        dpUrl:
+                            "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
                         bookedWith: 'Samridhi Sethi',
                       ),
-                      SizedBox(height: 15.0,)
+                      SizedBox(
+                        height: 15.0,
+                      )
                     ],
                   );
-                },            
+                },
               ),
             )
           ],
