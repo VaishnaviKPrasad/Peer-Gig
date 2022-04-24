@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:peer_gig/ui/config/constants/peer_gig_icons.dart';
+import 'package:peer_gig/ui/screens/common/add_a_post_screen.dart';
 import 'package:peer_gig/ui/screens/common/root_screen.dart';
 import 'package:peer_gig/ui/screens/resource_sharing/add_a_post_screen.dart';
 import '../../config/constants/colors.dart';
@@ -43,7 +44,16 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
           ? <Widget>[
               IconButton(
                 onPressed: () {
+<<<<<<< HEAD
                   Navigator.pushNamed(context, AddAPostScreen.routeName);
+=======
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AddAPostScreen(),
+                    ),
+                  );
+>>>>>>> f9132829d82a4b6e4eef12733f79499fc90c0950
                 },
                 icon: Icon(
                   PeerGigIcons.addPost,
